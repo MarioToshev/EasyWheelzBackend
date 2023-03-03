@@ -2,7 +2,9 @@ package com.example.easywheelz.buisness;
 
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.persistance.entities.UserEntity;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserConverter {
     private UserConverter() {
     }
