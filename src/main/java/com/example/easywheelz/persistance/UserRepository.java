@@ -10,5 +10,6 @@ public interface UserRepository {
     UserEntity save(UserEntity user);
     UserEntity delete(UserEntity user);
     List<UserEntity> findAll();
+    void update(UserEntity user);
 
 }

@@ -2,7 +2,6 @@ package com.example.easywheelz.persistance.impl;
 
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.UserEntity;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -48,5 +47,18 @@ public class FakeUserRepositoryImpl implements UserRepository {
     @Override
     public List<UserEntity> findAll() {
         return Collections.unmodifiableList(users);
+    }
+
+    @Override
+    public void update(UserEntity user) {
+        users.stream()
+                .filter(userEntity -> userEntity.getId().equals(user.getId()))
+                .findFirst()
+                .ifPresent(userEntity -> {
+                    userEntity.setEmail(user.getEmail());
+                    userEntity.setPhone(user.getPhone());
+                    userEntity.setRole(user.getRole());
+                    userEntity.setDriverLicense(user.getDriverLicense());
+                });
     }
 }

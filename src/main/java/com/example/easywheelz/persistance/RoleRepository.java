@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 public interface RoleRepository {
-    boolean existsById(long roleId);
+    boolean existsByRoleName(String roleName);
     RoleEntity findById(long roleId);
     RoleEntity save(RoleEntity role);
     RoleEntity delete(RoleEntity role);

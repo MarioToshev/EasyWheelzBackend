@@ -1,6 +1,7 @@
 package com.example.easywheelz.domain.user;
 
 import com.example.easywheelz.domain.role.Role;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -9,7 +10,6 @@ import lombok.NonNull;
 @Builder
 @AllArgsConstructor
 public class CreateUserRequest {
-    private Long id;
     @NonNull
     private String firstName;
     @NonNull
@@ -20,6 +20,6 @@ public class CreateUserRequest {
     private String phone;
     @NonNull
     private String driverLicense;
-    @NonNull
+    @JsonProperty
     private Role role;
 }

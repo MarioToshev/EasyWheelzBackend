@@ -11,6 +11,6 @@ public class UserEntity {
     private String lastName;
     private String email;
     private String phone;
-    private String driverLicenseNumber;
+    private String driverLicense;
     private RoleEntity role;
 }

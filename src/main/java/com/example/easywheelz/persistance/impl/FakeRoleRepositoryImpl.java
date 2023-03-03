@@ -20,9 +20,9 @@ public class FakeRoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
-    public boolean existsById(long roleId) {
+    public boolean existsByRoleName(String roleName) {
         return roles.stream()
-                .anyMatch(roleEntity -> roleEntity.getId().equals(roleId));
+                .anyMatch(roleEntity -> roleEntity.getRoleName().equals(roleName));
     }
 
     @Override
