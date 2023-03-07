@@ -46,8 +46,8 @@ class CreateUserUseCaseImplTest {
                 .firstName("John")
                 .lastName("Doe")
                 .email("johndoe@example.com")
-                .phone("1234567890")
-                .driverLicense("ABC123")
+                .phone(1234567890)
+                .driverLicense(12321312)
                 .role(role)
                 .build();
        CreateUserResponse response = userUseCase.createUser(request);
@@ -70,8 +70,8 @@ class CreateUserUseCaseImplTest {
                 .firstName("John")
                 .lastName("Doe")
                 .email("johndoe@example.com")
-                .phone("1234567890")
-                .driverLicense("ABC123")
+                .phone(1234567890)
+                .driverLicense(354435)
                 .role(Role.builder().roleName("NonexistentRole").build())
                 .build();
 

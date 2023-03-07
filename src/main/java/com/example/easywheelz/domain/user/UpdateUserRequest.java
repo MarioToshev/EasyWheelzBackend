@@ -17,9 +17,9 @@ public class UpdateUserRequest {
     @NonNull
     private String email;
     @NonNull
-    private String phone;
+    private int phone;
     @NonNull
-    private String driverLicense;
+    private int driverLicense;
     @NonNull
     private Role role;
 }

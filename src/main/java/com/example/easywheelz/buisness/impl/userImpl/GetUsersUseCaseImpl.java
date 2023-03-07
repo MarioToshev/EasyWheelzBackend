@@ -25,7 +25,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll().stream().map(user -> converter.convert(user))
-                .collect(Collectors.toList());
+        return userRepository.findAll().stream().map(converter::convert)
+                .toList();
     }
 }

@@ -39,9 +39,8 @@ public class FakeUserRepositoryImpl implements UserRepository {
     }
 
     @Override
-    public UserEntity delete(UserEntity user) {
-        users.remove(users.stream().filter(userEntity -> userEntity.getId().equals(user.getId())).findFirst());
-        return  user;
+    public void delete(long userId) {
+        users.remove(users.stream().filter(userEntity -> userEntity.getId().equals(userId)).findFirst());
     }
 
     @Override

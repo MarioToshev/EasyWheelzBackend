@@ -10,7 +10,7 @@ public interface RoleRepository {
     boolean existsByRoleName(String roleName);
     RoleEntity findById(long roleId);
     RoleEntity save(RoleEntity role);
-    RoleEntity delete(RoleEntity role);
+    void delete(long roleId);
     List<RoleEntity> findAll();
 }
 

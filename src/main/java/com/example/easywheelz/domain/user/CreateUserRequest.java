@@ -10,16 +10,10 @@ import lombok.NonNull;
 @Builder
 @AllArgsConstructor
 public class CreateUserRequest {
-    @NonNull
     private String firstName;
-    @NonNull
     private String lastName;
-    @NonNull
     private String email;
-    @NonNull
-    private String phone;
-    @NonNull
-    private String driverLicense;
-    @JsonProperty
+    private int phone;
+    private int driverLicense;
     private Role role;
 }

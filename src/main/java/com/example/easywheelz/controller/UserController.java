@@ -1,6 +1,7 @@
 package com.example.easywheelz.controller;
 
 import com.example.easywheelz.buisness.userInterf.CreateUserUseCase;
+import com.example.easywheelz.buisness.userInterf.DeleteUserUseCase;
 import com.example.easywheelz.buisness.userInterf.GetUsersUseCase;
 import com.example.easywheelz.buisness.userInterf.UpdateUserUseCase;
 import com.example.easywheelz.domain.user.CreateUserRequest;
@@ -19,7 +20,9 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
     private final CreateUserUseCase createUserUseCase;
+
     private final UpdateUserUseCase updateUserUseCase;
+    private final DeleteUserUseCase deleteUserUseCase;
     private final GetUsersUseCase getUsersUseCase;
 
     @PostMapping("/create")
@@ -27,19 +30,23 @@ public class UserController {
         CreateUserResponse response = createUserUseCase.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
-
     @GetMapping("")
     public ResponseEntity<List<User>> getAllUsers() {
         return ResponseEntity.ok(getUsersUseCase.getAllUsers());
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<User> getUser(@PathVariable long id) {
-        return ResponseEntity.ok(getUsersUseCase.getUser(id));
+    @GetMapping("/{userId}")
+    public ResponseEntity<User> getUser(@PathVariable long userId) {
+        return ResponseEntity.ok(getUsersUseCase.getUser(userId));
     }
     @PutMapping("")
-    public ResponseEntity<String> UpdateUser(@RequestBody UpdateUserRequest request) {
+    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request) {
         updateUserUseCase.updateUser(request);
         return ResponseEntity.ok(request.getId().toString());
+    }
+    @DeleteMapping("/delete/{userId}")
+    public ResponseEntity deleteUser(@PathVariable long userId) {
+        deleteUserUseCase.deleteUser(userId);
+        return ResponseEntity.noContent().build();
     }
 }

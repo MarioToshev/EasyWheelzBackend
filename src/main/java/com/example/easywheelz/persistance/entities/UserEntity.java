@@ -10,7 +10,7 @@ public class UserEntity {
     private String firstName;
     private String lastName;
     private String email;
-    private String phone;
-    private String driverLicense;
+    private int phone;
+    private int driverLicense;
     private RoleEntity role;
 }

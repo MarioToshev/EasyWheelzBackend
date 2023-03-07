@@ -8,7 +8,7 @@ public interface UserRepository {
     boolean existsById(long userId);
     UserEntity findById(long userId);
     UserEntity save(UserEntity user);
-    UserEntity delete(UserEntity user);
+    void delete(long userId);
     List<UserEntity> findAll();
     void update(UserEntity user);
 

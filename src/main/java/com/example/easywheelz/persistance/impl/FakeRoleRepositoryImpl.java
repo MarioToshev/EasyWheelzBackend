@@ -2,7 +2,6 @@ package com.example.easywheelz.persistance.impl;
 
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;
-import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -29,7 +28,8 @@ public class FakeRoleRepositoryImpl implements RoleRepository {
     public RoleEntity findById(long roleId) {
         return roles.stream()
                 .filter(roleEntity -> roleEntity.getId().equals(roleId))
-                .findFirst().get();
+                .findFirst()
+                .orElse(null);
 
     }
 
@@ -42,9 +42,8 @@ public class FakeRoleRepositoryImpl implements RoleRepository {
     }
 
     @Override
-    public RoleEntity delete(RoleEntity role) {
-        roles.remove(roles.stream().filter(userEntity -> userEntity.getId().equals(role.getId())).findFirst());
-        return  role;
+    public void delete(long roleId) {
+        roles.remove(roles.stream().filter(userEntity -> userEntity.getId().equals(roleId)).findFirst().orElse(null));
     }
 
     @Override
