@@ -30,7 +30,6 @@ public class FakeRoleRepositoryImpl implements RoleRepository {
                 .filter(roleEntity -> roleEntity.getId().equals(roleId))
                 .findFirst()
                 .orElse(null);
-
     }
 
     @Override
