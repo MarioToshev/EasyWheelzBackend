@@ -20,12 +20,11 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
     private final CreateUserUseCase createUserUseCase;
-
     private final UpdateUserUseCase updateUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
     private final GetUsersUseCase getUsersUseCase;
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<CreateUserResponse> createUser(@RequestBody CreateUserRequest request) {
         CreateUserResponse response = createUserUseCase.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -44,7 +43,7 @@ public class UserController {
         updateUserUseCase.updateUser(request);
         return ResponseEntity.ok(request.getId().toString());
     }
-    @DeleteMapping("/delete/{userId}")
+    @DeleteMapping("/{userId}")
     public ResponseEntity deleteUser(@PathVariable long userId) {
         deleteUserUseCase.deleteUser(userId);
         return ResponseEntity.noContent().build();

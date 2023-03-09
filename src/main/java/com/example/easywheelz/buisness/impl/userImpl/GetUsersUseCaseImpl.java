@@ -3,6 +3,7 @@ package com.example.easywheelz.buisness.impl.userImpl;
 import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.buisness.userInterf.GetUsersUseCase;
 import com.example.easywheelz.domain.user.User;
+import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.impl.FakeUserRepositoryImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
-    private final FakeUserRepositoryImpl userRepository ;
+    private final UserRepository userRepository ;
     private final UserConverter converter;
 
 

@@ -7,6 +7,7 @@ import com.example.easywheelz.domain.role.CreateRoleRequest;
 import com.example.easywheelz.domain.role.CreateRoleResponse;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
+import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.impl.FakeRoleRepositoryImpl;
 import com.example.easywheelz.persistance.impl.FakeUserRepositoryImpl;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
-    private final FakeRoleRepositoryImpl roleRepository;
+    private final RoleRepository roleRepository;
 
     private final RoleConverter converter;
 

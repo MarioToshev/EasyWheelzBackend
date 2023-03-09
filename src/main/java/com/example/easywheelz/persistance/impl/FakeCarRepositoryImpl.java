@@ -12,7 +12,7 @@ import java.util.Objects;
 public class FakeCarRepositoryImpl implements CarRepository {
 
     private final List<CarEntity> cars;
-    private static long NEXT_ID = 1;
+    private static long  NEXT_ID = 1;
 
     public FakeCarRepositoryImpl() {
         this.cars = new ArrayList<>();
@@ -21,13 +21,13 @@ public class FakeCarRepositoryImpl implements CarRepository {
     @Override
     public boolean existsById(long carId) {
         return cars.stream()
-                .anyMatch(carEntity -> Objects.equals(carEntity.getId(), carId));
+                .anyMatch(carEntity -> carEntity.getId() == carId);
     }
 
     @Override
     public CarEntity findById(long carId) {
         return cars.stream()
-                .filter(carEntity -> Objects.equals(carEntity.getId(), carId))
+                .filter(carEntity -> carEntity.getId() == carId)
                 .findFirst().orElse(null);
 
     }
@@ -42,7 +42,7 @@ public class FakeCarRepositoryImpl implements CarRepository {
 
     @Override
     public void delete(long carId) {
-        cars.remove(cars.stream().filter(carEntity -> Objects.equals(carEntity.getId(), carId)).findFirst().orElse(null));
+        cars.remove(cars.stream().filter(carEntity -> carEntity.getId() == carId).findFirst().orElse(null));
     }
 
     @Override
@@ -53,7 +53,7 @@ public class FakeCarRepositoryImpl implements CarRepository {
     @Override
     public void update(CarEntity car) {
         cars.stream()
-                .filter(carEntity -> Objects.equals(carEntity.getId(), car.getId()))
+                .filter(carEntity -> carEntity.getId() == car.getId())
                 .findFirst()
                 .ifPresent(carEntity -> {
                     carEntity.setId(car.getId());

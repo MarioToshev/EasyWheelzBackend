@@ -38,7 +38,7 @@ public class UserConverter {
                 )
                 .build();
     }
-    public User convert(UserEntity user ){
+    public User convert(UserEntity user){
         return User.builder()
                 .id(user.getId())
                 .phone(user.getPhone())
@@ -52,4 +52,15 @@ public class UserConverter {
                 )
                 .build();
     }
+    public UserEntity convert(User user){
+        return UserEntity.builder()
+                .id(user.getId())
+                .phone(user.getPhone())
+                .email(user.getEmail())
+                .driverLicense(user.getDriverLicense())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .build();
+    }
+
 }
