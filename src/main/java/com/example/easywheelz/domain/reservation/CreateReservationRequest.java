@@ -11,13 +11,9 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class CreateReservationRequest {
-    @NonNull
     private LocalDate pickUpDate;
-    @NonNull
     private LocalDate returnDate;
-    @NonNull
     private double rentalRate;
-    @NonNull
     private double totalCost;
     private User customer;
     @NonNull

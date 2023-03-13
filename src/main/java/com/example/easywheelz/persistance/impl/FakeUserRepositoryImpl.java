@@ -26,8 +26,7 @@ public class FakeUserRepositoryImpl implements UserRepository {
     public UserEntity findById(long userId) {
         return users.stream()
                 .filter(userEntity -> userEntity.getId().equals(userId))
-                .findFirst().get();
-
+                .findFirst().orElse(null);
     }
 
     @Override
@@ -40,7 +39,7 @@ public class FakeUserRepositoryImpl implements UserRepository {
 
     @Override
     public void delete(long userId) {
-        users.remove(users.stream().filter(userEntity -> userEntity.getId().equals(userId)).findFirst());
+        users.remove(findById(userId));
     }
 
     @Override

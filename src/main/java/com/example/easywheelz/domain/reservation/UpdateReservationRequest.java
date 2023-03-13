@@ -10,11 +10,9 @@ import java.time.LocalDate;
 @Data
 @Builder
 public class UpdateReservationRequest {
-    @NonNull
     private Long id;
     private LocalDate pickUpDate;
     private LocalDate returnDate;
-    @NonNull
     private double rentalRate;
     private double totalCost;
     private User customer;

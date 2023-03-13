@@ -60,6 +60,10 @@ public class UserConverter {
                 .driverLicense(user.getDriverLicense())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .role(
+                        RoleEntity.builder().roleName(user.getRole().getRoleName())
+                                .id(user.getRole().getId()).build()
+                )
                 .build();
     }
 

@@ -28,26 +28,26 @@ public class CarController {
     private final GetCarUseCase getCarUseCase;
 
     @PostMapping("")
-    public ResponseEntity<CreateCarResponse> createUser(@RequestBody CreateCarRequest request) {
+    public ResponseEntity<CreateCarResponse> createCar(@RequestBody CreateCarRequest request) {
         CreateCarResponse response = createCarUseCase.createCar(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("")
-    public ResponseEntity<List<Car>> getAllUsers() {
+    public ResponseEntity<List<Car>> getAllCars() {
         return ResponseEntity.ok(getCarUseCase.getAllCars());
     }
 
     @GetMapping("/{carId}")
-    public ResponseEntity<Car> getUser(@PathVariable long carId) {
+    public ResponseEntity<Car> getCar(@PathVariable long carId) {
         return ResponseEntity.ok(getCarUseCase.getCar(carId));
     }
     @PutMapping("")
-    public ResponseEntity<String> updateUser(@RequestBody UpdateCarRequest request) {
+    public ResponseEntity<String> updateCar(@RequestBody UpdateCarRequest request) {
         updateCarUseCase.updateCar(request);
         return ResponseEntity.ok(String.valueOf(request.getId()));
     }
     @DeleteMapping("/{carId}")
-    public ResponseEntity deleteUser(@PathVariable long carId) {
+    public ResponseEntity deleteCar(@PathVariable long carId) {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }

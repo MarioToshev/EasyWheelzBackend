@@ -24,4 +24,10 @@ public final class RoleConverter {
                 .roleName(role.getRoleName())
                 .build();
     }
+    public  Role convert(RoleEntity role) {
+        return Role.builder()
+                .id(role.getId())
+                .roleName(role.getRoleName())
+                .build();
+    }
 }
