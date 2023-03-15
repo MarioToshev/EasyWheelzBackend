@@ -1,16 +1,18 @@
-variables:
-  GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+image: gradle:alpine
 
-stages:
-  - build
-  - test
+variables: 
+    GRADLE_OPTS: "-Dorg.gradle.daemon=false" 
 
-build:
-     stage: build
-     script:
-       gradle build
+stages: 
+    - build 
+    - test 
 
-test:
-    stage: test
-    script:
-       gradle test
+build: 
+    stage: build 
+    script: 
+     - .\gradlew assemble 
+
+test: 
+    stage: test 
+    script: 
+     - .\gradlew test
