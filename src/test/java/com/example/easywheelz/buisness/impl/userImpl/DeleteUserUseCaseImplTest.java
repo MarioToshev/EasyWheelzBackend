@@ -56,7 +56,7 @@ class DeleteUserUseCaseImplTest {
             deleteUserUseCase.deleteUser(userId);
         });
 
-        assertEquals("No value present", exception.getMessage());
+        assertEquals("You are trying to delete user that doesnt exist", exception.getMessage());
     }
 
 

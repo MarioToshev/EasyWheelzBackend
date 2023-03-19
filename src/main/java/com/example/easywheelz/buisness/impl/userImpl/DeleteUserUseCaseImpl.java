@@ -14,6 +14,9 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 
     @Override
     public void deleteUser(long userId) {
-        userRepository.delete(userId);
+        if (userRepository.existsById(userId)){
+            userRepository.delete(userId);
+        }
+        else throw new RuntimeException("You are trying to delete user that doesnt exist");
     }
 }
