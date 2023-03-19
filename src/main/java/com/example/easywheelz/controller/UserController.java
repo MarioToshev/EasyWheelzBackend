@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class UserController {
     private final CreateUserUseCase createUserUseCase;
     private final UpdateUserUseCase updateUserUseCase;
