@@ -21,7 +21,7 @@ public class RoleController {
 
     private final CreateRoleUseCase createRoleUseCase;
 
-    @PostMapping("/create")
+    @PostMapping("")
     public ResponseEntity<CreateRoleResponse> createUser(@RequestBody CreateRoleRequest request) {
         CreateRoleResponse response = createRoleUseCase.createRole(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
