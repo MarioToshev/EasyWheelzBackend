@@ -46,6 +46,8 @@ class GetUsersUseCaseImplTest {
         UserEntity user = userRepository.save(request);
 
         assertEquals(user,userConverter.convert(getUsersUseCase.getUser(request.getId())));
+        userRepository.delete(1);
+
 
     }
 
@@ -77,10 +79,12 @@ class GetUsersUseCaseImplTest {
 
         List<UserEntity> users = List.of(userRepository.save(request), userRepository.save(request1));
         assertEquals(users,getUsersUseCase.getAllUsers().stream().map(user -> userConverter.convert(user)).toList());
+        userRepository.delete(1);
+        userRepository.delete(2);
     }
     @Test
     void testGetNonExistantUser() {
-        assertNull(getUsersUseCase.getUser(1));
+        assertNull(getUsersUseCase.getUser(6));
     }
     @Test
     void testGetAllUsersNoUsers() {
