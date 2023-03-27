@@ -33,6 +33,6 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: gradle sonar
-  allow_failure: true
+
 
 
