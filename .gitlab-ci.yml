@@ -2,6 +2,9 @@ image: gradle:alpine
 
 variables: 
     GRADLE_OPTS: "-Dorg.gradle.daemon=false" 
+    SONAR_TOKEN: "sqp_3ba1babb0a057dedfd3122ca7214b98c2e52376d"
+    SONAR_HOST_URL: "http://localhost:9000/"
+
 
 stages: 
     - build 
