@@ -8,18 +8,14 @@ variables:
 
 stages: 
     - build 
-    - test 
     - sonarqube-check
+    - test 
+
 
 build: 
     stage: build 
     script: 
      - .\gradlew assemble 
-
-test: 
-    stage: test 
-    script: 
-     - .\gradlew test
 
      
 sonarqube-check:
@@ -33,6 +29,12 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: gradle sonar
+
+
+  test: 
+    stage: test 
+    script: 
+     - .\gradlew test
 
 
 
