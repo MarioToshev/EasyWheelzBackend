@@ -30,11 +30,10 @@ sonarqube-check:
       - .sonar/cache
   script: gradle sonar
 
-
-  test: 
-    stage: test 
-    script: 
-     - .\gradlew test
+test: 
+  stage: test 
+  script: 
+    - .\gradlew test
 
 
 
