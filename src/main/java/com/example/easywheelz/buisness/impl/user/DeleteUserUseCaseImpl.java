@@ -1,8 +1,7 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.buisness.userInterf.DeleteUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.persistance.UserRepository;
-import com.example.easywheelz.persistance.impl.FakeUserRepositoryImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +14,7 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
     @Override
     public void deleteUser(long userId) {
         if (userRepository.existsById(userId)){
-            userRepository.delete(userId);
+            userRepository.deleteById(userId);
         }
         else throw new RuntimeException("You are trying to delete user that doesnt exist");
     }

@@ -1,4 +1,4 @@
-package com.example.easywheelz.buisness.userInterf;
+package com.example.easywheelz.buisness.interfaces.user;
 
 import com.example.easywheelz.domain.user.User;
 

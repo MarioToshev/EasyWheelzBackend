@@ -1,10 +1,9 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.buisness.UserConverter;
-import com.example.easywheelz.buisness.userInterf.GetUsersUseCase;
+import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
 import com.example.easywheelz.domain.user.User;
 import com.example.easywheelz.persistance.UserRepository;
-import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +19,8 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
     @Override
     public User getUser(long id) {
-        var result = userRepository.findById(id);
-        if (result != null){
-            return converter.convert(result);
+        if (userRepository.existsById(id)){
+            return converter.convert(userRepository.getReferenceById(id));
         }
         else
             return null;

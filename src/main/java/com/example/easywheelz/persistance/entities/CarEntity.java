@@ -1,43 +1,40 @@
 package com.example.easywheelz.persistance.entities;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
+@Entity
+@Table(name = "cars")
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
 public class CarEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column
+    @NotBlank
     private  String licensePlate;
+    @Column
+    @NotBlank
     private String model;
+    @Column
+    @NotBlank
     private String brand;
+    @Column
+    @NotBlank
     private double pricePerDay;
+    @Column
+    @NotBlank
     private String color;
+    @Column
+    @NotBlank
     private boolean availability;
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof CarEntity carEntity)) {
-            return false;
-        }
-        return id == carEntity.id &&
-                Double.compare(carEntity.pricePerDay, pricePerDay) == 0 &&
-                availability == carEntity.availability &&
-                Objects.equals(licensePlate, carEntity.licensePlate) &&
-                Objects.equals(model, carEntity.model) &&
-                Objects.equals(brand, carEntity.brand) &&
-                Objects.equals(color, carEntity.color);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, licensePlate, model, brand, pricePerDay, color, availability);
-    }
-
 }

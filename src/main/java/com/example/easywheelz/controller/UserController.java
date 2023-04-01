@@ -1,9 +1,9 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.buisness.userInterf.CreateUserUseCase;
-import com.example.easywheelz.buisness.userInterf.DeleteUserUseCase;
-import com.example.easywheelz.buisness.userInterf.GetUsersUseCase;
-import com.example.easywheelz.buisness.userInterf.UpdateUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
+import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.domain.user.UpdateUserRequest;

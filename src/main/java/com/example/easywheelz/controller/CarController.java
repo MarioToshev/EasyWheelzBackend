@@ -1,17 +1,13 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.buisness.carInterf.CreateCarUseCase;
-import com.example.easywheelz.buisness.carInterf.DeleteCarUseCase;
-import com.example.easywheelz.buisness.carInterf.GetCarUseCase;
-import com.example.easywheelz.buisness.carInterf.UpdateCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
-import com.example.easywheelz.domain.user.CreateUserRequest;
-import com.example.easywheelz.domain.user.CreateUserResponse;
-import com.example.easywheelz.domain.user.UpdateUserRequest;
-import com.example.easywheelz.domain.user.User;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -15,7 +15,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
-    private int phone;
-    private int driverLicense;
+    private long phone;
+    private long driverLicense;
     private Role role;
 }

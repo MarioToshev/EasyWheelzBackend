@@ -1,7 +1,4 @@
-package com.example.easywheelz.buisness.roleInterf;
-
-import com.example.easywheelz.domain.role.CreateRoleRequest;
-import com.example.easywheelz.domain.role.CreateRoleResponse;
+package com.example.easywheelz.buisness.interfaces.role;
 
 public interface DeleteRoleUseCase {
     void deleteRole(long stringId);

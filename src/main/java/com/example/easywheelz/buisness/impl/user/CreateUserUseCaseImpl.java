@@ -1,13 +1,11 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.buisness.userInterf.CreateUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
-import com.example.easywheelz.persistance.impl.FakeRoleRepositoryImpl;
-import com.example.easywheelz.persistance.impl.FakeUserRepositoryImpl;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +18,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     private final UserConverter converter;
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) {
-        if (!roleRepository.existsByRoleName(request.getRole().getRoleName())){
+        if (!roleRepository.existsById(request.getRole().getId())){
 
             throw new RuntimeException("Role doesn't exist");
         }

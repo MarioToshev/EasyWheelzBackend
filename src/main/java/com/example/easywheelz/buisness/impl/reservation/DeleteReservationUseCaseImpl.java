@@ -1,6 +1,6 @@
-package com.example.easywheelz.buisness.impl.reservationImpl;
+package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.buisness.reservationInterf.DeleteReservationUseCase;
+import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
 import com.example.easywheelz.persistance.ReservationRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,6 +12,6 @@ public class DeleteReservationUseCaseImpl implements DeleteReservationUseCase {
 
     @Override
     public void deleteReservation(long userId) {
-        reservationRepository.delete(userId);
+        reservationRepository.deleteById(userId);
     }
 }

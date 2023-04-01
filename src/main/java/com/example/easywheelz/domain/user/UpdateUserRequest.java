@@ -5,21 +5,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
+
+import javax.validation.constraints.NotEmpty;
+
 @Data
 @Builder
 public class UpdateUserRequest {
-    @NonNull
+    @NotEmpty
     private Long id;
-    @NonNull
+    @NotEmpty
     private String firstName;
-    @NonNull
+    @NotEmpty
     private String lastName;
-    @NonNull
+    @NotEmpty
     private String email;
-    @NonNull
-    private int phone;
-    @NonNull
-    private int driverLicense;
+    @NotEmpty
+    private long phone;
+    @NotEmpty
+    private long driverLicense;
     @NonNull
     private Role role;
 }

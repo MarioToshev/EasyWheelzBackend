@@ -6,6 +6,8 @@ import com.example.easywheelz.domain.car.UpdateCarRequest;
 import com.example.easywheelz.persistance.entities.CarEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CarConverter {
     public CarEntity convert(CreateCarRequest request){

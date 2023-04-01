@@ -1,15 +1,10 @@
 package com.example.easywheelz.persistance;
 
 import com.example.easywheelz.persistance.entities.UserEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface UserRepository {
-    boolean existsById(long userId);
-    UserEntity findById(long userId);
-    UserEntity save(UserEntity user);
-    void delete(long userId);
-    List<UserEntity> findAll();
-    void update(UserEntity user);
-
+@Repository
+public interface UserRepository  extends JpaRepository<UserEntity,Long> {
 }

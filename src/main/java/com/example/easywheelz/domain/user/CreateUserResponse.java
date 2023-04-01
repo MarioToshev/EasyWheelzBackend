@@ -8,5 +8,5 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class CreateUserResponse {
-    private Long id;
+    private long id;
 }

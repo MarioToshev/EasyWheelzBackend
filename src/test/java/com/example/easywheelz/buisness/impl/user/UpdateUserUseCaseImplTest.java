@@ -1,11 +1,9 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.UserConverter;
-import com.example.easywheelz.buisness.userInterf.UpdateUserUseCase;
-import com.example.easywheelz.domain.role.Role;
+import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
-import com.example.easywheelz.domain.user.User;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;

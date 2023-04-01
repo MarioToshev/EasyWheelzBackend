@@ -1,70 +1,172 @@
 package com.example.easywheelz.persistance.impl;
 
-import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.persistance.ReservationRepository;
 import com.example.easywheelz.persistance.entities.ReservationEntity;
-import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+import java.util.function.Function;
+
 @Repository
 @AllArgsConstructor
-public class FakeReservationRepositoryImpl implements ReservationRepository {
-    private final List<ReservationEntity> reservations;
-    private static long NEXT_ID = 1;
-
-    public FakeReservationRepositoryImpl() {
-        this.reservations = new ArrayList<>();
-    }
+public class ReservationRepositoryImpl implements ReservationRepository {
 
     @Override
-    public boolean existsById(long resId) {
-        return reservations.stream()
-                .anyMatch(resEntity -> resEntity.getId().equals(resId));
-    }
-
-    @Override
-    public ReservationEntity findById(long resId) {
-        return reservations.stream()
-                .filter(userEntity -> userEntity.getId().equals(resId))
-                .findFirst().get();
+    public void flush() {
 
     }
 
     @Override
-    public ReservationEntity save(ReservationEntity res) {
-        res.setId(NEXT_ID);
-        NEXT_ID++;
-        reservations.add(res);
-        return res;
+    public <S extends ReservationEntity> S saveAndFlush(S entity) {
+        return null;
     }
 
     @Override
-    public void delete(long resId) {
-        reservations.remove(reservations.stream().filter(reservationEntity -> reservationEntity.getId().equals(resId)).findFirst());
+    public <S extends ReservationEntity> List<S> saveAllAndFlush(Iterable<S> entities) {
+        return null;
+    }
+
+    @Override
+    public void deleteAllInBatch(Iterable<ReservationEntity> entities) {
+
+    }
+
+    @Override
+    public void deleteAllByIdInBatch(Iterable<Long> longs) {
+
+    }
+
+    @Override
+    public void deleteAllInBatch() {
+
+    }
+
+    @Override
+    public ReservationEntity getOne(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public ReservationEntity getById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public ReservationEntity getReferenceById(Long aLong) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> Optional<S> findOne(Example<S> example) {
+        return Optional.empty();
+    }
+
+    @Override
+    public <S extends ReservationEntity> List<S> findAll(Example<S> example) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> List<S> findAll(Example<S> example, Sort sort) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> Page<S> findAll(Example<S> example, Pageable pageable) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> long count(Example<S> example) {
+        return 0;
+    }
+
+    @Override
+    public <S extends ReservationEntity> boolean exists(Example<S> example) {
+        return false;
+    }
+
+    @Override
+    public <S extends ReservationEntity, R> R findBy(Example<S> example, Function<FluentQuery.FetchableFluentQuery<S>, R> queryFunction) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public <S extends ReservationEntity> List<S> saveAll(Iterable<S> entities) {
+        return null;
+    }
+
+    @Override
+    public Optional<ReservationEntity> findById(Long aLong) {
+        return Optional.empty();
+    }
+
+    @Override
+    public boolean existsById(Long aLong) {
+        return false;
     }
 
     @Override
     public List<ReservationEntity> findAll() {
-        return Collections.unmodifiableList(reservations);
+        return null;
     }
 
     @Override
-    public void update(ReservationEntity res) {
-        reservations.stream()
-                .filter(reservationEntity -> reservationEntity.getId().equals(res.getId()))
-                .findFirst()
-                .ifPresent(reservationEntity -> {
-                    reservationEntity.setCustomer(res.getCustomer());
-                    reservationEntity.setCar(res.getCar());
-                    reservationEntity.setReturnDate(res.getReturnDate());
-                    reservationEntity.setRentalRate(res.getRentalRate());
-                    reservationEntity.setTotalCost(res.getTotalCost());
-                    reservationEntity.setPickUpDate(res.getPickUpDate());
-                    reservationEntity.setId(reservationEntity.getId());
-                });
+    public List<ReservationEntity> findAllById(Iterable<Long> longs) {
+        return null;
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
+
+    @Override
+    public void deleteById(Long aLong) {
+
+    }
+
+    @Override
+    public void delete(ReservationEntity entity) {
+
+    }
+
+    @Override
+    public void deleteAllById(Iterable<? extends Long> longs) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends ReservationEntity> entities) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
+    }
+
+    @Override
+    public List<ReservationEntity> findAll(Sort sort) {
+        return null;
+    }
+
+    @Override
+    public Page<ReservationEntity> findAll(Pageable pageable) {
+        return null;
     }
 }

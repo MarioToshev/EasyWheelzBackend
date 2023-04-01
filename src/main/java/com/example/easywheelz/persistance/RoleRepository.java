@@ -2,15 +2,11 @@ package com.example.easywheelz.persistance;
 
 import com.example.easywheelz.persistance.entities.RoleEntity;
 import lombok.AllArgsConstructor;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
-public interface RoleRepository {
-    boolean existsByRoleName(String roleName);
-    RoleEntity findById(long roleId);
-    RoleEntity save(RoleEntity role);
-    void delete(long roleId);
-    List<RoleEntity> findAll();
+@Repository
+public interface RoleRepository  extends JpaRepository<RoleEntity, Long> {
 }
 

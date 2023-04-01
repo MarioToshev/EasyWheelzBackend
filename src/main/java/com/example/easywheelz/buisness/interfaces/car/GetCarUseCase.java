@@ -1,7 +1,6 @@
-package com.example.easywheelz.buisness.carInterf;
+package com.example.easywheelz.buisness.interfaces.car;
 
 import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.user.User;
 
 import java.util.List;
 

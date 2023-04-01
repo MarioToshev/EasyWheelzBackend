@@ -1,7 +1,7 @@
-package com.example.easywheelz.buisness.impl.carImpl;
+package com.example.easywheelz.buisness.impl.car;
 
 import com.example.easywheelz.buisness.CarConverter;
-import com.example.easywheelz.buisness.carInterf.UpdateCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
 import com.example.easywheelz.persistance.CarRepository;
 import lombok.AllArgsConstructor;
@@ -15,7 +15,7 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
 
     @Override
     public void updateCar(UpdateCarRequest request) {
-        carRepository.update(carConverter.convert(request));
+        carRepository.save(carConverter.convert(request));
 
     }
 }

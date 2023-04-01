@@ -1,6 +1,6 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.buisness.userInterf.DeleteUserUseCase;
+import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;
@@ -10,10 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.lang.reflect.Array;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 

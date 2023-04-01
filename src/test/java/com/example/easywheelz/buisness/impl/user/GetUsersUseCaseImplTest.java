@@ -1,7 +1,7 @@
-package com.example.easywheelz.buisness.impl.userImpl;
+package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.buisness.UserConverter;
-import com.example.easywheelz.buisness.userInterf.GetUsersUseCase;
+import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;
@@ -46,7 +46,7 @@ class GetUsersUseCaseImplTest {
         UserEntity user = userRepository.save(request);
 
         assertEquals(user,userConverter.convert(getUsersUseCase.getUser(request.getId())));
-        userRepository.delete(1);
+        //userRepository.delete(1);
 
 
     }
@@ -79,8 +79,8 @@ class GetUsersUseCaseImplTest {
 
         List<UserEntity> users = List.of(userRepository.save(request), userRepository.save(request1));
         assertEquals(users,getUsersUseCase.getAllUsers().stream().map(user -> userConverter.convert(user)).toList());
-        userRepository.delete(1);
-        userRepository.delete(2);
+        //userRepository.delete(1);
+      //  userRepository.delete(2);
     }
     @Test
     void testGetNonExistantUser() {

@@ -1,4 +1,4 @@
-package com.example.easywheelz.buisness.carInterf;
+package com.example.easywheelz.buisness.interfaces.car;
 
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;

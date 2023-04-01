@@ -1,13 +1,9 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.buisness.reservationInterf.CreateReservationUseCase;
-import com.example.easywheelz.buisness.reservationInterf.DeleteReservationUseCase;
-import com.example.easywheelz.buisness.reservationInterf.GetReservationUseCase;
-import com.example.easywheelz.buisness.reservationInterf.UpdateReservationUseCase;
-import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.car.CreateCarRequest;
-import com.example.easywheelz.domain.car.CreateCarResponse;
-import com.example.easywheelz.domain.car.UpdateCarRequest;
+import com.example.easywheelz.buisness.interfaces.reservation.CreateReservationUseCase;
+import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
+import com.example.easywheelz.buisness.interfaces.reservation.GetReservationUseCase;
+import com.example.easywheelz.buisness.interfaces.reservation.UpdateReservationUseCase;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
@@ -16,7 +12,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
