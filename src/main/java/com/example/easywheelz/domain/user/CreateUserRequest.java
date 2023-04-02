@@ -21,10 +21,9 @@ public class CreateUserRequest {
     private String lastName;
     @NotBlank
     private String email;
-     @NotBlank
+     @NotNull
     private long phone;
-    @NotBlank
+    @NotNull
     private long driverLicense;
-    @NonNull
     private Role role;
 }

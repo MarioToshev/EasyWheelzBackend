@@ -2,6 +2,7 @@ package com.example.easywheelz.buisness.impl;
 
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
+import com.example.easywheelz.controller.RoleController;
 import com.example.easywheelz.domain.role.CreateRoleRequest;
 import com.example.easywheelz.domain.role.CreateRoleResponse;
 import com.example.easywheelz.persistance.RoleRepository;
@@ -20,10 +21,8 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
-    private final RoleConverter converter;
 
-    @PersistenceContext
-    private EntityManager entityManager;
+    private RoleRepository roleRepository;
 
     @Override
     @Transactional
@@ -31,16 +30,7 @@ public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
         RoleEntity roleEntity = new RoleEntity();
         BeanUtils.copyProperties(request, roleEntity);
 
-        Query query = entityManager.createQuery("SELECT r FROM RoleEntity r WHERE r.roleName = :roleName")
-                .setParameter("roleName", request.getRoleName());
-
-        List existingRoles = query.getResultList();
-
-        if (!existingRoles.isEmpty()) {
-            throw new RuntimeException("A role with the same name already exists");
-        }
-
-        entityManager.persist(roleEntity);
+        roleEntity = roleRepository.save(roleEntity);
 
         return CreateRoleResponse.builder().id(
                 roleEntity.getId()

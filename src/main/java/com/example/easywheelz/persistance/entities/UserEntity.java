@@ -24,14 +24,14 @@ public class UserEntity {
     @Column
     @NotBlank
     private String lastName;
-    @Column
+    @Column(unique = true)
     @NotBlank
     private String email;
-    @Column
-    @NotBlank
+    @Column(unique = true)
+    @NotNull
     private long phone;
     @Column
-    @NotBlank
+    @NotNull
     private long driverLicense;
     @NotNull
     @ManyToOne
