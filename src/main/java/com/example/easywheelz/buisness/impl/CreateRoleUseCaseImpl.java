@@ -22,16 +22,18 @@ import java.util.List;
 @AllArgsConstructor
 public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
 
+
     private RoleRepository roleRepository;
 
+    private RoleConverter converter;
+
     @Override
-    @Transactional
     public CreateRoleResponse createRole(CreateRoleRequest request) {
-        RoleEntity roleEntity = new RoleEntity();
-        BeanUtils.copyProperties(request, roleEntity);
+        if(request == null){
+            throw new RuntimeException("Failed to save role entity");
+        }
 
-        roleEntity = roleRepository.save(roleEntity);
-
+        RoleEntity roleEntity = roleRepository.save(converter.convert(request));
         return CreateRoleResponse.builder().id(
                 roleEntity.getId()
         ).build();

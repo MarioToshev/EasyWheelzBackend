@@ -6,7 +6,7 @@ import com.example.easywheelz.persistance.entities.RoleEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class RoleConverter {
+public class RoleConverter {
     private RoleConverter() {
     }
     public RoleEntity convert(CreateRoleRequest request) {
