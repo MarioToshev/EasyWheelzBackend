@@ -2,6 +2,8 @@ package com.example.easywheelz.persistance.entities;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,22 +21,21 @@ public class CarEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
-    @NotBlank
+    @Column(unique = true)
+    @NotEmpty
     private  String licensePlate;
     @Column
-    @NotBlank
+    @NotEmpty
     private String model;
     @Column
-    @NotBlank
+    @NotEmpty
     private String brand;
     @Column
-    @NotBlank
+    @NotNull
     private double pricePerDay;
     @Column
-    @NotBlank
+    @NotEmpty
     private String color;
     @Column
-    @NotBlank
     private boolean availability;
 }

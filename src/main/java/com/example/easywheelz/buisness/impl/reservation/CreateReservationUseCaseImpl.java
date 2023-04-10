@@ -15,6 +15,8 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
     private final ReservationConverter converter;
     @Override
     public CreateReservationResponse createReservation(CreateReservationRequest request) {
+      // TODO add date check
+
         return CreateReservationResponse.builder().id(
                 reservationRepository.save(converter.convert(request)).getId()
         ).build();

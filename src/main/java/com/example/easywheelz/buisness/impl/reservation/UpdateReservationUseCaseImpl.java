@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
+import com.example.easywheelz.Errors.InvalidReservationError;
 import com.example.easywheelz.buisness.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.UpdateReservationUseCase;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
@@ -14,5 +15,14 @@ public class UpdateReservationUseCaseImpl implements UpdateReservationUseCase {
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
     @Override
-    public void updateReservation(UpdateReservationRequest request) { reservationRepository.save(converter.convert(request)); }
+    public void updateReservation(UpdateReservationRequest request) {
+        if(reservationRepository.existsById(request.getId())){
+            reservationRepository.save(converter.convert(request));
+
+        }
+        else
+        {
+            throw new InvalidReservationError("Reservation not found");
+        }
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.easywheelz.domain.reservation;
 
+import com.example.easywheelz.Errors.InvalidReservationError;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.user.User;
 import jakarta.validation.constraints.NotBlank;
@@ -7,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;
+import org.jetbrains.annotations.NotNull;
 
 import java.time.LocalDate;
 @Data
@@ -20,8 +22,8 @@ public class CreateReservationRequest {
     private double rentalRate;
     @NotBlank
     private double totalCost;
-    @NotBlank
+    @NotNull("Customer must not be null")
     private User customer;
-    @NonNull
+    @NotNull("Car cannot be empty")
     private Car car;
 }

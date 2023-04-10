@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.car;
 
+import com.example.easywheelz.Errors.InvalidCarCredentials;
 import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
@@ -15,7 +16,13 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
 
     @Override
     public void updateCar(UpdateCarRequest request) {
-        carRepository.save(carConverter.convert(request));
+        if (carRepository.existsById(request.getId())){
+            carRepository.save(carConverter.convert(request));
+
+        }
+        else {
+            throw new InvalidCarCredentials("Car not found");
+        }
 
     }
 }

@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.user;
 
+import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
@@ -20,7 +21,7 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     public void updateUser(UpdateUserRequest request) {
         if (!roleRepository.existsById(request.getRole().getId())){
 
-            throw new RuntimeException("Role doesn't exist");
+            throw new IncorrectUserCredentialsError("Role doesn't exist");
         }
         userRepository.save(converter.convert(request));
     }

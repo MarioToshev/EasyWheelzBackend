@@ -1,8 +1,10 @@
 package com.example.easywheelz.buisness.impl.user;
 
+import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
+import com.example.easywheelz.domain.role.Role;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
@@ -10,44 +12,44 @@ import com.example.easywheelz.persistance.entities.RoleEntity;
 import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
-@SpringBootTest
-@AllArgsConstructor
-class UpdateUserUseCaseImplTest {
-    @Autowired
-    private UpdateUserUseCase updateUsersUseCase;
-    @Autowired
-    private RoleRepository roleRepository;
-    @Autowired
-    private UserRepository userRepository;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
-    @Autowired
-    private RoleConverter roleConverter;
-    @Autowired
+@ExtendWith(MockitoExtension.class)
+class UpdateUserUseCaseImplTest {
+    @Mock
+    private UserRepository userRepository;
+    @Mock
+    private RoleRepository roleRepository;
+    @Mock
     private UserConverter userConverter;
+    @InjectMocks
+    private UpdateUserUseCaseImpl updateUsersUseCase;
 
     @Test
-    void UpdateUserTest(){
-        RoleEntity role = RoleEntity.builder()
-                .roleName("TestRole")
-                .build();
-        roleRepository.save(role);
+    void UpdateUserTest() {
+        long roleId = 1;
 
-        UserEntity request = UserEntity.builder()
+        UserEntity user = UserEntity.builder()
                 .firstName("John")
                 .lastName("Doe")
                 .email("johndoe@example.com")
                 .phone(1234567890)
+                .role(RoleEntity.builder().id(roleId).build())
                 .driverLicense(12321312)
-                .role(role)
                 .build();
-        UserEntity user = userRepository.save(request);
+
         user.setEmail("john@gmail.com");
 
-
+        when(roleRepository.existsById(roleId)).thenReturn(true);
 
         updateUsersUseCase.updateUser(UpdateUserRequest.builder()
                 .id(user.getId())
@@ -56,40 +58,53 @@ class UpdateUserUseCaseImplTest {
                 .lastName(user.getLastName())
                 .email(user.getEmail())
                 .driverLicense(user.getDriverLicense())
-                .role(roleConverter.convert(role))
+                .role(Role.builder().id(roleId).build())
                 .build()
         );
-        assertEquals(userRepository.findById(user.getId()),user);
-    }
-//    @Test
-//    void UpdateUserTestNonExistentUser(){
-//        RoleEntity role = RoleEntity.builder()
-//                .roleName("TestRole")
-//                .build();
-//        UserEntity user = UserEntity.builder()
-//                .id(1L)
-//                .firstName("John")
-//                .lastName("Doe")
-//                .email("johndoe@example.com")
-//                .phone(1234567890)
-//                .driverLicense(12321312)
-//                .role(role)
-//                .build();
-//
-//        Exception exception = assertThrows(RuntimeException.class, () -> {
-//            updateUsersUseCase.updateUser(UpdateUserRequest.builder()
-//                    .id(user.getId())
-//                    .phone(user.getPhone())
-//                    .firstName(user.getFirstName())
-//                    .lastName(user.getLastName())
-//                    .email(user.getEmail())
-//                    .driverLicense(user.getDriverLicense())
-//                    .role(roleConverter.convert(role))
-//                    .build()
-//            );
-//        });
-//
-//        assertEquals("No value present",exception.getMessage());
-//    }
+        when(userRepository.getReferenceById(user.getId())).thenReturn(user);
+        var updatedUser = userRepository.getReferenceById(user.getId());
 
+        assertEquals(updatedUser, user);
+        verify(roleRepository).existsById(roleId);
+    }
+
+    @Test
+    void UpdateUserTestUnexistingRole() {
+        long roleId = 1;
+
+        UserEntity user = UserEntity.builder()
+                .firstName("John")
+                .lastName("Doe")
+                .email("johndoe@example.com")
+                .phone(1234567890)
+                .role(RoleEntity.builder().id(roleId).build())
+                .driverLicense(12321312)
+                .build();
+
+        user.setEmail("john@gmail.com");
+
+        when(roleRepository.existsById(roleId)).thenReturn(false);
+
+
+        when(userRepository.getReferenceById(user.getId())).thenReturn(user);
+        var updatedUser = userRepository.getReferenceById(user.getId());
+
+        UpdateUserRequest request = UpdateUserRequest.builder()
+                .id(user.getId())
+                .phone(user.getPhone())
+                .firstName(user.getFirstName())
+                .lastName(user.getLastName())
+                .email(user.getEmail())
+                .driverLicense(user.getDriverLicense())
+                .role(Role.builder().id(roleId).build())
+                .build();
+
+        Exception exception = assertThrows(IncorrectUserCredentialsError.class, () -> {
+            updateUsersUseCase.updateUser(request);
+        });
+
+        assertEquals("Role doesn't exist", exception.getMessage());
+        assertEquals(updatedUser, user);
+        verify(roleRepository).existsById(roleId);
+    }
 }

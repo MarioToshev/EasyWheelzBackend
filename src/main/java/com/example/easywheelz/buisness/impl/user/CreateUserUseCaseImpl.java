@@ -1,5 +1,7 @@
 package com.example.easywheelz.buisness.impl.user;
 
+import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
+import com.example.easywheelz.Errors.NoRoleExeption;
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.UserConverter;
@@ -24,16 +26,12 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
         UserEntity user = userConverter.convert(request);
 
         if (userRepository.existsByEmail(request.getEmail())){
-            throw new RuntimeException("This email is already in use.");
+            throw new IncorrectUserCredentialsError("This email is already in use.");
         }
         if (userRepository.existsByPhone(request.getPhone())){
-            throw new RuntimeException("This phone number is already in use.");
+            throw new IncorrectUserCredentialsError("This phone number is already in use.");
         }
-       try{
            request.setRole(roleConverter.convert(roleRepository.findByRoleName("Customer")));
-       }catch (Exception ex){
-           throw new RuntimeException("Something went wrong");
-       }
 
         return CreateUserResponse.builder().id(
                 userRepository.save(userConverter.convert(request)).getId()

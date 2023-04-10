@@ -9,5 +9,6 @@ import java.util.List;
 @Repository
 public interface RoleRepository  extends JpaRepository<RoleEntity, Long> {
     public RoleEntity findByRoleName(String roleName);
+    public boolean existsRoleByRoleName(String roleName);
 }
 

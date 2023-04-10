@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.car;
 
+import com.example.easywheelz.Errors.InvalidCarCredentials;
 import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
 import com.example.easywheelz.domain.car.Car;
@@ -23,7 +24,7 @@ public class GetCarUseCaseImpl implements GetCarUseCase {
         if (carRepository.existsById(id)){
             return carConverter.convert(carRepository.getReferenceById(id));
         }
-        throw new RuntimeException("Car not found");
+        throw new InvalidCarCredentials("Car not found");
     }
 
     @Override

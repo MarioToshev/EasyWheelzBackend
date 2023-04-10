@@ -31,7 +31,7 @@ public class ReservationEntity {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private UserEntity customer;
-    @NonNull
+   @NonNull
     @ManyToOne
     @JoinColumn(name = "car_id")
     private CarEntity car;

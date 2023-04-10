@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
+import com.example.easywheelz.Errors.InvalidReservationError;
 import com.example.easywheelz.buisness.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.GetReservationUseCase;
 import com.example.easywheelz.domain.reservation.Reservation;
@@ -22,7 +23,7 @@ public class GetReservationUseCaseImpl implements GetReservationUseCase
         if(reservationRepository.existsById(id)){
             return converter.convert(reservationRepository.getReferenceById(id));
         }
-        throw new RuntimeException("Reservation not found");
+        throw new InvalidReservationError("Reservation not found");
     }
     @Override
     public List<Reservation> getAllReservations() { return reservationRepository.findAll().stream().map(converter::convert).toList();}

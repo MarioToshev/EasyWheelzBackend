@@ -1,5 +1,6 @@
 package com.example.easywheelz.buisness.impl.user;
 
+import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.persistance.UserRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +17,6 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
         if (userRepository.existsById(userId)){
             userRepository.deleteById(userId);
         }
-        else throw new RuntimeException("You are trying to delete user that doesnt exist");
+        else throw new IncorrectUserCredentialsError("You are trying to delete user that doesnt exist");
     }
 }

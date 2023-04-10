@@ -4,13 +4,16 @@ import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
 import com.example.easywheelz.persistance.entities.CarEntity;
+import lombok.AllArgsConstructor;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class CarConverter {
-    public CarEntity convert(CreateCarRequest request){
+    public CarEntity convert(@NotNull CreateCarRequest request){
         return CarEntity.builder()
                 .model(request.getModel())
                 .availability(request.isAvailability())
@@ -20,7 +23,7 @@ public class CarConverter {
                 .color(request.getColor())
                 .build();
     }
-    public CarEntity convert(UpdateCarRequest request){
+    public CarEntity convert(@NotNull UpdateCarRequest request){
         return CarEntity.builder()
                 .id(request.getId())
                 .model(request.getModel())
@@ -31,7 +34,7 @@ public class CarConverter {
                 .color(request.getColor())
                 .build();
     }
-    public Car convert(CarEntity car){
+    public Car convert(@NotNull CarEntity car){
         return Car.builder()
                 .id(car.getId())
                 .model(car.getModel())
@@ -42,7 +45,7 @@ public class CarConverter {
                 .color(car.getColor())
                 .build();
     }
-    public CarEntity convert(Car car){
+    public CarEntity convert(@NotNull Car car){
         return CarEntity.builder()
                 .id(car.getId())
                 .model(car.getModel())

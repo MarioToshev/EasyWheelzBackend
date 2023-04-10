@@ -1,7 +1,7 @@
 package com.example.easywheelz.Errors;
 
-public class InvalidCarCredentals extends RuntimeException {
-    public InvalidCarCredentals(String errorMessage) {
+public class InvalidCarCredentials extends RuntimeException {
+    public InvalidCarCredentials(String errorMessage) {
         super(errorMessage);
     }
 }

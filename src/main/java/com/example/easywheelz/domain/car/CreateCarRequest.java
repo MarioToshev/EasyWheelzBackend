@@ -1,6 +1,7 @@
 package com.example.easywheelz.domain.car;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,16 +11,15 @@ import org.springframework.lang.NonNull;
 @Data
 @Builder
 public class CreateCarRequest {
-    @NotBlank
+    @NotEmpty
     private  String licensePlate;
-    @NotBlank
+    @NotEmpty
     private String model;
-    @NotBlank
+    @NotEmpty
     private String brand;
     @NotBlank
     private double pricePerDay;
-    @NotBlank
+    @NotEmpty
     private String color;
-    @NotBlank
     private boolean availability;
 }

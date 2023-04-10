@@ -22,6 +22,6 @@ public class Car {
     @NotBlank
     private String color;
     @NotBlank
-    private boolean availability;
+        private boolean availability;
 
 }
