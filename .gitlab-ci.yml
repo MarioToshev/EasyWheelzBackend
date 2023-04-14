@@ -31,7 +31,7 @@ sonarqube-check:
   script: gradle sonar
   allow_failure: true
   rules:
-    - if: $CI_COMMIT_BRANCH == 'main'
+    - if: $CI_COMMIT_BRANCH == 'master'
 
 
 test: 
