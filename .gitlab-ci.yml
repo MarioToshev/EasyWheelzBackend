@@ -6,6 +6,10 @@ image: gradle:alpine
 #    SONAR_HOST_URL: "http://localhost:9000/"
 
 
+variables:
+    EXCLUDE: node_modules/**, reports/**
+    GIT_DEPTH: 0
+    
 stages: 
     - build 
     - sonar
