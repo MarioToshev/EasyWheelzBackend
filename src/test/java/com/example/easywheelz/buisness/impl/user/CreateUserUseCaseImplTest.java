@@ -4,10 +4,6 @@ import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.buisness.impl.CreateRoleUseCaseImpl;
-import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
-import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
-import com.example.easywheelz.domain.role.CreateRoleRequest;
-import com.example.easywheelz.domain.role.CreateRoleResponse;
 import com.example.easywheelz.domain.role.Role;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
@@ -15,22 +11,16 @@ import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;
 import com.example.easywheelz.persistance.entities.UserEntity;
-import lombok.AllArgsConstructor;
-import org.junit.Rule;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.rules.ExpectedException;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.assertj.core.api.BDDAssertions.then;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

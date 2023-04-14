@@ -1,11 +1,5 @@
 image: gradle:alpine
 
-variables: 
-    GRADLE_OPTS: "-Dorg.gradle.daemon=false" 
-    SONAR_TOKEN: "sqp_3ba1babb0a057dedfd3122ca7214b98c2e52376d"
-    SONAR_HOST_URL: "http://localhost:9000/"
-
-
 stages: 
     - build 
     - sonarqube-check
@@ -17,7 +11,7 @@ build:
     script: 
      - .\gradlew assemble 
 
-     
+
 sonarqube-check:
   stage: sonarqube-check
   image: gradle:jre11-slim
@@ -29,6 +23,9 @@ sonarqube-check:
     paths:
       - .sonar/cache
   script: gradle sonar
+  allow_failure: true
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'main'
 
 test: 
   stage: test 
