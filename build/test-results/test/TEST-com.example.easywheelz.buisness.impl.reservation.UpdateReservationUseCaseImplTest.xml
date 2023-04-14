@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.reservation.UpdateReservationUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-07T18:30:01" hostname="MARIOS_PC" time="0.292">
-  <properties/>
-  <testcase name="UpdateCarTestNotExisting()" classname="com.example.easywheelz.buisness.impl.reservation.UpdateReservationUseCaseImplTest" time="0.292"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

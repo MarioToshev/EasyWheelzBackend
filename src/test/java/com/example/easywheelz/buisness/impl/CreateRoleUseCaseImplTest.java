@@ -6,10 +6,12 @@ import com.example.easywheelz.domain.role.CreateRoleResponse;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.entities.RoleEntity;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestClassOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
@@ -32,21 +34,21 @@ class CreateRoleUseCaseImplTest {
                 .roleName("TestRole")
                 .build();
 
-        // create a mock response for the save method
-        RoleEntity savedRole = RoleEntity.builder().id(1L).roleName(request.getRoleName()).build();
-        when(roleRepository.save(any(RoleEntity.class))).thenReturn(savedRole);
+        RoleEntity roleToSave = RoleEntity.builder().roleName("TestRole").id(1L).build();
 
-        // call the createRole method with the test role request
+        CreateRoleResponse savedRole = CreateRoleResponse.builder().id(1L).build();
+
+        when(roleConverter.convert(request)).thenReturn(roleToSave);
+        when(roleRepository.save(roleToSave)).thenReturn(RoleEntity.builder().id(1L).build());
+
         CreateRoleResponse createdRole = createRoleUseCase.createRole(request);
 
 
-        // verify that the createRole method returned the mock response
         assertEquals(1L, createdRole.getId());
     }
 
     @Test
     void testCreateRole_NullRequest() {
-        // call the createRole method with a null request
         assertThrows(RuntimeException.class, () -> createRoleUseCase.createRole(null));
     }
 }

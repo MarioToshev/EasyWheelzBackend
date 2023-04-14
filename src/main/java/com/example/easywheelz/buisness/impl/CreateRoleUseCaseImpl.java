@@ -32,7 +32,6 @@ public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
         if(request == null){
             throw new RuntimeException("Failed to save role entity");
         }
-
         RoleEntity roleEntity = roleRepository.save(converter.convert(request));
         return CreateRoleResponse.builder().id(
                 roleEntity.getId()

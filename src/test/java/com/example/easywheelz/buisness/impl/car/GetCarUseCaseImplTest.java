@@ -71,6 +71,4 @@ class GetCarUseCaseImplTest {
         assertEquals(Collections.emptyList(),getCarUseCase.getAllCars());
         verify(carRepository).findAll();
     }
-
-
 }
