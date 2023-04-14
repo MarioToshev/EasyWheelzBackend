@@ -38,7 +38,7 @@ test:
   stage: test 
   script: 
     - .\gradlew test
-  allow_failure: true
+
 
 
 
