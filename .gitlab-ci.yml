@@ -1,5 +1,11 @@
 image: gradle:alpine
 
+
+#variables:
+#    GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+#    SONAR_TOKEN: "sqp_7b04023c47cb100a970cb6b420c705987229f4df"
+#    SONAR_HOST_URL: "http://localhost:9000/"
+
 stages: 
     - build 
     - sonarqube-check
