@@ -63,4 +63,11 @@ tasks.named('sonar').configure {
 
 tasks.named('test') {
     useJUnitPlatform()
+    finalizedBy jacocoTestReport
+}
+jacocoTestReport{
+    dependsOn test
+    reports{
+        xml.enabled(true)
+    }
 }
