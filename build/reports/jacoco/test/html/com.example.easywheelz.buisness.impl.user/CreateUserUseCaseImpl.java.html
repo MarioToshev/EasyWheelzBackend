@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateUserUseCaseImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.buisness.impl.user</a> &gt; <span class="el_source">CreateUserUseCaseImpl.java</span></div><h1>CreateUserUseCaseImpl.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.buisness.impl.user;
+
+import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
+import com.example.easywheelz.Errors.NoRoleExeption;
+import com.example.easywheelz.buisness.RoleConverter;
+import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
+import com.example.easywheelz.buisness.UserConverter;
+import com.example.easywheelz.domain.user.CreateUserRequest;
+import com.example.easywheelz.domain.user.CreateUserResponse;
+import com.example.easywheelz.persistance.RoleRepository;
+import com.example.easywheelz.persistance.UserRepository;
+import com.example.easywheelz.persistance.entities.UserEntity;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class CreateUserUseCaseImpl implements CreateUserUseCase {
+    private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
+    private RoleConverter roleConverter;
+    private final UserConverter userConverter;
+    @Override
+    public CreateUserResponse createUser(CreateUserRequest request) {
+
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())){</span>
+<span class="nc" id="L27">            throw new IncorrectUserCredentialsError(&quot;This email is already in use.&quot;);</span>
+        }
+<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (userRepository.existsByPhone(request.getPhone())){</span>
+<span class="nc" id="L30">            throw new IncorrectUserCredentialsError(&quot;This phone number is already in use.&quot;);</span>
+        }
+<span class="nc" id="L32">           request.setRole(roleConverter.convert(roleRepository.findByRoleName(&quot;Customer&quot;)));</span>
+
+<span class="nc" id="L34">        return CreateUserResponse.builder().id(</span>
+<span class="nc" id="L35">                userRepository.save(userConverter.convert(request)).getId()</span>
+<span class="nc" id="L36">        ).build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

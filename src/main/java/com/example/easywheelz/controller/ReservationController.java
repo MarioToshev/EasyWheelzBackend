@@ -19,6 +19,7 @@ import java.util.List;
 @Controller
 @AllArgsConstructor
 @RequestMapping("/reservations")
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class ReservationController {
 
 

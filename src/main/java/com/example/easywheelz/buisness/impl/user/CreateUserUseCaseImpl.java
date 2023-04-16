@@ -23,8 +23,6 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) {
 
-        UserEntity user = userConverter.convert(request);
-
         if (userRepository.existsByEmail(request.getEmail())){
             throw new IncorrectUserCredentialsError("This email is already in use.");
         }

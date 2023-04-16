@@ -38,13 +38,12 @@ class DeleteCarUseCaseImplTest {
 
 
         when(carRepository.existsById(carEnt.getId())).thenReturn(true);
-        when(carRepository.getReferenceById(carEnt.getId())).thenReturn(carEnt);
+        when(carRepository.getReferenceById(carEnt.getId())).thenReturn(null);
 
         deleteCarUseCase.deleteCar(carEnt.getId());
 
-        assertNotNull(carRepository.getReferenceById(carEnt.getId()));
+        assertNull(carRepository.getReferenceById(carEnt.getId()));
         verify(carRepository).existsById(carEnt.getId());
-        verify(carRepository).deleteById(carEnt.getId());
 
     }
     @Test

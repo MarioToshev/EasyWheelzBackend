@@ -3,7 +3,7 @@ package com.example.easywheelz.buisness.impl.user;
 import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.UserConverter;
-import com.example.easywheelz.buisness.impl.CreateRoleUseCaseImpl;
+import com.example.easywheelz.buisness.impl.role.CreateRoleUseCaseImpl;
 import com.example.easywheelz.domain.role.Role;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;

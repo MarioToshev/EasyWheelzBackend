@@ -1,24 +1,14 @@
 package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
-import com.example.easywheelz.buisness.RoleConverter;
-import com.example.easywheelz.buisness.UserConverter;
-import com.example.easywheelz.buisness.impl.CreateRoleUseCaseImpl;
-import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
-import com.example.easywheelz.persistance.entities.RoleEntity;
 import com.example.easywheelz.persistance.entities.UserEntity;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;

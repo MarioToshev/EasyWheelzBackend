@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.impl.role.DeleteRoleUseCaseImpTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-16T17:21:42" hostname="MARIOS_PC" time="0.517">
+  <properties/>
+  <testcase name="DeleteRoleTest()" classname="com.example.easywheelz.buisness.impl.role.DeleteRoleUseCaseImpTest" time="0.517"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
