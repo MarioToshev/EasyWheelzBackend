@@ -40,9 +40,9 @@ public class UserController {
         return ResponseEntity.ok(getUsersUseCase.getUser(userId));
     }
     @PutMapping("")
-    public ResponseEntity<String> updateUser(@RequestBody UpdateUserRequest request) {
+    public ResponseEntity<Void> updateUser(@RequestBody UpdateUserRequest request) {
         updateUserUseCase.updateUser(request);
-        return ResponseEntity.ok(request.getId().toString());
+        return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{userId}")
     public ResponseEntity<Void > deleteUser(@PathVariable long userId) {
