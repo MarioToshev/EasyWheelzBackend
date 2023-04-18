@@ -60,7 +60,7 @@ jacocoTestReport {
     afterEvaluate {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
-                    'com/example/easywheelz/buisness/converters/**',
+                    '**/buisness/converters/**',
             ])
         }))
     }
