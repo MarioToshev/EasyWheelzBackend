@@ -61,7 +61,6 @@ jacocoTestReport {
         classDirectories.setFrom(files(classDirectories.files.collect {
             fileTree(dir: it, exclude: [
                     'com/example/easywheelz/customExeptions/**',
-                    'com/example/easywheelz/domain/**'
             ])
         }))
     }
