@@ -39,9 +39,9 @@ public class CarController {
         return ResponseEntity.ok(getCarUseCase.getCar(carId));
     }
     @PutMapping("")
-    public ResponseEntity<String> updateCar(@RequestBody UpdateCarRequest request) {
+    public ResponseEntity<Void> updateCar(@RequestBody UpdateCarRequest request) {
         updateCarUseCase.updateCar(request);
-        return ResponseEntity.ok(String.valueOf(request.getId()));
+        return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{carId}")
     public ResponseEntity deleteCar(@PathVariable long carId) {

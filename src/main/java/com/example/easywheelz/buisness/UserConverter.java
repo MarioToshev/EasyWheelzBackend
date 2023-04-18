@@ -18,6 +18,7 @@ public class UserConverter {
                 .driverLicense(request.getDriverLicense())
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
+                .password(request.getPassword())
                 .role(
                         RoleEntity.builder().roleName(request.getRole().getRoleName())
                                 .id(request.getRole().getId()).build()
@@ -32,6 +33,7 @@ public class UserConverter {
                 .driverLicense(request.getDriverLicense())
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
+                .password(request.getPassword())
                 .role(
                         RoleEntity.builder().roleName(request.getRole().getRoleName())
                                 .id(request.getRole().getId()).build()
@@ -46,6 +48,7 @@ public class UserConverter {
                 .driverLicense(user.getDriverLicense())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .password(user.getPassword())
                 .role(
                         Role.builder().roleName(user.getRole().getRoleName())
                                 .id(user.getRole().getId()).build()
@@ -60,6 +63,7 @@ public class UserConverter {
                 .driverLicense(user.getDriverLicense())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .password(user.getPassword())
                 .role(
                         RoleEntity.builder().roleName(user.getRole().getRoleName())
                                 .id(user.getRole().getId()).build()

@@ -40,12 +40,12 @@ public class UserController {
 <span class="nc" id="L40">        return ResponseEntity.ok(getUsersUseCase.getUser(userId));</span>
     }
     @PutMapping(&quot;&quot;)
-    public ResponseEntity&lt;String&gt; updateUser(@RequestBody UpdateUserRequest request) {
+    public ResponseEntity&lt;Void&gt; updateUser(@RequestBody UpdateUserRequest request) {
 <span class="nc" id="L44">        updateUserUseCase.updateUser(request);</span>
-<span class="nc" id="L45">        return ResponseEntity.ok(request.getId().toString());</span>
+<span class="nc" id="L45">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{userId}&quot;)
-    public ResponseEntity&lt;Void &gt; deleteUser(@PathVariable long userId) {
+    public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable long userId) {
 <span class="nc" id="L49">        deleteUserUseCase.deleteUser(userId);</span>
 <span class="nc" id="L50">        return ResponseEntity.noContent().build();</span>
     }

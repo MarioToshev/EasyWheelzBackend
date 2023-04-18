@@ -16,6 +16,7 @@ public class User {
     private String lastName;
     private String email;
     private long phone;
+    private String password;
     private long driverLicense;
     private Role role;
 }

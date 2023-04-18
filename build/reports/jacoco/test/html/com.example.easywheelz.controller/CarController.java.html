@@ -26,27 +26,27 @@ public class CarController {
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateCarResponse&gt; createCar(@RequestBody CreateCarRequest request) {
-<span class="nc" id="L29">        CreateCarResponse response = createCarUseCase.createCar(request);</span>
-<span class="nc" id="L30">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L29">        CreateCarResponse response = createCarUseCase.createCar(request);</span>
+<span class="fc" id="L30">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
     @GetMapping(&quot;&quot;)
     public ResponseEntity&lt;List&lt;Car&gt;&gt; getAllCars() {
-<span class="nc" id="L34">        return ResponseEntity.ok(getCarUseCase.getAllCars());</span>
+<span class="fc" id="L34">        return ResponseEntity.ok(getCarUseCase.getAllCars());</span>
     }
 
     @GetMapping(&quot;/{carId}&quot;)
     public ResponseEntity&lt;Car&gt; getCar(@PathVariable long carId) {
-<span class="nc" id="L39">        return ResponseEntity.ok(getCarUseCase.getCar(carId));</span>
+<span class="fc" id="L39">        return ResponseEntity.ok(getCarUseCase.getCar(carId));</span>
     }
     @PutMapping(&quot;&quot;)
-    public ResponseEntity&lt;String&gt; updateCar(@RequestBody UpdateCarRequest request) {
-<span class="nc" id="L43">        updateCarUseCase.updateCar(request);</span>
-<span class="nc" id="L44">        return ResponseEntity.ok(String.valueOf(request.getId()));</span>
+    public ResponseEntity&lt;Void&gt; updateCar(@RequestBody UpdateCarRequest request) {
+<span class="fc" id="L43">        updateCarUseCase.updateCar(request);</span>
+<span class="fc" id="L44">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{carId}&quot;)
     public ResponseEntity deleteCar(@PathVariable long carId) {
-<span class="nc" id="L48">        deleteCarUseCase.deleteCar(carId);</span>
-<span class="nc" id="L49">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L48">        deleteCarUseCase.deleteCar(carId);</span>
+<span class="fc" id="L49">        return ResponseEntity.noContent().build();</span>
     }
 
 }

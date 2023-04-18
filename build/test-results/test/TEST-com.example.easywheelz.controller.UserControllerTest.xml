@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.controller.UserControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-17T12:36:17" hostname="DESKTOP-41OPBTP" time="1.523">
-  <properties/>
-  <testcase name="createUserTestWrongData()" classname="com.example.easywheelz.controller.UserControllerTest" time="1.523"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

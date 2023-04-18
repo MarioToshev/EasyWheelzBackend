@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserEntity {
+public class    UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,6 +33,9 @@ public class UserEntity {
     @Column
     @NotNull
     private long driverLicense;
+    @Column
+    @NotNull
+    private String password;
     @NotNull
     @ManyToOne
     @JoinColumn(name = "role_id")

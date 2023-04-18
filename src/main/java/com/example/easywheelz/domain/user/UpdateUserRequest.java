@@ -22,6 +22,8 @@ public class UpdateUserRequest {
     @NotEmpty
     private long phone;
     @NotEmpty
+    private String password;
+    @NotEmpty
     private long driverLicense;
     @NonNull
     private Role role;

@@ -24,6 +24,8 @@ public class CreateUserRequest {
      @NotNull
     private long phone;
     @NotNull
+    private String password;
+    @NotNull
     private long driverLicense;
     private Role role;
 }
