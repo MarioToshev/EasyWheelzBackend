@@ -10,9 +10,6 @@ import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.domain.user.User;
-import com.example.easywheelz.persistance.entities.RoleEntity;
-import com.example.easywheelz.persistance.entities.UserEntity;
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +39,7 @@ class UserControllerTest {
     private UserController userController;
 
     @Test
-    public void createUserTest(){
+     void createUserTest(){
 
         CreateUserRequest request = CreateUserRequest.builder()
                 .email("m@m.m")
@@ -67,7 +63,7 @@ class UserControllerTest {
         verify(createUserUseCase).createUser(request);
     }
     @Test
-    public void createUserTestWrongData(){
+     void createUserTestWrongData(){
 
         CreateUserRequest request = CreateUserRequest.builder()
                 .email("m@m.m")

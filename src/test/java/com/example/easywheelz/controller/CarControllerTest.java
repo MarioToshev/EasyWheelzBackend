@@ -1,6 +1,5 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
 import com.example.easywheelz.Errors.InvalidCarCredentials;
 import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
 import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
@@ -10,7 +9,6 @@ import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
-import com.example.easywheelz.domain.user.CreateUserResponse;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -39,7 +37,7 @@ class CarControllerTest {
     private CarController carController;
 
     @Test
-    public void createCarTest(){
+     void createCarTest(){
 
 
         CreateCarRequest request =  CreateCarRequest.builder()
@@ -56,14 +54,14 @@ class CarControllerTest {
                 .build();
         when(createCarUseCase.createCar(request)).thenReturn(response);
 
-        ResponseEntity<CreateCarResponse> createUserResponse = carController.createCar(request);
+        ResponseEntity<CreateCarResponse> createCarResponse = carController.createCar(request);
 
-        assertEquals(HttpStatus.CREATED, createUserResponse.getStatusCode());
-        assertEquals(1L, createUserResponse.getBody().getId());
+        assertEquals(HttpStatus.CREATED, createCarResponse.getStatusCode());
+        assertEquals(1L, createCarResponse.getBody().getId());
         verify(createCarUseCase).createCar(request);
     }
     @Test
-    public void createUserTestWrongData(){
+     void createCarTestWrongData(){
 
         CreateCarRequest request =  CreateCarRequest.builder()
                 .licensePlate("ABC123")
@@ -74,7 +72,7 @@ class CarControllerTest {
                 .availability(true)
                 .build();
 
-        CreateUserResponse response = CreateUserResponse.builder()
+        CreateCarResponse response = CreateCarResponse.builder()
                 .id(1L)
                 .build();
         when(createCarUseCase.createCar(request)).thenThrow(new InvalidCarCredentials(""));
@@ -83,7 +81,7 @@ class CarControllerTest {
         verify(createCarUseCase).createCar(request);
     }
     @Test
-    void updateUserTest() {
+    void updateCarTest() {
         UpdateCarRequest request = UpdateCarRequest.builder()
                 .id(1L)
                 .licensePlate("ABC123")
@@ -101,7 +99,7 @@ class CarControllerTest {
         verify(updateCarUseCase).updateCar(request);
     }
     @Test
-    void updateUserWrongCredentialsTest() {
+    void updateCarWrongCredentialsTest() {
         UpdateCarRequest request = UpdateCarRequest.builder()
                 .id(1L)
                 .licensePlate("ABC123")
@@ -119,7 +117,7 @@ class CarControllerTest {
     }
 
     @Test
-    void deleteUserTest() {
+    void deleteCarTest() {
         long carId = 1L;
 
         doNothing().when(deleteCarUseCase).deleteCar(carId);
@@ -129,18 +127,18 @@ class CarControllerTest {
         verify(deleteCarUseCase).deleteCar(carId);
     }
     @Test
-    void deleteUserTestNotExisting() {
+    void deleteCarTestNotExisting() {
         long carID = 1L;
 
-        doThrow(new IncorrectUserCredentialsError("")).when(deleteCarUseCase).deleteCar(carID);
+        doThrow(new InvalidCarCredentials("")).when(deleteCarUseCase).deleteCar(carID);
 
-        assertThrows(IncorrectUserCredentialsError.class, () -> carController.deleteCar(carID));
+        assertThrows(InvalidCarCredentials.class, () -> carController.deleteCar(carID));
         verify(deleteCarUseCase).deleteCar(carID);
     }
 
 
     @Test
-    void GetUserTest() {
+    void GetCarTest() {
         Car car = Car.builder()
                 .id(1L)
                 .licensePlate("ABC123")
@@ -160,7 +158,7 @@ class CarControllerTest {
         verify(getCarsUseCase).getCar(1L);
     }
     @Test
-    void GetUserTestNotExistingUser() {
+    void GetCarTestNotExistingCar() {
         when(getCarsUseCase.getCar(1L)).thenReturn(null);
         ResponseEntity<Car> get = carController.getCar(1L);
 
@@ -170,7 +168,7 @@ class CarControllerTest {
     }
 
     @Test
-    void GetAllUsersTest() {
+    void GetAllCarsTest() {
         Car car = Car.builder()
                 .id(1L)
                 .licensePlate("ABC123")
@@ -190,7 +188,7 @@ class CarControllerTest {
                 .availability(true)
                 .build();
 
-        List<Car> cars = new ArrayList<Car>();
+        List<Car> cars = new ArrayList<>();
         cars.add(car);
         cars.add(car1);
 
