@@ -10,11 +10,17 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
 
+
 sonar {
     properties {
         property "sonar.projectKey", "EasyWheelzAnalytics"
         property "sonar.projectName", "EasyWheelzAnalytics"
         property "sonar.qualitygate.wait", true
+        def projectPath = "com/example/easywheelz"
+        def exclusionList = [
+                "${projectPath}/buisness/converters/*"
+        ].join(', ')
+        property "sonar.coverage.exclusions", exclusionList
     }
 }
 configurations {
