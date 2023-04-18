@@ -2,6 +2,7 @@
 
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
+import com.example.easywheelz.customExeptions.InvalidRoleException;
 import com.example.easywheelz.domain.role.CreateRoleRequest;
 import com.example.easywheelz.domain.role.CreateRoleResponse;
 import com.example.easywheelz.persistance.RoleRepository;
@@ -20,13 +21,17 @@ public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
 
     @Override
     public CreateRoleResponse createRole(CreateRoleRequest request) {
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(request == null){</span>
-<span class="nc" id="L24">            throw new RuntimeException(&quot;Failed to save role entity&quot;);</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if(request == null){</span>
+<span class="nc" id="L25">            throw new InvalidRoleException(&quot;Failed to save role entity&quot;);</span>
         }
-<span class="nc" id="L26">        RoleEntity roleEntity = roleRepository.save(converter.convert(request));</span>
-<span class="nc" id="L27">        return CreateRoleResponse.builder().id(</span>
-<span class="nc" id="L28">                roleEntity.getId()</span>
-<span class="nc" id="L29">        ).build();</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        else if(roleRepository.existsRoleByRoleName(request.getRoleName()))</span>
+        {
+<span class="nc" id="L29">            throw new InvalidRoleException(&quot;This role exists&quot;);</span>
+        }
+<span class="nc" id="L31">        RoleEntity roleEntity = roleRepository.save(converter.convert(request));</span>
+<span class="nc" id="L32">        return CreateRoleResponse.builder().id(</span>
+<span class="nc" id="L33">                roleEntity.getId()</span>
+<span class="nc" id="L34">        ).build();</span>
     }
 
 

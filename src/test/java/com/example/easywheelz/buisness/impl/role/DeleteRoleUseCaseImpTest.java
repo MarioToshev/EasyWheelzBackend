@@ -28,13 +28,13 @@ class DeleteRoleUseCaseImpTest {
 
 
     @Test
-       void DeleteRoleTest(){
+       void DeleteRoleTestNotExisting(){
 
         RoleEntity roleEntity = new RoleEntity();
         roleEntity.setId(1L);
 
 
-        when(roleRepository.existsById(roleEntity.getId())).thenReturn(true);
+        when(roleRepository.existsById(roleEntity.getId())).thenReturn(false);
 
 
         Exception exception = assertThrows(InvalidRoleException.class, () -> {
@@ -44,7 +44,19 @@ class DeleteRoleUseCaseImpTest {
 
         Assertions.assertEquals("Role not found", exception.getMessage());
         verify(roleRepository).existsById(roleEntity.getId());
-
     }
+    @Test
+    void DeleteRoleTest(){
+
+        RoleEntity roleEntity = new RoleEntity();
+        roleEntity.setId(1L);
+
+        when(roleRepository.existsById(roleEntity.getId())).thenReturn(true);
+
+        deleteRoleUseCaseImp.deleteRole(roleEntity.getId());
+        verify(roleRepository).existsById(roleEntity.getId());
+        verify(roleRepository).deleteById(roleEntity.getId());
+    }
+
 
 }

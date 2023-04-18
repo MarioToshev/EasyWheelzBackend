@@ -67,6 +67,8 @@ class CreateUserUseCaseImplTest {
         verify(userRepository).existsByEmail(anyString());
         verify(userRepository).existsByPhone(anyLong());
         verify(roleRepository).findByRoleName(anyString());
+        verify(userRepository).save(any());
+
     }
 
 

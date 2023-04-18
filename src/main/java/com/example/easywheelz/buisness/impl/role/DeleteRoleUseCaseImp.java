@@ -17,7 +17,7 @@ public class DeleteRoleUseCaseImp  implements DeleteRoleUseCase {
 
     @Override
     public void deleteRole(long id) {
-        if(roleRepository.existsById(id)){
+        if(!roleRepository.existsById(id)){
             throw  new InvalidRoleException("Role not found");
         }
         else {

@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -52,11 +53,14 @@ class UpdateCarUseCaseImplTest {
                 .build());
 
         when(carRepository.getReferenceById(car.getId())).thenReturn(car);
+
         var updatedCar = carRepository.getReferenceById(car.getId());
 
         assertEquals(updatedCar, car);
         verify(carRepository).existsById(car.getId());
         verify(carRepository).getReferenceById(car.getId());
+
+
 
     }
     @Test

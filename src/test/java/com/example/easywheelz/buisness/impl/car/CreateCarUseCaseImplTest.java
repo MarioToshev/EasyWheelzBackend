@@ -53,6 +53,8 @@ class CreateCarUseCaseImplTest {
 
         assertEquals(carEnt.getId(), response.getId());
         verify(carRepository).existsByLicensePlate(car.getLicensePlate());
+        verify(carRepository).save(carConverter.convert(car));
+
     }
 
     @Test

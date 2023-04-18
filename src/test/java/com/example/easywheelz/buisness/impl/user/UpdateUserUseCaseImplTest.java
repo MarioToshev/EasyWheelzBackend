@@ -61,6 +61,7 @@ class UpdateUserUseCaseImplTest {
 
         assertEquals(updatedUser, user);
         verify(roleRepository).existsById(roleId);
+
     }
 
     @Test

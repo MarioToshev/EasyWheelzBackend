@@ -40,6 +40,8 @@ class DeleteCarUseCaseImplTest {
 
         assertNull(carRepository.getReferenceById(carEnt.getId()));
         verify(carRepository).existsById(carEnt.getId());
+        verify(carRepository).deleteById(carEnt.getId());
+        
 
     }
     @Test
