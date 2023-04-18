@@ -29,7 +29,7 @@ public class ReservationController {
     private  final GetReservationUseCase getReservation;
 
     @PostMapping(&quot;&quot;)
-    public ResponseEntity&lt;CreateReservationResponse&gt; createUser(@RequestBody CreateReservationRequest request) {
+    public ResponseEntity&lt;CreateReservationResponse&gt; createReservation(@RequestBody CreateReservationRequest request) {
 <span class="nc" id="L33">        CreateReservationResponse response = createReservation.createReservation(request);</span>
 <span class="nc" id="L34">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
@@ -42,12 +42,12 @@ public class ReservationController {
 <span class="nc" id="L42">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
     }
     @PutMapping(&quot;&quot;)
-    public ResponseEntity&lt;String&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
+    public ResponseEntity&lt;Void&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
 <span class="nc" id="L46">        updateReservation.updateReservation(request);</span>
-<span class="nc" id="L47">        return ResponseEntity.ok(String.valueOf(request.getId()));</span>
+<span class="nc" id="L47">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{resId}&quot;)
-    public ResponseEntity deleteReservation(@PathVariable long resId) {
+    public ResponseEntity&lt;Void&gt; deleteReservation(@PathVariable long resId) {
 <span class="nc" id="L51">        deleteReservation.deleteReservation(resId);</span>
 <span class="nc" id="L52">        return ResponseEntity.noContent().build();</span>
     }

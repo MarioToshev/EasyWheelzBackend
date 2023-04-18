@@ -1,13 +1,12 @@
 
 package com.example.easywheelz.buisness.impl.car;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
 import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
+import com.example.easywheelz.customExeptions.InvalidCarCredentials;
 import com.example.easywheelz.persistance.CarRepository;
 import com.example.easywheelz.persistance.entities.CarEntity;
-import lombok.AllArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

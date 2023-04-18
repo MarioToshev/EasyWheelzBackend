@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.role;
 
-import com.example.easywheelz.Errors.InvalidRoleException;
+import com.example.easywheelz.customExeptions.InvalidRoleException;
 import com.example.easywheelz.buisness.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.role.DeleteRoleUseCase;
 import com.example.easywheelz.persistance.RoleRepository;

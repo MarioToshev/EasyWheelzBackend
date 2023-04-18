@@ -27,6 +27,8 @@ repositories {
     mavenCentral()
 }
 
+
+
 dependencies {
     implementation 'org.jetbrains:annotations:23.0.0'
     testImplementation 'org.mockito:mockito-junit-jupiter:3.12.4'
@@ -63,4 +65,7 @@ tasks.named('sonar').configure {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+tasks.withType(JavaCompile) {
+    options.compilerArgs += ["-Xlint:all", "-Xlint:-serial", "-Xlint:-processing"]
 }

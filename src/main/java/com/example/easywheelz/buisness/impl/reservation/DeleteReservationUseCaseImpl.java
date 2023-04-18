@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidReservationError;
+import com.example.easywheelz.customExeptions.InvalidReservationExeption;
 import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
 import com.example.easywheelz.persistance.ReservationRepository;
 import lombok.AllArgsConstructor;
@@ -18,7 +18,7 @@ public class DeleteReservationUseCaseImpl implements DeleteReservationUseCase {
         }
         else
         {
-            throw  new InvalidReservationError("Reservation not found");
+            throw  new InvalidReservationExeption("Reservation not found");
         }
     }
 }

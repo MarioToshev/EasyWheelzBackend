@@ -1,12 +1,8 @@
 package com.example.easywheelz.buisness.impl.role;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
-import com.example.easywheelz.Errors.InvalidRoleException;
-import com.example.easywheelz.buisness.CarConverter;
+import com.example.easywheelz.customExeptions.InvalidRoleException;
 import com.example.easywheelz.buisness.RoleConverter;
-import com.example.easywheelz.buisness.impl.car.DeleteCarUseCaseImpl;
 import com.example.easywheelz.persistance.RoleRepository;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import com.example.easywheelz.persistance.entities.RoleEntity;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,7 +11,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

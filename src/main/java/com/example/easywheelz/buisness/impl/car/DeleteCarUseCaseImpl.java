@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.car;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
+import com.example.easywheelz.customExeptions.InvalidCarCredentials;
 import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
 import com.example.easywheelz.persistance.CarRepository;
 import lombok.AllArgsConstructor;

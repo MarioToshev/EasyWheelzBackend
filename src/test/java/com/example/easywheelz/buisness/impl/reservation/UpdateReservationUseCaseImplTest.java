@@ -1,11 +1,8 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
-import com.example.easywheelz.Errors.InvalidReservationError;
+import com.example.easywheelz.customExeptions.InvalidReservationExeption;
 import com.example.easywheelz.buisness.ReservationConverter;
 import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.car.UpdateCarRequest;
-import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
 import com.example.easywheelz.domain.user.User;
 import com.example.easywheelz.persistance.ReservationRepository;
@@ -82,7 +79,7 @@ class UpdateReservationUseCaseImplTest {
 
 
 
-        Exception exception = assertThrows(InvalidReservationError.class, () -> {
+        Exception exception = assertThrows(InvalidReservationExeption.class, () -> {
             updateReservationUseCase.updateReservation(UpdateReservationRequest.builder()
                     .car(Car.builder().build())
                     .customer(User.builder().build())

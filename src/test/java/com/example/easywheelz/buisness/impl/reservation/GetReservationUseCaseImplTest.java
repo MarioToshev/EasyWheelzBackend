@@ -1,12 +1,9 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
-import com.example.easywheelz.Errors.InvalidReservationError;
+import com.example.easywheelz.customExeptions.InvalidReservationExeption;
 import com.example.easywheelz.buisness.ReservationConverter;
-import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.persistance.ReservationRepository;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import com.example.easywheelz.persistance.entities.ReservationEntity;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -49,7 +46,7 @@ class GetReservationUseCaseImplTest {
     @Test
     void testGetNonExistingCar() {
 
-        Exception exception = assertThrows(InvalidReservationError.class, () -> {
+        Exception exception = assertThrows(InvalidReservationExeption.class, () -> {
             getReservationUseCase.getReservation(1L);
         });
 

@@ -1,6 +1,6 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
+import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
@@ -75,9 +75,7 @@ class UserControllerTest {
                 .role(new Role())
                 .build();
 
-        CreateUserResponse response = CreateUserResponse.builder()
-                .id(1L)
-                .build();
+
         when(createUserUseCase.createUser(request)).thenThrow(new IncorrectUserCredentialsError(""));
 
         assertThrows(IncorrectUserCredentialsError.class, () -> userController.createUser(request));
@@ -203,6 +201,18 @@ class UserControllerTest {
         assertEquals(HttpStatus.OK, getAll.getStatusCode());
         assertEquals(users.get(0).getId(), getAll.getBody().get(0).getId());
         assertEquals(users.get(1).getId(), getAll.getBody().get(1).getId());
+        verify(getUsersUseCase).getAllUsers();
+    }
+    @Test
+    void GetAllUsersTesEmpty() {
+        List<User> users = new ArrayList<>();
+
+        when(getUsersUseCase.getAllUsers()).thenReturn(users);
+        ResponseEntity<List<User>> getAll = userController.getAllUsers();
+
+
+        assertEquals(HttpStatus.OK, getAll.getStatusCode());
+       assertEquals(0,getAll.getBody().size());
         verify(getUsersUseCase).getAllUsers();
     }
 }

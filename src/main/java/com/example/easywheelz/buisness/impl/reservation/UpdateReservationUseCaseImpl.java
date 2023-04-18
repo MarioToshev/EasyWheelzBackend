@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidReservationError;
+import com.example.easywheelz.customExeptions.InvalidReservationExeption;
 import com.example.easywheelz.buisness.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.UpdateReservationUseCase;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
@@ -22,7 +22,7 @@ public class UpdateReservationUseCaseImpl implements UpdateReservationUseCase {
         }
         else
         {
-            throw new InvalidReservationError("Reservation not found");
+            throw new InvalidReservationExeption("Reservation not found");
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
+import com.example.easywheelz.customExeptions.InvalidCarCredentials;
 import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
 import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
 import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
@@ -72,9 +72,7 @@ class CarControllerTest {
                 .availability(true)
                 .build();
 
-        CreateCarResponse response = CreateCarResponse.builder()
-                .id(1L)
-                .build();
+
         when(createCarUseCase.createCar(request)).thenThrow(new InvalidCarCredentials(""));
 
         assertThrows(InvalidCarCredentials.class, () -> carController.createCar(request));
@@ -188,7 +186,7 @@ class CarControllerTest {
                 .availability(true)
                 .build();
 
-        List<Car> cars = new ArrayList<>();
+        ArrayList<Car> cars = new ArrayList<>();
         cars.add(car);
         cars.add(car1);
 
@@ -197,8 +195,21 @@ class CarControllerTest {
 
 
         assertEquals(HttpStatus.OK, getAll.getStatusCode());
-        assertEquals(cars.get(0).getId(), getAll.getBody().get(0).getId());
-        assertEquals(cars.get(1).getId(), getAll.getBody().get(1).getId());
+        assertTrue(getAll.getBody().contains(car));
+        assertTrue(getAll.getBody().contains(car1));
+        verify(getCarsUseCase).getAllCars();
+    }
+    @Test
+    void GetAllCarsTestEmpty() {
+
+        ArrayList<Car> cars = new ArrayList<>();
+
+        when(getCarsUseCase.getAllCars()).thenReturn(cars);
+        ResponseEntity<List<Car>> getAll = carController.getAllCars();
+
+
+        assertEquals(HttpStatus.OK, getAll.getStatusCode());
+        assertEquals(0,getAll.getBody().size());
         verify(getCarsUseCase).getAllCars();
     }
 }

@@ -44,7 +44,7 @@ public class CarController {
         return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{carId}")
-    public ResponseEntity deleteCar(@PathVariable long carId) {
+    public ResponseEntity<Void> deleteCar(@PathVariable long carId) {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }

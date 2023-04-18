@@ -29,7 +29,7 @@ public class ReservationController {
     private  final GetReservationUseCase getReservation;
 
     @PostMapping("")
-    public ResponseEntity<CreateReservationResponse> createUser(@RequestBody CreateReservationRequest request) {
+    public ResponseEntity<CreateReservationResponse> createReservation(@RequestBody CreateReservationRequest request) {
         CreateReservationResponse response = createReservation.createReservation(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
@@ -42,12 +42,12 @@ public class ReservationController {
         return ResponseEntity.ok(getReservation.getReservation(resId));
     }
     @PutMapping("")
-    public ResponseEntity<String> updateReservation(@RequestBody UpdateReservationRequest request) {
+    public ResponseEntity<Void> updateReservation(@RequestBody UpdateReservationRequest request) {
         updateReservation.updateReservation(request);
-        return ResponseEntity.ok(String.valueOf(request.getId()));
+        return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{resId}")
-    public ResponseEntity deleteReservation(@PathVariable long resId) {
+    public ResponseEntity<Void> deleteReservation(@PathVariable long resId) {
         deleteReservation.deleteReservation(resId);
         return ResponseEntity.noContent().build();
     }

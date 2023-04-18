@@ -1,10 +1,7 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidCarCredentials;
-import com.example.easywheelz.Errors.InvalidReservationError;
-import com.example.easywheelz.buisness.CarConverter;
+import com.example.easywheelz.customExeptions.InvalidReservationExeption;
 import com.example.easywheelz.buisness.ReservationConverter;
-import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.persistance.ReservationRepository;
 import com.example.easywheelz.persistance.entities.CarEntity;
 import com.example.easywheelz.persistance.entities.ReservationEntity;
@@ -52,7 +49,7 @@ class DeleteReservationUseCaseImplTest {
 
         when(resRepository.existsById(carEnt.getId())).thenReturn(false);
 
-        Exception exception = assertThrows(InvalidReservationError.class, () -> {
+        Exception exception = assertThrows(InvalidReservationExeption.class, () -> {
             deleteReservationUseCase.deleteReservation(carEnt.getId());
         });
 

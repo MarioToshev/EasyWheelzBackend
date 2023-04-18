@@ -1,9 +1,6 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.Errors.InvalidReservationError;
-import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.buisness.ReservationConverter;
-import com.example.easywheelz.buisness.UserConverter;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.role.Role;
@@ -20,7 +17,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
-import java.util.Currency;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
