@@ -146,7 +146,7 @@ class UserControllerTest {
                 .firstName("Mario")
                 .lastName("Toshev")
                 .driverLicense(29494380492L)
-                .phone(02435452423L)
+                .phone(2435452423L)
                 .password("1234")
                 .role(new Role())
                 .build();
@@ -177,7 +177,7 @@ class UserControllerTest {
                 .firstName("Mario")
                 .lastName("Toshev")
                 .driverLicense(29494380492L)
-                .phone(02435452423L)
+                .phone(2435452423L)
                 .password("1234")
                 .role(new Role())
                 .build();
@@ -187,12 +187,12 @@ class UserControllerTest {
                 .firstName("Dario")
                 .lastName("Doshev")
                 .driverLicense(12432123)
-                .phone(02123223L)
+                .phone(2123223L)
                 .password("2345")
                 .role(new Role())
                 .build();
 
-        List<User> users = new ArrayList<User>();
+        List<User> users = new ArrayList<>();
         users.add(user);
         users.add(user1);
 

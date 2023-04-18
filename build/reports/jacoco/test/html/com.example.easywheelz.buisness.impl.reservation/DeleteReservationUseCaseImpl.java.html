@@ -3,7 +3,6 @@
 import com.example.easywheelz.Errors.InvalidReservationError;
 import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
 import com.example.easywheelz.persistance.ReservationRepository;
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,13 +13,13 @@ public class DeleteReservationUseCaseImpl implements DeleteReservationUseCase {
 
     @Override
     public void deleteReservation(long resId) {
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (reservationRepository.existsById(resId)){</span>
-<span class="nc" id="L18">            reservationRepository.deleteById(resId);</span>
+<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (reservationRepository.existsById(resId)){</span>
+<span class="nc" id="L17">            reservationRepository.deleteById(resId);</span>
         }
         else
         {
-<span class="nc" id="L22">            throw  new InvalidReservationError(&quot;Reservation not found&quot;);</span>
+<span class="nc" id="L21">            throw  new InvalidReservationError(&quot;Reservation not found&quot;);</span>
         }
-<span class="nc" id="L24">    }</span>
+<span class="nc" id="L23">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

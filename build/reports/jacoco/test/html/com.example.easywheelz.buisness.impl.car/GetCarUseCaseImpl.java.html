@@ -5,13 +5,10 @@ import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.persistance.CarRepository;
-import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor
@@ -21,15 +18,15 @@ public class GetCarUseCaseImpl implements GetCarUseCase {
     private final CarConverter carConverter;
     @Override
     public Car getCar(long id) {
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (carRepository.existsById(id)){</span>
-<span class="nc" id="L25">            return carConverter.convert(carRepository.getReferenceById(id));</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (carRepository.existsById(id)){</span>
+<span class="nc" id="L22">            return carConverter.convert(carRepository.getReferenceById(id));</span>
         }
-<span class="nc" id="L27">        throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
+<span class="nc" id="L24">        throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
     }
 
     @Override
     public List&lt;Car&gt; getAllCars() {
-<span class="nc" id="L32">        return  carRepository.findAll().stream().map(carConverter::convert).toList();</span>
+<span class="nc" id="L29">        return  carRepository.findAll().stream().map(carConverter::convert).toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

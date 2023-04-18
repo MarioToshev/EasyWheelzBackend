@@ -3,7 +3,6 @@ package com.example.easywheelz.buisness.impl.reservation;
 import com.example.easywheelz.Errors.InvalidReservationError;
 import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
 import com.example.easywheelz.persistance.ReservationRepository;
-import com.mysql.cj.jdbc.PreparedStatementWrapper;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

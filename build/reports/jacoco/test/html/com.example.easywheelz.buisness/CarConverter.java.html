@@ -8,53 +8,51 @@ import lombok.AllArgsConstructor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class CarConverter {
     public CarEntity convert(@NotNull CreateCarRequest request){
-<span class="nc" id="L17">        return CarEntity.builder()</span>
-<span class="nc" id="L18">                .model(request.getModel())</span>
-<span class="nc" id="L19">                .availability(request.isAvailability())</span>
-<span class="nc" id="L20">                .brand(request.getBrand())</span>
-<span class="nc" id="L21">                .pricePerDay(request.getPricePerDay())</span>
-<span class="nc" id="L22">                .licensePlate(request.getLicensePlate())</span>
-<span class="nc" id="L23">                .color(request.getColor())</span>
-<span class="nc" id="L24">                .build();</span>
+<span class="nc" id="L15">        return CarEntity.builder()</span>
+<span class="nc" id="L16">                .model(request.getModel())</span>
+<span class="nc" id="L17">                .availability(request.isAvailability())</span>
+<span class="nc" id="L18">                .brand(request.getBrand())</span>
+<span class="nc" id="L19">                .pricePerDay(request.getPricePerDay())</span>
+<span class="nc" id="L20">                .licensePlate(request.getLicensePlate())</span>
+<span class="nc" id="L21">                .color(request.getColor())</span>
+<span class="nc" id="L22">                .build();</span>
     }
     public CarEntity convert(@NotNull UpdateCarRequest request){
-<span class="nc" id="L27">        return CarEntity.builder()</span>
-<span class="nc" id="L28">                .id(request.getId())</span>
-<span class="nc" id="L29">                .model(request.getModel())</span>
-<span class="nc" id="L30">                .availability(request.isAvailability())</span>
-<span class="nc" id="L31">                .brand(request.getBrand())</span>
-<span class="nc" id="L32">                .pricePerDay(request.getPricePerDay())</span>
-<span class="nc" id="L33">                .licensePlate(request.getLicensePlate())</span>
-<span class="nc" id="L34">                .color(request.getColor())</span>
-<span class="nc" id="L35">                .build();</span>
+<span class="nc" id="L25">        return CarEntity.builder()</span>
+<span class="nc" id="L26">                .id(request.getId())</span>
+<span class="nc" id="L27">                .model(request.getModel())</span>
+<span class="nc" id="L28">                .availability(request.isAvailability())</span>
+<span class="nc" id="L29">                .brand(request.getBrand())</span>
+<span class="nc" id="L30">                .pricePerDay(request.getPricePerDay())</span>
+<span class="nc" id="L31">                .licensePlate(request.getLicensePlate())</span>
+<span class="nc" id="L32">                .color(request.getColor())</span>
+<span class="nc" id="L33">                .build();</span>
     }
     public Car convert(@NotNull CarEntity car){
-<span class="nc" id="L38">        return Car.builder()</span>
-<span class="nc" id="L39">                .id(car.getId())</span>
-<span class="nc" id="L40">                .model(car.getModel())</span>
-<span class="nc" id="L41">                .availability(car.isAvailability())</span>
-<span class="nc" id="L42">                .brand(car.getBrand())</span>
-<span class="nc" id="L43">                .pricePerDay(car.getPricePerDay())</span>
-<span class="nc" id="L44">                .licensePlate(car.getLicensePlate())</span>
-<span class="nc" id="L45">                .color(car.getColor())</span>
-<span class="nc" id="L46">                .build();</span>
+<span class="nc" id="L36">        return Car.builder()</span>
+<span class="nc" id="L37">                .id(car.getId())</span>
+<span class="nc" id="L38">                .model(car.getModel())</span>
+<span class="nc" id="L39">                .availability(car.isAvailability())</span>
+<span class="nc" id="L40">                .brand(car.getBrand())</span>
+<span class="nc" id="L41">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L42">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L43">                .color(car.getColor())</span>
+<span class="nc" id="L44">                .build();</span>
     }
     public CarEntity convert(@NotNull Car car){
-<span class="nc" id="L49">        return CarEntity.builder()</span>
-<span class="nc" id="L50">                .id(car.getId())</span>
-<span class="nc" id="L51">                .model(car.getModel())</span>
-<span class="nc" id="L52">                .availability(car.isAvailability())</span>
-<span class="nc" id="L53">                .brand(car.getBrand())</span>
-<span class="nc" id="L54">                .pricePerDay(car.getPricePerDay())</span>
-<span class="nc" id="L55">                .licensePlate(car.getLicensePlate())</span>
-<span class="nc" id="L56">                .color(car.getColor())</span>
-<span class="nc" id="L57">                .build();</span>
+<span class="nc" id="L47">        return CarEntity.builder()</span>
+<span class="nc" id="L48">                .id(car.getId())</span>
+<span class="nc" id="L49">                .model(car.getModel())</span>
+<span class="nc" id="L50">                .availability(car.isAvailability())</span>
+<span class="nc" id="L51">                .brand(car.getBrand())</span>
+<span class="nc" id="L52">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L53">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L54">                .color(car.getColor())</span>
+<span class="nc" id="L55">                .build();</span>
     }
 
 }

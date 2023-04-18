@@ -5,13 +5,10 @@ import com.example.easywheelz.buisness.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.persistance.CarRepository;
-import jakarta.validation.constraints.Null;
 import lombok.AllArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Objects;
 
 @Service
 @AllArgsConstructor

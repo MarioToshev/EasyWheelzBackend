@@ -1,7 +1,6 @@
 package com.example.easywheelz.domain.user;
 
 import com.example.easywheelz.domain.role.Role;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NonNull;

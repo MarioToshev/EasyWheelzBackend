@@ -3,8 +3,6 @@
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
@@ -14,8 +12,8 @@ public class CreateRoleRequest {
     @NotBlank
     private String roleName;
     @JsonCreator
-<span class="nc" id="L17">    public CreateRoleRequest(@JsonProperty(&quot;roleName&quot;) String roleName){</span>
-<span class="nc" id="L18">    this.roleName = roleName;</span>
-<span class="nc" id="L19">    }</span>
+<span class="nc" id="L15">    public CreateRoleRequest(@JsonProperty(&quot;roleName&quot;) String roleName){</span>
+<span class="nc" id="L16">    this.roleName = roleName;</span>
+<span class="nc" id="L17">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

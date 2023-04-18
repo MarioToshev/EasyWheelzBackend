@@ -1,15 +1,13 @@
 package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.Errors.IncorrectUserCredentialsError;
-import com.example.easywheelz.Errors.NoRoleExeption;
 import com.example.easywheelz.buisness.RoleConverter;
-import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.UserConverter;
+import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
-import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

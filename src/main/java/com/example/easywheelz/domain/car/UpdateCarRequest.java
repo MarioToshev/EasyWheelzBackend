@@ -3,7 +3,6 @@ package com.example.easywheelz.domain.car;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.lang.NonNull;
 @Data
 @Builder
 public class UpdateCarRequest {
