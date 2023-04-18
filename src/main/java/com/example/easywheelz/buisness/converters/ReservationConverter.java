@@ -1,4 +1,4 @@
-package com.example.easywheelz.buisness;
+package com.example.easywheelz.buisness.converters;
 
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.Reservation;

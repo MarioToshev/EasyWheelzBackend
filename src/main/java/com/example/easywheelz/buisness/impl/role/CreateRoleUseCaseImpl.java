@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.role;
 
-import com.example.easywheelz.buisness.RoleConverter;
+import com.example.easywheelz.buisness.converters.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
 import com.example.easywheelz.customExeptions.InvalidRoleException;
 import com.example.easywheelz.domain.role.CreateRoleRequest;

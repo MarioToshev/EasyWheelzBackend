@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
-import com.example.easywheelz.buisness.UserConverter;
+import com.example.easywheelz.buisness.converters.UserConverter;
 import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.persistance.RoleRepository;

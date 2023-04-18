@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.car;
 
 import com.example.easywheelz.customExeptions.InvalidCarCredentials;
-import com.example.easywheelz.buisness.CarConverter;
+import com.example.easywheelz.buisness.converters.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;

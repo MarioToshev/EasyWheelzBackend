@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.car;
 
 import com.example.easywheelz.customExeptions.InvalidCarCredentials;
-import com.example.easywheelz.buisness.CarConverter;
+import com.example.easywheelz.buisness.converters.CarConverter;
 import com.example.easywheelz.persistance.CarRepository;
 import com.example.easywheelz.persistance.entities.CarEntity;
 import org.junit.jupiter.api.Test;
@@ -41,7 +41,7 @@ class DeleteCarUseCaseImplTest {
         assertNull(carRepository.getReferenceById(carEnt.getId()));
         verify(carRepository).existsById(carEnt.getId());
         verify(carRepository).deleteById(carEnt.getId());
-        
+
 
     }
     @Test

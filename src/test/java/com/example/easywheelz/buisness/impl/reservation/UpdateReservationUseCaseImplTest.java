@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
 import com.example.easywheelz.customExeptions.InvalidReservationExeption;
-import com.example.easywheelz.buisness.ReservationConverter;
+import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
 import com.example.easywheelz.domain.user.User;

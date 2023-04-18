@@ -1,8 +1,8 @@
 package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
-import com.example.easywheelz.buisness.RoleConverter;
-import com.example.easywheelz.buisness.UserConverter;
+import com.example.easywheelz.buisness.converters.RoleConverter;
+import com.example.easywheelz.buisness.converters.UserConverter;
 import com.example.easywheelz.buisness.impl.role.CreateRoleUseCaseImpl;
 import com.example.easywheelz.domain.role.Role;
 import com.example.easywheelz.domain.user.CreateUserRequest;
@@ -101,8 +101,6 @@ class CreateUserUseCaseImplTest {
         });
 
         assertEquals("This email is already in use.", exception.getMessage());
-
-        assertEquals("This email is already in use.",exception.getMessage() );
         verify(userRepository).existsByEmail(any());
         //the other methods are after this check so no need to veryfy them
     }

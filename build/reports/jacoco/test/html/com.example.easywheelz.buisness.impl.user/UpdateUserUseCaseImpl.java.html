@@ -19,11 +19,11 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     private final UserConverter converter;
     @Override
     public void updateUser(UpdateUserRequest request) {
-<span class="pc bpc" id="L22" title="1 of 2 branches missed.">        if (!roleRepository.existsById(request.getRole().getId())){</span>
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (!roleRepository.existsById(request.getRole().getId())){</span>
 
 <span class="nc" id="L24">            throw new IncorrectUserCredentialsError(&quot;Role doesn't exist&quot;);</span>
         }
-<span class="fc" id="L26">        userRepository.save(converter.convert(request));</span>
-<span class="fc" id="L27">    }</span>
+<span class="nc" id="L26">        userRepository.save(converter.convert(request));</span>
+<span class="nc" id="L27">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

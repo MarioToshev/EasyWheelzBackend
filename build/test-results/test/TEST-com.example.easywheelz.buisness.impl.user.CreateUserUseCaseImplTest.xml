@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-04-18T17:43:37" hostname="MARIOS_PC" time="0.62">
+  <properties/>
+  <testcase name="testCreateUserWithExistingEmail()" classname="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" time="0.62"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
