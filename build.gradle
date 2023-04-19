@@ -16,11 +16,6 @@ sonar {
         property "sonar.projectKey", "EasyWheelzAnalytics"
         property "sonar.projectName", "EasyWheelzAnalytics"
         property "sonar.qualitygate.wait", true
-        def projectPath = "com/example/easywheelz"
-        def exclusionList = [
-                "${projectPath}/buisness/converters/*"
-        ].join(', ')
-        property "sonar.coverage.exclusions", exclusionList
     }
 }
 configurations {
@@ -62,13 +57,6 @@ dependencies {
 jacocoTestReport {
     reports {
         xml.required = true
-    }
-    afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: [
-                    '**/buisness/converters/**',
-            ])
-        }))
     }
 }
 test.finalizedBy jacocoTestReport
