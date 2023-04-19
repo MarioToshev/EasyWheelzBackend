@@ -9,8 +9,6 @@ import com.example.easywheelz.persistance.entities.UserEntity;
 import org.springframework.stereotype.Service;
 @Service
 public class UserConverter {
-    public UserConverter() {
-    }
     public UserEntity convert(CreateUserRequest request ){
         return UserEntity.builder()
                 .phone(request.getPhone())
