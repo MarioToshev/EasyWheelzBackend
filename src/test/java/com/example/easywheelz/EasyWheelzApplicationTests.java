@@ -8,6 +8,7 @@ class EasyWheelzApplicationTests {
 
     @Test
     void contextLoads() {
+
     }
 
 }

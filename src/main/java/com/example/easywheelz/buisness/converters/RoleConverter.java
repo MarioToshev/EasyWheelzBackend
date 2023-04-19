@@ -7,8 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RoleConverter {
-    private RoleConverter() {
-    }
     public RoleEntity convert(CreateRoleRequest request) {
         return RoleEntity.builder()
                 .roleName(request.getRoleName())

@@ -17,7 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cars")
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+@CrossOrigin(origins = "http://  :3000", allowCredentials = "true")
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
     private final UpdateCarUseCase updateCarUseCase;
