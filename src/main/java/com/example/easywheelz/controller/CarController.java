@@ -1,9 +1,6 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
+import com.example.easywheelz.buisness.interfaces.car.*;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
@@ -12,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 @RestController
@@ -23,6 +21,8 @@ public class CarController {
     private final UpdateCarUseCase updateCarUseCase;
     private final DeleteCarUseCase deleteCarUseCase;
     private final GetCarUseCase getCarUseCase;
+    private final UploadCarPhotoUseCase uploadCarPhotoUseCase;
+
 
     @PostMapping("")
     public ResponseEntity<CreateCarResponse> createCar(@RequestBody CreateCarRequest request) {
@@ -48,5 +48,11 @@ public class CarController {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }
+
+    @PutMapping("/photo/{carId}")
+    public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,@ModelAttribute MultipartFile photo) {
+            uploadCarPhotoUseCase.uploadPicture(photo, id);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        }
 
 }

@@ -19,6 +19,7 @@ public class Car {
     private double pricePerDay;
     @NotBlank
     private String color;
+    private String photoUrl;
     @NotBlank
         private boolean availability;
 

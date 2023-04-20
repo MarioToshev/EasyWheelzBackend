@@ -35,6 +35,10 @@ public class CarEntity {
     @Column
     @NotEmpty
     private String color;
+
+    @Column
+    private String photoUrl;
+
     @Column
     private boolean availability;
 }

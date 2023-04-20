@@ -41,6 +41,7 @@ public class CarConverter {
                 .pricePerDay(car.getPricePerDay())
                 .licensePlate(car.getLicensePlate())
                 .color(car.getColor())
+                .photoUrl(car.getPhotoUrl())
                 .build();
     }
     public CarEntity convert(@NotNull Car car){
@@ -52,7 +53,7 @@ public class CarConverter {
                 .pricePerDay(car.getPricePerDay())
                 .licensePlate(car.getLicensePlate())
                 .color(car.getColor())
+                .photoUrl(car.getPhotoUrl())
                 .build();
     }
-
 }
