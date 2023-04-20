@@ -4,29 +4,29 @@ import com.example.easywheelz.buisness.interfaces.car.UploadCarPhotoUseCase;
 import com.example.easywheelz.persistance.CarRepository;
 import com.example.easywheelz.persistance.FileRepository;
 import com.example.easywheelz.persistance.entities.CarEntity;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.security.PublicKey;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+
 @Service
+@AllArgsConstructor
 public class UploadCarPhotoUseCaseImp implements UploadCarPhotoUseCase {
-
-
-    public CarRepository carRepository;
-    public FileRepository fileRepository;
+    private CarRepository carRepository;
+    private FileRepository fileRepository;
 
     @Override
     public void uploadPicture(MultipartFile photo, long id) {
-
-        if (!carRepository.existsById(id))
+        Optional<CarEntity> car = carRepository.findById(id);
+        if (car.isEmpty())
             throw new NoSuchElementException("Car not found");
         else {
-            CarEntity car = carRepository.getReferenceById(id);
             String url = fileRepository.uploadPicture(photo);
-            car.setPhotoUrl(url);
-            carRepository.save(car);
+           CarEntity carEnt = car.get();
+            carEnt.setPhotoUrl(url);
+            carRepository.save(carEnt);
         }
     }
 }

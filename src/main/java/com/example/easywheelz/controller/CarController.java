@@ -15,7 +15,6 @@ import java.util.List;
 @RestController
 @RequestMapping("/cars")
 @AllArgsConstructor
-@CrossOrigin(origins = "http://  :3000", allowCredentials = "true")
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
     private final UpdateCarUseCase updateCarUseCase;
@@ -48,9 +47,10 @@ public class CarController {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }
-
-    @PutMapping("/photo/{carId}")
-    public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,@ModelAttribute MultipartFile photo) {
+    @PostMapping("/{carId}")
+    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,
+                                            @RequestParam("photo") MultipartFile photo) {
             uploadCarPhotoUseCase.uploadPicture(photo, id);
             return ResponseEntity.status(HttpStatus.OK).build();
         }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.converters.UserConverterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-04-19T16:47:47" hostname="MARIOS_PC" time="0.415">
+<testsuite name="com.example.easywheelz.buisness.converters.UserConverterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-04-20T15:38:18" hostname="MARIOS_PC" time="0.433">
   <properties/>
-  <testcase name="convertUpdateUserRequestToUserEntityWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.401"/>
-  <testcase name="convertUpdateUserRequestToUserEntity()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.004"/>
-  <testcase name="convertUserToUserEntityWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.001"/>
+  <testcase name="convertUpdateUserRequestToUserEntityWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.416"/>
+  <testcase name="convertUpdateUserRequestToUserEntity()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.006"/>
+  <testcase name="convertUserToUserEntityWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.002"/>
   <testcase name="convertUserToUserEntity()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.002"/>
   <testcase name="convertCreateUserRequestToUserEntityWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.001"/>
-  <testcase name="convertCreateUserRequestToUserEntity()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.001"/>
+  <testcase name="convertCreateUserRequestToUserEntity()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.002"/>
   <testcase name="convertUserEntityToUserWrong()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.001"/>
   <testcase name="convertUserEntityToUser()" classname="com.example.easywheelz.buisness.converters.UserConverterTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>

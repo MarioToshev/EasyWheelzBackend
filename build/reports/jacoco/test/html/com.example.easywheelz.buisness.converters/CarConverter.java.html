@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CarConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.buisness.converters</a> &gt; <span class="el_source">CarConverter.java</span></div><h1>CarConverter.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.buisness.converters;
+
+import com.example.easywheelz.domain.car.Car;
+import com.example.easywheelz.domain.car.CreateCarRequest;
+import com.example.easywheelz.domain.car.UpdateCarRequest;
+import com.example.easywheelz.persistance.entities.CarEntity;
+import lombok.AllArgsConstructor;
+import org.jetbrains.annotations.NotNull;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class CarConverter {
+    public CarEntity convert(@NotNull CreateCarRequest request){
+<span class="nc" id="L15">        return CarEntity.builder()</span>
+<span class="nc" id="L16">                .model(request.getModel())</span>
+<span class="nc" id="L17">                .availability(request.isAvailability())</span>
+<span class="nc" id="L18">                .brand(request.getBrand())</span>
+<span class="nc" id="L19">                .pricePerDay(request.getPricePerDay())</span>
+<span class="nc" id="L20">                .licensePlate(request.getLicensePlate())</span>
+<span class="nc" id="L21">                .color(request.getColor())</span>
+<span class="nc" id="L22">                .build();</span>
+    }
+    public CarEntity convert(@NotNull UpdateCarRequest request){
+<span class="nc" id="L25">        return CarEntity.builder()</span>
+<span class="nc" id="L26">                .id(request.getId())</span>
+<span class="nc" id="L27">                .model(request.getModel())</span>
+<span class="nc" id="L28">                .availability(request.isAvailability())</span>
+<span class="nc" id="L29">                .brand(request.getBrand())</span>
+<span class="nc" id="L30">                .pricePerDay(request.getPricePerDay())</span>
+<span class="nc" id="L31">                .licensePlate(request.getLicensePlate())</span>
+<span class="nc" id="L32">                .color(request.getColor())</span>
+<span class="nc" id="L33">                .build();</span>
+    }
+    public Car convert(@NotNull CarEntity car){
+<span class="nc" id="L36">        return Car.builder()</span>
+<span class="nc" id="L37">                .id(car.getId())</span>
+<span class="nc" id="L38">                .model(car.getModel())</span>
+<span class="nc" id="L39">                .availability(car.isAvailability())</span>
+<span class="nc" id="L40">                .brand(car.getBrand())</span>
+<span class="nc" id="L41">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L42">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L43">                .color(car.getColor())</span>
+<span class="nc" id="L44">                .photoUrl(car.getPhotoUrl())</span>
+<span class="nc" id="L45">                .build();</span>
+    }
+    public CarEntity convert(@NotNull Car car){
+<span class="nc" id="L48">        return CarEntity.builder()</span>
+<span class="nc" id="L49">                .id(car.getId())</span>
+<span class="nc" id="L50">                .model(car.getModel())</span>
+<span class="nc" id="L51">                .availability(car.isAvailability())</span>
+<span class="nc" id="L52">                .brand(car.getBrand())</span>
+<span class="nc" id="L53">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L54">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L55">                .color(car.getColor())</span>
+<span class="nc" id="L56">                .photoUrl(car.getPhotoUrl())</span>
+<span class="nc" id="L57">                .build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

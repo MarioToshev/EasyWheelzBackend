@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FileRepositoryImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.persistance</a> &gt; <span class="el_source">FileRepositoryImpl.java</span></div><h1>FileRepositoryImpl.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.persistance;
+
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
+import com.example.easywheelz.persistance.FileRepository;
+import com.example.easywheelz.customExeptions.ImageUploadExeption;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+<span class="nc" id="L13">public class FileRepositoryImpl implements FileRepository {</span>
+    @Override
+    public String uploadPicture(MultipartFile photo) {
+<span class="nc" id="L16">        Map&lt;String, String&gt; config = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L17">        config.put(&quot;cloud_name&quot;, &quot;dxg6ys3z5&quot;);</span>
+<span class="nc" id="L18">        config.put(&quot;api_key&quot;, &quot;796359929671874&quot;);</span>
+<span class="nc" id="L19">        config.put(&quot;api_secret&quot;, &quot;dvowRp1R6OKApVoRr4libS6REQQ&quot;);</span>
+<span class="nc" id="L20">        Cloudinary cloudinary = new Cloudinary(config);</span>
+
+        try {
+<span class="nc" id="L23">            var uploadResult = cloudinary.uploader().upload(photo.getBytes(), ObjectUtils.emptyMap());</span>
+<span class="nc" id="L24">            return uploadResult.get(&quot;url&quot;).toString();</span>
+<span class="nc" id="L25">        } catch (IOException exception) {</span>
+<span class="nc" id="L26">            throw new ImageUploadExeption(&quot;There was an error uploading the picture&quot;);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

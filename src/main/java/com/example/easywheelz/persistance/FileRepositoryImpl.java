@@ -4,12 +4,13 @@ import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 import com.example.easywheelz.persistance.FileRepository;
 import com.example.easywheelz.customExeptions.ImageUploadExeption;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
+@Repository
 public class FileRepositoryImpl implements FileRepository {
     @Override
     public String uploadPicture(MultipartFile photo) {
