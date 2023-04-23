@@ -1,10 +1,12 @@
 package com.example.easywheelz.controller;
 
 import com.example.easywheelz.buisness.interfaces.car.*;
+import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,6 +31,8 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN","ROLE_CUSTOMER"})
     public ResponseEntity<List<Car>> getAllCars() {
         return ResponseEntity.ok(getCarUseCase.getAllCars());
     }

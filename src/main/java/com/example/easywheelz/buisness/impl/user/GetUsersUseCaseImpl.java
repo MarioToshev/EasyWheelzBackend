@@ -4,10 +4,12 @@ import com.example.easywheelz.buisness.converters.UserConverter;
 import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
 import com.example.easywheelz.domain.user.User;
 import com.example.easywheelz.persistance.UserRepository;
+import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -19,11 +21,8 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
     @Override
     public User getUser(long id) {
-        if (userRepository.existsById(id)){
-            return converter.convert(userRepository.getReferenceById(id));
-        }
-        else
-            return null;
+        Optional<UserEntity> userEntity = userRepository.findById(id);
+        return userEntity.map(converter::convert).orElse(null);
     }
 
     @Override

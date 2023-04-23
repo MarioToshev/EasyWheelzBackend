@@ -9,12 +9,14 @@ import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
 public class CreateUserUseCaseImpl implements CreateUserUseCase {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
     private final RoleRepository roleRepository;
     private RoleConverter roleConverter;
     private final UserConverter userConverter;
@@ -28,6 +30,9 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
             throw new IncorrectUserCredentialsError("This phone number is already in use.");
         }
            request.setRole(roleConverter.convert(roleRepository.findByRoleName("Customer")));
+
+        String encodedPassword = passwordEncoder.encode(request.getPassword());
+        request.setPassword(encodedPassword);
 
         return CreateUserResponse.builder().id(
                 userRepository.save(userConverter.convert(request)).getId()
