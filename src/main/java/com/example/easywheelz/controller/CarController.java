@@ -17,6 +17,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/cars")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
     private final UpdateCarUseCase updateCarUseCase;
@@ -31,8 +32,6 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("")
-    @IsAuthenticated
-    @RolesAllowed({"ROLE_ADMIN","ROLE_CUSTOMER"})
     public ResponseEntity<List<Car>> getAllCars() {
         return ResponseEntity.ok(getCarUseCase.getAllCars());
     }
@@ -53,6 +52,8 @@ public class CarController {
     }
     @PostMapping("/{carId}")
     @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,
                                             @RequestParam("photo") MultipartFile photo) {
             uploadCarPhotoUseCase.uploadPicture(photo, id);
