@@ -5,8 +5,11 @@ import com.example.easywheelz.buisness.converters.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
 import com.example.easywheelz.persistance.CarRepository;
+import com.example.easywheelz.persistance.entities.CarEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -16,9 +19,11 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
 
     @Override
     public void updateCar(UpdateCarRequest request) {
-        if (carRepository.existsById(request.getId())){
-            carRepository.save(carConverter.convert(request));
-
+        Optional<CarEntity> carFromBase = carRepository.findById(request.getId());
+        if (carFromBase.isPresent()){
+            CarEntity carToUpdate = carConverter.convert(request);
+            carToUpdate.setPhotoUrl(carFromBase.get().getPhotoUrl());
+            carRepository.save(carToUpdate);
         }
         else {
             throw new InvalidCarCredentials("Car not found");
