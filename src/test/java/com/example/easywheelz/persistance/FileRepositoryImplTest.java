@@ -5,6 +5,7 @@ import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,7 +19,7 @@ import static org.mockito.Mockito.when;
 
 class FileRepositoryImplTest {
 
-    @InjectMocks
+    @Mock
     private FileRepositoryImpl repo;
     @Test
     void uploadPicture(){

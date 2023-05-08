@@ -11,14 +11,14 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 @Repository
-<span class="fc" id="L14">public class FileRepositoryImpl implements FileRepository {</span>
+<span class="nc" id="L14">public class FileRepositoryImpl implements FileRepository {</span>
     @Override
     public String uploadPicture(MultipartFile photo) {
-<span class="fc" id="L17">        Map&lt;String, String&gt; config = new HashMap&lt;&gt;();</span>
-<span class="fc" id="L18">        config.put(&quot;cloud_name&quot;, &quot;dxg6ys3z5&quot;);</span>
-<span class="fc" id="L19">        config.put(&quot;api_key&quot;, &quot;796359929671874&quot;);</span>
-<span class="fc" id="L20">        config.put(&quot;api_secret&quot;, &quot;dvowRp1R6OKApVoRr4libS6REQQ&quot;);</span>
-<span class="fc" id="L21">        Cloudinary cloudinary = new Cloudinary(config);</span>
+<span class="nc" id="L17">        Map&lt;String, String&gt; config = new HashMap&lt;&gt;();</span>
+<span class="nc" id="L18">        config.put(&quot;cloud_name&quot;, &quot;dxg6ys3z5&quot;);</span>
+<span class="nc" id="L19">        config.put(&quot;api_key&quot;, &quot;796359929671874&quot;);</span>
+<span class="nc" id="L20">        config.put(&quot;api_secret&quot;, &quot;dvowRp1R6OKApVoRr4libS6REQQ&quot;);</span>
+<span class="nc" id="L21">        Cloudinary cloudinary = new Cloudinary(config);</span>
 
         try {
 <span class="nc" id="L24">            var uploadResult = cloudinary.uploader().upload(photo.getBytes(), ObjectUtils.emptyMap());</span>
