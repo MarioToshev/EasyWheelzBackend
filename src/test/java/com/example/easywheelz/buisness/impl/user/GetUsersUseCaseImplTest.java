@@ -53,7 +53,7 @@ class GetUsersUseCaseImplTest {
     void testGetNonExistantUser() {
 
         assertNull(getUsersUseCase.getUser(6));
-        verify(userRepository).existsById(6L);
+        verify(userRepository).findById(6L);
 
     }
     @Test
