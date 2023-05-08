@@ -27,11 +27,11 @@ public class LogInUseCaseImpl implements LogInUseCase {
     public LogInResponse login(LogInRequest loginRequest) {
         UserEntity user = userRepository.findByEmail(loginRequest.getEmail());
         if (user == null) {
-            throw new IncorrectUserCredentialsError("");
+            throw new IncorrectUserCredentialsError("Invalid credentials");
         }
 
         if (!matchesPassword(loginRequest.getPassword(), user.getPassword())) {
-            throw new IncorrectUserCredentialsError("");
+            throw new IncorrectUserCredentialsError("Invalid credentials");
         }
 
         String accessToken = generateAccessToken(user);

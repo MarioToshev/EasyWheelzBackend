@@ -11,13 +11,16 @@ import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.domain.user.User;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.test.context.support.WithMockUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +35,8 @@ class UserControllerTest {
     @Mock
     private  CreateUserUseCase createUserUseCase;
     @Mock
+    private AccessToken requestAccessToken;
+    @Mock
     private  UpdateUserUseCase updateUserUseCase;
     @Mock
     private  DeleteUserUseCase deleteUserUseCase;
@@ -39,6 +44,7 @@ class UserControllerTest {
     private  GetUsersUseCase getUsersUseCase;
     @InjectMocks
     private UserController userController;
+
 
     @Test
      void createUserTest(){
@@ -139,37 +145,111 @@ class UserControllerTest {
     }
 
 
-//    @Test
-//    void GetUserTest() {
-//        User user = User.builder()
-//                .id(1L)
-//                .email("m@m.m")
-//                .firstName("Mario")
-//                .lastName("Toshev")
-//                .driverLicense(29494380492L)
-//                .phone(2435452423L)
-//                .password("1234")
-//                .role(Role.builder().roleName("Admin").build())
-//                .build();
-//        when(userController.getRequestAccessToken()).thenReturn(accessToken);
-//        when(getUsersUseCase.getUser(1L)).thenReturn(user);
-//
-//        ResponseEntity<User> get = userController.getUser(1L);
-//
-//
-//        assertEquals(HttpStatus.OK, get.getStatusCode());
-//        assertEquals(1L, get.getBody().getId());
-//        verify(getUsersUseCase).getUser(1L);
-//    }
-//    @Test
-//    void GetUserTestNotExistingUser() {
-//        when(getUsersUseCase.getUser(1L)).thenReturn(null);
-//        ResponseEntity<User> get = userController.getUser(1L);
-//
-//        assertEquals(HttpStatus.OK, get.getStatusCode());
-//        assertNull(get.getBody());
-//        verify(getUsersUseCase).getUser(1L);
-//    }
+    @Test
+    void GetUserSameTestAdmin() {
+
+        when(requestAccessToken.hasRole("ROLE_ADMIN")).thenReturn(true);
+      //  when(requestAccessToken.getUserId()).thenReturn(1L);
+
+        User user = User.builder()
+                .id(1L)
+                .email("m@m.m")
+                .firstName("Mario")
+                .lastName("Toshev")
+                .driverLicense(29494380492L)
+                .phone(2435452423L)
+                .password("1234")
+                .role(Role.builder().roleName("Admin").build())
+                .build();
+
+
+
+        when(getUsersUseCase.getUser(user.getId())).thenReturn(user);
+
+        ResponseEntity<User> get = userController.getUser(1L);
+
+
+        assertEquals(HttpStatus.OK, get.getStatusCode());
+        verify(getUsersUseCase).getUser(user.getId());
+    }
+    @Test
+    @WithMockUser(username = "admin", roles = {"ROLE_ADMIN"})
+    void GetOtherUserTestAdmin() {
+
+        when(requestAccessToken.hasRole("ROLE_ADMIN")).thenReturn(true);
+
+        User user = User.builder()
+                .id(2L)
+                .email("m@m.m")
+                .firstName("Mario")
+                .lastName("Toshev")
+                .driverLicense(29494380492L)
+                .phone(2435452423L)
+                .password("1234")
+                .role(Role.builder().roleName("Admin").build())
+                .build();
+
+
+
+        when(getUsersUseCase.getUser(user.getId())).thenReturn(user);
+
+        ResponseEntity<User> get = userController.getUser(2L);
+
+
+        assertEquals(HttpStatus.OK, get.getStatusCode());
+        verify(getUsersUseCase).getUser(user.getId());
+    }
+    @Test
+    void GetSameUserTestCustomer() {
+
+        when(requestAccessToken.hasRole("ROLE_ADMIN")).thenReturn(false);
+        when(requestAccessToken.getUserId()).thenReturn(1L);
+
+        User user = User.builder()
+                .id(1L)
+                .email("m@m.m")
+                .firstName("Mario")
+                .lastName("Toshev")
+                .driverLicense(29494380492L)
+                .phone(2435452423L)
+                .password("1234")
+                .role(Role.builder().roleName("Customer").build())
+                .build();
+
+
+
+        when(getUsersUseCase.getUser(user.getId())).thenReturn(user);
+
+        ResponseEntity<User> get = userController.getUser(1L);
+
+
+        assertEquals(HttpStatus.OK, get.getStatusCode());
+        verify(getUsersUseCase).getUser(user.getId());
+    }
+    @Test
+    void GetOtherUserTestCustomer() {
+
+        when(requestAccessToken.hasRole("ROLE_ADMIN")).thenReturn(false);
+        when(requestAccessToken.getUserId()).thenReturn(2L);
+
+
+        ResponseEntity<User> get = userController.getUser(1L);
+
+
+        assertEquals(HttpStatus.FORBIDDEN, get.getStatusCode());
+    }
+    @Test
+    void GetUserTestNotExistingUser() {
+
+        when(requestAccessToken.hasRole("ROLE_ADMIN")).thenReturn(true);
+
+        when(getUsersUseCase.getUser(1L)).thenReturn(null);
+        ResponseEntity<User> get = userController.getUser(1L);
+
+        assertEquals(HttpStatus.OK, get.getStatusCode());
+        assertNull(get.getBody());
+        verify(getUsersUseCase).getUser(1L);
+    }
 
     @Test
     void GetAllUsersTest() {

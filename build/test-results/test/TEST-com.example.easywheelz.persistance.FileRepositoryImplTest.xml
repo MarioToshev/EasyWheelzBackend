@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.persistance.FileRepositoryImplTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2023-05-08T18:04:03" hostname="MARIOS_PC" time="1.231">
+  <properties/>
+  <testcase name="uploadPictureWrong()" classname="com.example.easywheelz.persistance.FileRepositoryImplTest" time="1.231">
+    <failure message="java.lang.RuntimeException: Invalid image file" type="java.lang.RuntimeException">java.lang.RuntimeException: Invalid image file
+	at com.cloudinary.strategies.AbstractUploaderStrategy.processResponse(AbstractUploaderStrategy.java:85)
+	at com.cloudinary.http44.UploaderStrategy.callApi(UploaderStrategy.java:140)
+	at com.cloudinary.Uploader.callApi(Uploader.java:34)
+	at com.cloudinary.Uploader.upload(Uploader.java:76)
+	at com.cloudinary.Uploader.upload(Uploader.java:68)
+	at com.example.easywheelz.persistance.FileRepositoryImpl.uploadPicture(FileRepositoryImpl.java:24)
+	at com.example.easywheelz.persistance.FileRepositoryImplTest.uploadPictureWrong(FileRepositoryImplTest.java:43)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:727)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:156)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:147)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:86)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:103)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:92)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:86)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:217)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:213)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:138)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:68)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
+	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:53)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:62)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at jdk.proxy2/jdk.proxy2.$Proxy5.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker$3.run(TestWorker.java:193)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.executeAndMaintainThreadName(TestWorker.java:129)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:100)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.execute(TestWorker.java:60)
+	at org.gradle.process.internal.worker.child.ActionExecutionWorker.execute(ActionExecutionWorker.java:56)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:113)
+	at org.gradle.process.internal.worker.child.SystemApplicationClassLoaderWorker.call(SystemApplicationClassLoaderWorker.java:65)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.run(GradleWorkerMain.java:69)
+	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
+</failure>
+  </testcase>
+  <system-out><![CDATA[20:04:04.484 [Test worker] DEBUG org.apache.http.client.protocol.RequestAddCookies - CookieSpec selected: default
+20:04:04.495 [Test worker] DEBUG org.apache.http.client.protocol.RequestAuthCache - Auth cache not set in the context
+20:04:04.496 [Test worker] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection request: [route: {s}->https://api.cloudinary.com:443][total available: 0; route allocated: 0 of 5; total allocated: 0 of 10]
+20:04:04.504 [Test worker] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection leased: [id: 0][route: {s}->https://api.cloudinary.com:443][total available: 0; route allocated: 1 of 5; total allocated: 1 of 10]
+20:04:04.505 [Test worker] DEBUG org.apache.http.impl.execchain.MainClientExec - Opening connection {s}->https://api.cloudinary.com:443
+20:04:04.509 [Test worker] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connecting to api.cloudinary.com/34.192.249.210:443
+20:04:04.509 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory - Connecting socket to api.cloudinary.com/34.192.249.210:443 with timeout 0
+20:04:04.643 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory - Enabled protocols: [TLSv1.3, TLSv1.2]
+20:04:04.643 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory - Enabled cipher suites:[TLS_AES_256_GCM_SHA384, TLS_AES_128_GCM_SHA256, TLS_CHACHA20_POLY1305_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_RSA_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_CHACHA20_POLY1305_SHA256, TLS_DHE_DSS_WITH_AES_256_GCM_SHA384, TLS_DHE_RSA_WITH_AES_128_GCM_SHA256, TLS_DHE_DSS_WITH_AES_128_GCM_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_RSA_WITH_AES_256_CBC_SHA256, TLS_DHE_DSS_WITH_AES_256_CBC_SHA256, TLS_DHE_RSA_WITH_AES_128_CBC_SHA256, TLS_DHE_DSS_WITH_AES_128_CBC_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_RSA_WITH_AES_256_GCM_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_RSA_WITH_AES_128_GCM_SHA256, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA384, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA256, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA256, TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_RSA_WITH_AES_256_CBC_SHA, TLS_DHE_DSS_WITH_AES_256_CBC_SHA, TLS_DHE_RSA_WITH_AES_128_CBC_SHA, TLS_DHE_DSS_WITH_AES_128_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDH_RSA_WITH_AES_256_CBC_SHA, TLS_ECDH_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDH_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_256_GCM_SHA384, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA, TLS_EMPTY_RENEGOTIATION_INFO_SCSV]
+20:04:04.643 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory - Starting handshake
+20:04:04.901 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory - Secure session established
+20:04:04.901 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory -  negotiated protocol: TLSv1.2
+20:04:04.902 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory -  negotiated cipher suite: TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+20:04:04.902 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory -  peer principal: CN=*.cloudinary.com, O=Cloudinary Ltd, L=Petah Tikva, C=IL
+20:04:04.902 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory -  peer alternative names: [*.cloudinary.com, cloudinary.com]
+20:04:04.902 [Test worker] DEBUG org.apache.http.conn.ssl.SSLConnectionSocketFactory -  issuer principal: CN=Go Daddy Secure Certificate Authority - G2, OU=http://certs.godaddy.com/repository/, O="GoDaddy.com, Inc.", L=Scottsdale, ST=Arizona, C=US
+20:04:04.904 [Test worker] DEBUG org.apache.http.impl.conn.DefaultHttpClientConnectionOperator - Connection established 10.17.0.14:55779<->34.192.249.210:443
+20:04:04.904 [Test worker] DEBUG org.apache.http.impl.execchain.MainClientExec - Executing request POST /v1_1/dxg6ys3z5/image/upload HTTP/1.1
+20:04:04.904 [Test worker] DEBUG org.apache.http.impl.execchain.MainClientExec - Target auth state: UNCHALLENGED
+20:04:04.904 [Test worker] DEBUG org.apache.http.impl.execchain.MainClientExec - Proxy auth state: UNCHALLENGED
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> POST /v1_1/dxg6ys3z5/image/upload HTTP/1.1
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Length: 520
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> Content-Type: multipart/form-data; boundary=_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> Host: api.cloudinary.com
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> Connection: Keep-Alive
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> User-Agent: CloudinaryJava/1.33.0 (Java 17.0.6) ApacheHTTPComponents/4.4
+20:04:04.905 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 >> Accept-Encoding: gzip,deflate
+20:04:04.905 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "POST /v1_1/dxg6ys3z5/image/upload HTTP/1.1[\r][\n]"
+20:04:04.905 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Length: 520[\r][\n]"
+20:04:04.905 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Type: multipart/form-data; boundary=_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM[\r][\n]"
+20:04:04.905 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Host: api.cloudinary.com[\r][\n]"
+20:04:04.905 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Connection: Keep-Alive[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "User-Agent: CloudinaryJava/1.33.0 (Java 17.0.6) ApacheHTTPComponents/4.4[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Accept-Encoding: gzip,deflate[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "--_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Disposition: form-data; name="signature"[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "24d2e26ae4b6179e69bd5ea56208cf4a04863b43"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "--_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM[\r][\n]"
+20:04:04.906 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Disposition: form-data; name="api_key"[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "796359929671874"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "--_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Disposition: form-data; name="timestamp"[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "1683569044"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "--_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Disposition: form-data; name="file"; filename="file"[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "Content-Type: application/octet-stream[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "content[\r][\n]"
+20:04:04.907 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 >> "--_5em4_WtLis4cnrMgLLQ-WCPkjgWbOpM--[\r][\n]"
+20:04:05.110 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "HTTP/1.1 400 Bad Request[\r][\n]"
+20:04:05.110 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Date: Mon, 08 May 2023 18:04:05 GMT[\r][\n]"
+20:04:05.110 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Content-Type: application/json; charset=utf-8[\r][\n]"
+20:04:05.110 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Transfer-Encoding: chunked[\r][\n]"
+20:04:05.110 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Connection: keep-alive[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Status: 400 Bad Request[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Cache-Control: no-cache[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "X-Cld-Error: Invalid image file[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "X-XSS-Protection: 1; mode=block[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "X-Request-Id: 279ab455587148c9a08cc832b7343896[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "X-UA-Compatible: IE=Edge,chrome=1[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "Server: cloudinary[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "2a[\r][\n]"
+20:04:05.111 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "{"error":{"message":"Invalid image file"}}[\r][\n]"
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << HTTP/1.1 400 Bad Request
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Date: Mon, 08 May 2023 18:04:05 GMT
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Content-Type: application/json; charset=utf-8
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Transfer-Encoding: chunked
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Connection: keep-alive
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Status: 400 Bad Request
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Cache-Control: no-cache
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << X-Cld-Error: Invalid image file
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << X-XSS-Protection: 1; mode=block
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << X-Request-Id: 279ab455587148c9a08cc832b7343896
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << X-UA-Compatible: IE=Edge,chrome=1
+20:04:05.113 [Test worker] DEBUG org.apache.http.headers - http-outgoing-0 << Server: cloudinary
+20:04:05.117 [Test worker] DEBUG org.apache.http.impl.execchain.MainClientExec - Connection can be kept alive indefinitely
+20:04:05.118 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "0[\r][\n]"
+20:04:05.118 [Test worker] DEBUG org.apache.http.wire - http-outgoing-0 << "[\r][\n]"
+20:04:05.118 [Test worker] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection [id: 0][route: {s}->https://api.cloudinary.com:443] can be kept alive indefinitely
+20:04:05.118 [Test worker] DEBUG org.apache.http.impl.conn.DefaultManagedHttpClientConnection - http-outgoing-0: set socket timeout to 0
+20:04:05.118 [Test worker] DEBUG org.apache.http.impl.conn.PoolingHttpClientConnectionManager - Connection released: [id: 0][route: {s}->https://api.cloudinary.com:443][total available: 1; route allocated: 1 of 5; total allocated: 1 of 10]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
