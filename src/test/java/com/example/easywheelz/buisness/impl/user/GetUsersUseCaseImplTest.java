@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
@@ -40,14 +41,12 @@ class GetUsersUseCaseImplTest {
 
 
         var id = user.getId();
-        when(userRepository.existsById(id)).thenReturn(true);
-        when(userRepository.getReferenceById(id)).thenReturn(user);
+        when(userRepository.findById(id)).thenReturn(Optional.of(user));
 
         User user1 = getUsersUseCase.getUser(id);
 
         assertEquals(userConverter.convert(user),user1);
-        verify(userRepository).existsById(user.getId());
-        verify(userRepository).getReferenceById(user.getId());
+        verify(userRepository).findById(user.getId());
     }
 
     @Test

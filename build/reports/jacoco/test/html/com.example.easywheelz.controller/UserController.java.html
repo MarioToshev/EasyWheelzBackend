@@ -4,10 +4,13 @@ import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
 import com.example.easywheelz.buisness.interfaces.user.UpdateUserUseCase;
+import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
+import com.example.easywheelz.domain.AccessToken;
 import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.domain.user.User;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,30 +27,42 @@ public class UserController {
     private final UpdateUserUseCase updateUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
     private final GetUsersUseCase getUsersUseCase;
+    private AccessToken requestAccessToken;
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateUserResponse&gt; createUser(@RequestBody CreateUserRequest request) {
-<span class="nc" id="L30">        CreateUserResponse response = createUserUseCase.createUser(request);</span>
-<span class="nc" id="L31">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L34">        CreateUserResponse response = createUserUseCase.createUser(request);</span>
+<span class="fc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
     @GetMapping(&quot;&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;User&gt;&gt; getAllUsers() {
-<span class="nc" id="L35">        return ResponseEntity.ok(getUsersUseCase.getAllUsers());</span>
+<span class="fc" id="L41">        return ResponseEntity.ok(getUsersUseCase.getAllUsers());</span>
     }
 
     @GetMapping(&quot;/{userId}&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;, &quot;ROLE_CUSTOMER&quot;})
     public ResponseEntity&lt;User&gt; getUser(@PathVariable long userId) {
-<span class="nc" id="L40">        return ResponseEntity.ok(getUsersUseCase.getUser(userId));</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">        if (!requestAccessToken.hasRole(&quot;ROLE_ADMIN&quot;)){</span>
+<span class="nc bnc" id="L49" title="All 2 branches missed.">            if (requestAccessToken.getUserId() != userId)</span>
+            {
+<span class="nc" id="L51">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);</span>
+            }
+
+        }
+<span class="nc" id="L55">        return ResponseEntity.ok(getUsersUseCase.getUser(userId));</span>
     }
     @PutMapping(&quot;&quot;)
     public ResponseEntity&lt;Void&gt; updateUser(@RequestBody UpdateUserRequest request) {
-<span class="nc" id="L44">        updateUserUseCase.updateUser(request);</span>
-<span class="nc" id="L45">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L59">        updateUserUseCase.updateUser(request);</span>
+<span class="fc" id="L60">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{userId}&quot;)
     public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable long userId) {
-<span class="nc" id="L49">        deleteUserUseCase.deleteUser(userId);</span>
-<span class="nc" id="L50">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L64">        deleteUserUseCase.deleteUser(userId);</span>
+<span class="fc" id="L65">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

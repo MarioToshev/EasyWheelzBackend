@@ -5,8 +5,11 @@ import com.example.easywheelz.buisness.converters.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.UpdateCarRequest;
 import com.example.easywheelz.persistance.CarRepository;
+import com.example.easywheelz.persistance.entities.CarEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -16,14 +19,16 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
 
     @Override
     public void updateCar(UpdateCarRequest request) {
-<span class="nc bnc" id="L19" title="All 2 branches missed.">        if (carRepository.existsById(request.getId())){</span>
-<span class="nc" id="L20">            carRepository.save(carConverter.convert(request));</span>
-
-        }
+<span class="nc" id="L22">        Optional&lt;CarEntity&gt; carFromBase = carRepository.findById(request.getId());</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if (carFromBase.isPresent()){</span>
+<span class="nc" id="L24">            CarEntity carToUpdate = carConverter.convert(request);</span>
+<span class="nc" id="L25">            carToUpdate.setPhotoUrl(carFromBase.get().getPhotoUrl());</span>
+<span class="nc" id="L26">            carRepository.save(carToUpdate);</span>
+<span class="nc" id="L27">        }</span>
         else {
-<span class="nc" id="L24">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
+<span class="nc" id="L29">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
         }
 
-<span class="nc" id="L27">    }</span>
+<span class="nc" id="L32">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
