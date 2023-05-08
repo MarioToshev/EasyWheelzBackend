@@ -1,10 +1,7 @@
 package com.example.easywheelz.controller;
 
+import com.example.easywheelz.buisness.interfaces.car.*;
 import com.example.easywheelz.customExeptions.InvalidCarCredentials;
-import com.example.easywheelz.buisness.interfaces.car.CreateCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.GetCarUseCase;
-import com.example.easywheelz.buisness.interfaces.car.UpdateCarUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;
@@ -16,7 +13,9 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.mock.web.MockMultipartFile;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,6 +32,8 @@ class CarControllerTest {
     private DeleteCarUseCase deleteCarUseCase;
     @Mock
     private GetCarUseCase getCarsUseCase;
+    @Mock
+    private UploadCarPhotoUseCase uploadCarPhotoUseCase;
     @InjectMocks
     private CarController carController;
 
@@ -211,5 +212,16 @@ class CarControllerTest {
         assertEquals(HttpStatus.OK, getAll.getStatusCode());
         assertEquals(0,getAll.getBody().size());
         verify(getCarsUseCase).getAllCars();
+    }
+
+    @Test
+    void UploadPhoto() {
+
+        String fileName = "car.png";
+        String content = "content";
+        byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
+        MockMultipartFile photo = new MockMultipartFile(fileName, fileName, "image/png", bytes);
+
+        assertDoesNotThrow(() -> uploadCarPhotoUseCase.uploadPicture(photo,1L));
     }
 }
