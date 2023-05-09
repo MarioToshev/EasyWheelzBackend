@@ -56,8 +56,8 @@ public class CarController {
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;Void&gt; uploadPhoto(@PathVariable(value = &quot;carId&quot;) final long id,
                                             @RequestParam(&quot;photo&quot;) MultipartFile photo) {
-<span class="nc" id="L59">            uploadCarPhotoUseCase.uploadPicture(photo, id);</span>
-<span class="nc" id="L60">            return ResponseEntity.status(HttpStatus.OK).build();</span>
+<span class="fc" id="L59">            uploadCarPhotoUseCase.uploadPicture(photo, id);</span>
+<span class="fc" id="L60">            return ResponseEntity.status(HttpStatus.OK).build();</span>
         }
 
 }

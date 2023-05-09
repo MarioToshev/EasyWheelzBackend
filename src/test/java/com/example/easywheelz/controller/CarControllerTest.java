@@ -222,6 +222,9 @@ class CarControllerTest {
         byte[] bytes = content.getBytes(StandardCharsets.UTF_8);
         MockMultipartFile photo = new MockMultipartFile(fileName, fileName, "image/png", bytes);
 
-        assertDoesNotThrow(() -> uploadCarPhotoUseCase.uploadPicture(photo,1L));
+        var response =  carController.uploadPhoto(1L,photo);
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        verify(uploadCarPhotoUseCase).uploadPicture(photo,1L);
+
     }
 }
