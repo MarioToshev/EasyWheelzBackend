@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.controller.CarControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-09T18:09:54" hostname="MARIOS_PC" time="0.528">
-  <properties/>
-  <testcase name="UploadPhoto()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.528"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

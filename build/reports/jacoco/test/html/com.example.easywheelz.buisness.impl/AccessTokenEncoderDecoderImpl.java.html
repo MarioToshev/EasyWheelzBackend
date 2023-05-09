@@ -26,7 +26,7 @@ import java.util.Map;
 @Service
 public class AccessTokenEncoderDecoderImpl implements AccessTokenDecoder, AccessTokenEncoder {
     private final Key key;
-<span class="nc" id="L29">    public AccessTokenEncoderDecoderImpl(@Value(&quot;E91E158E4C6656F68B1B5D1C316766DE98D2AD6EF3BFB44F78E9CFCDF5&quot;) String secretKey) {</span>
+<span class="nc" id="L29">        public AccessTokenEncoderDecoderImpl(@Value(&quot;E91E158E4C6656F68B1B5D1C316766DE98D2AD6EF3BFB44F78E9CFCDF5&quot;) String secretKey) {</span>
 <span class="nc" id="L30">        byte[] keyBytes = Decoders.BASE64.decode(secretKey);</span>
 <span class="nc" id="L31">        this.key = Keys.hmacShaKeyFor(keyBytes);</span>
 <span class="nc" id="L32">    }</span>
