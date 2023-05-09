@@ -6,7 +6,9 @@ import com.example.easywheelz.customExeptions.InvalidAccessTokenException;
 import com.example.easywheelz.domain.AccessToken;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import lombok.AllArgsConstructor;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -30,51 +32,63 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
-public class AccessTokenEncoderDecoderImplTest {
+class AccessTokenEncoderDecoderImplTest {
     private static final String SECRET_KEY = "E91E158E4C6656F68B1B5D1C316766DE98D2AD6EF3BFB44F78E9CFCDF5";
-
-
+    private  Key key;
     @Mock
     private AccessToken accessToken;
-    @Mock
-    private AccessTokenEncoderDecoderImpl accessTokenEncoderDecoder;
 
+    private AccessTokenEncoderDecoderImpl accessTokenEncoderDecoder;
 
 
     @Test
      void testEncode() {
-        Instant now = Instant.now();
 
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        this.key = Keys.hmacShaKeyFor(keyBytes);
+        accessTokenEncoderDecoder = new AccessTokenEncoderDecoderImpl(SECRET_KEY);
+        Instant now = Instant.now();
+        when(accessToken.getSubject()).thenReturn("testSubject");
+        when(accessToken.getRoles()).thenReturn(Collections.singletonList("testRole"));
+        when(accessToken.getUserId()).thenReturn(123L);
 
         String expectedToken = Jwts.builder()
                 .setSubject("testSubject")
                 .setIssuedAt(Date.from(now))
                 .setExpiration(Date.from(now.plus(30, ChronoUnit.MINUTES)))
                 .claim("roles", Collections.singletonList("testRole"))
-                .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()), SignatureAlgorithm.HS256)
+                .claim("userId", 123L)
+                .signWith(key)
                 .compact();
 
-
-        when(accessTokenEncoderDecoder.encode(accessToken)).thenReturn(expectedToken);
-
-        String actualToken = accessTokenEncoderDecoder.encode(accessToken).toString();
-
+        String actualToken = accessTokenEncoderDecoder.encode(accessToken);
 
         assertEquals(expectedToken, actualToken);
     }
 
     @Test
-    public void testDecode() {
+     void testDecode() {
+        byte[] keyBytes = Decoders.BASE64.decode(SECRET_KEY);
+        this.key = Keys.hmacShaKeyFor(keyBytes);
+        accessTokenEncoderDecoder = new AccessTokenEncoderDecoderImpl(SECRET_KEY);
+
+
         String token = Jwts.builder()
                 .setSubject("testSubject")
                 .claim("roles", Collections.singletonList("testRole"))
-                .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()), SignatureAlgorithm.HS256)
+                .claim("userId", 123L)
+                .signWith(key)
                 .compact();
 
-        when(accessTokenEncoderDecoder.decode(token)).thenReturn(accessToken);
+
+
 
         AccessToken decodedAccessToken = accessTokenEncoderDecoder.decode(token);
-        assertEquals(accessToken, decodedAccessToken);
+
+        assertEquals(decodedAccessToken.getUserId(), 123L);
+        assertEquals(decodedAccessToken.getRoles(), Collections.singletonList("testRole"));
+        assertEquals(decodedAccessToken.getSubject(), "testSubject");
+
     }
 }
 

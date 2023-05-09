@@ -49,7 +49,6 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenDecoder, Access
                 .signWith(key)
                 .compact();
     }
-
     @Override
     public AccessToken decode(String accessTokenEncoded) {
         try {
