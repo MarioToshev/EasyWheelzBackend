@@ -77,10 +77,16 @@ jacocoTestReport {
     reports {
         xml.required = true
     }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: 'com/example/easywheelz/configuration/**')
+        }))
+    }
 }
 test.finalizedBy jacocoTestReport
 tasks.named('sonar').configure {
     dependsOn test
+
 }
 
 tasks.named('test') {
