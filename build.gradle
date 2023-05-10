@@ -12,11 +12,11 @@ sourceCompatibility = '17'
 
 
 sonar {
-    properties {
-        property "sonar.projectKey", "EasyWheelzAnalytics"
-        property "sonar.projectName", "EasyWheelzAnalytics"
-        property "sonar.qualitygate.wait", true
-    }
+  properties {
+    property "sonar.projectKey", "EasyWheelz"
+    property "sonar.projectName", "EasyWheelz"
+    property "sonar.qualitygate.wait", true 
+  }
 }
 configurations {
     compileOnly {
