@@ -23,7 +23,7 @@ class ReservationConverterTest {
     private ReservationConverter converter;
 
     public ReservationConverterTest(){
-        converter = new ReservationConverter(new CarConverter(), new UserConverter());
+     //   converter = new ReservationConverter();
     }
     @Test
     void convertCreateReservationRequestToReservationEntity() {
@@ -38,7 +38,7 @@ class ReservationConverterTest {
                 .returnDate(LocalDate.of(2023, 4, 15))
                 .rentalRate(23)
                 .totalCost(274.94)
-                .customer(user)
+                //.customer(user)
                 .car(Car.builder().build())
                 .build();
 

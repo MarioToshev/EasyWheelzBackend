@@ -55,7 +55,7 @@ class CreateReservationUseCaseImplTest {
                 .returnDate(LocalDate.of(2023, 4, 15))
                 .rentalRate(23)
                 .totalCost(274.94)
-                .customer(user)
+                //.customer(user)
                 .car(Car.builder().build())
                 .build();
 
@@ -99,7 +99,7 @@ class CreateReservationUseCaseImplTest {
                     .returnDate(LocalDate.of(2023, 4,15))
                     .rentalRate(23)
                     .totalCost(274.94)
-                    .customer(User.builder().build())
+                    //.customerEmail(User.builder().build())
                     .build();
         });
 
