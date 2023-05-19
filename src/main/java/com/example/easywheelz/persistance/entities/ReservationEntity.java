@@ -28,7 +28,7 @@ public class ReservationEntity {
     @NotBlank
     private double totalCost;
     @NonNull
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private UserEntity customer;
    @NonNull

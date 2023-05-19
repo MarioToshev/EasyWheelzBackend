@@ -21,8 +21,6 @@ import java.util.List;
 @RequestMapping("/reservations")
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class ReservationController {
-
-
     private  final CreateReservationUseCase createReservation;
     private  final DeleteReservationUseCase deleteReservation;
     private  final UpdateReservationUseCase updateReservation;

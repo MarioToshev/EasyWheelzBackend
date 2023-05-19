@@ -3,6 +3,7 @@ package com.example.easywheelz.buisness.converters;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
+import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.ReservationEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,11 @@ public class ReservationConverter {
 
     private CarConverter carConverter;
     private  UserConverter userConverter;
+    private UserRepository userRepo;
 
     public ReservationEntity convert(CreateReservationRequest request) {
         return ReservationEntity.builder()
-                .customer(userConverter.convert(request.getCustomer()))
+                .customer(userRepo.findByEmail(request.getCustomerEmail()))
                 .car(carConverter.convert(request.getCar()))
                 .pickUpDate(request.getPickUpDate())
                 .returnDate(request.getReturnDate())

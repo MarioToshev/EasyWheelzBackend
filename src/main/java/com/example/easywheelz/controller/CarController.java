@@ -2,10 +2,8 @@ package com.example.easywheelz.controller;
 
 import com.example.easywheelz.buisness.interfaces.car.*;
 import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
-import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.car.CreateCarRequest;
-import com.example.easywheelz.domain.car.CreateCarResponse;
-import com.example.easywheelz.domain.car.UpdateCarRequest;
+import com.example.easywheelz.domain.car.*;
+import com.example.easywheelz.persistance.entities.CarEntity;
 import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.util.List;
 @RestController
 @RequestMapping("/cars")
@@ -20,10 +19,15 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
+    private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
+
     private final UpdateCarUseCase updateCarUseCase;
     private final DeleteCarUseCase deleteCarUseCase;
     private final GetCarUseCase getCarUseCase;
     private final UploadCarPhotoUseCase uploadCarPhotoUseCase;
+    private  final  FilterCarUseCase filterCarUseCase;
+    private  final  GetAllCarBrandsUseCase getAllCarBrandsUseCase;
+
 
 
     @PostMapping("")
@@ -34,6 +38,16 @@ public class CarController {
     @GetMapping("")
     public ResponseEntity<List<Car>> getAllCars() {
         return ResponseEntity.ok(getCarUseCase.getAllCars());
+    }
+
+//    @GetMapping("/filter")
+//    public ResponseEntity<List<Car>> getAllAvailableCars(@RequestBody FilterCarsByAvailabilityRequest request) {
+//        return ResponseEntity.ok(findAllAvailableCarsUseCars.GetAllAvailableCarsInDateRange(request));
+//    }
+
+    @GetMapping("/brands")
+    public ResponseEntity<List<String>> getAllAvailableCars() {
+        return ResponseEntity.ok(getAllCarBrandsUseCase.getAllCarBrands());
     }
 
     @GetMapping("/{carId}")
@@ -59,5 +73,10 @@ public class CarController {
             uploadCarPhotoUseCase.uploadPicture(photo, id);
             return ResponseEntity.status(HttpStatus.OK).build();
         }
+
+    @PostMapping("/filters")
+    public List<Car> filterCars(@RequestBody FilterRequest request) {
+        return filterCarUseCase.filterCars(request);
+    }
 
 }
