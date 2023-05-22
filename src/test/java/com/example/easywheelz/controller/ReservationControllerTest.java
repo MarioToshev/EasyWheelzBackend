@@ -10,7 +10,7 @@ import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
 import com.example.easywheelz.domain.user.User;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
+import com.example.easywheelz.custom.exeptions.InvalidReservationExeption;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

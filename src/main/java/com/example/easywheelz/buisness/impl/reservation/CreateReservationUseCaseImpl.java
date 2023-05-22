@@ -3,7 +3,7 @@ package com.example.easywheelz.buisness.impl.reservation;
 import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.CheckIfCarIsFreeUseCase;
 import com.example.easywheelz.buisness.interfaces.reservation.CreateReservationUseCase;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
+import com.example.easywheelz.custom.exeptions.InvalidReservationExeption;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.persistance.ReservationRepository;

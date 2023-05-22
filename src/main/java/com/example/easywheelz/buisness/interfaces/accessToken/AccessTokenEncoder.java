@@ -1,4 +1,4 @@
-package com.example.easywheelz.buisness.interfaces.AccessToken;
+package com.example.easywheelz.buisness.interfaces.accessToken;
 
 import com.example.easywheelz.domain.AccessToken;
 

@@ -1,4 +1,4 @@
-package com.example.easywheelz.customExeptions;
+package com.example.easywheelz.custom.exeptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.server.ResponseStatusException;

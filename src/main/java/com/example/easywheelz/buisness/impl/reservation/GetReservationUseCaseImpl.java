@@ -2,7 +2,7 @@ package com.example.easywheelz.buisness.impl.reservation;
 
 import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.GetReservationUseCase;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
+import com.example.easywheelz.custom.exeptions.InvalidReservationExeption;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.persistance.ReservationRepository;
 import lombok.AllArgsConstructor;

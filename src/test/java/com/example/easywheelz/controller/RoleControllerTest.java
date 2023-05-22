@@ -1,15 +1,9 @@
 package com.example.easywheelz.controller;
 
 import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
-import com.example.easywheelz.buisness.interfaces.role.DeleteRoleUseCase;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
-import com.example.easywheelz.customExeptions.InvalidRoleException;
-import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.reservation.CreateReservationRequest;
-import com.example.easywheelz.domain.reservation.CreateReservationResponse;
+import com.example.easywheelz.custom.exeptions.InvalidRoleException;
 import com.example.easywheelz.domain.role.CreateRoleRequest;
 import com.example.easywheelz.domain.role.CreateRoleResponse;
-import com.example.easywheelz.domain.user.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,8 +11,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-
-import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;

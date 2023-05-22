@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.buisness.interfaces.AccessToken.AccessTokenEncoder;
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
+import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenEncoder;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.domain.AccessToken;
 import com.example.easywheelz.domain.user.LogInRequest;
 import com.example.easywheelz.persistance.UserRepository;
@@ -13,8 +13,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.security.crypto.password.PasswordEncoder;
-
-import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;

@@ -1,7 +1,7 @@
 package com.example.easywheelz.controller;
 
 import com.example.easywheelz.buisness.interfaces.car.*;
-import com.example.easywheelz.customExeptions.InvalidCarCredentials;
+import com.example.easywheelz.custom.exeptions.InvalidCarCredentials;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.CreateCarRequest;
 import com.example.easywheelz.domain.car.CreateCarResponse;

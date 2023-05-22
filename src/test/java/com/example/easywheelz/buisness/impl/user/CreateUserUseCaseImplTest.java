@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.converters.RoleConverter;
 import com.example.easywheelz.buisness.converters.UserConverter;
 import com.example.easywheelz.buisness.impl.role.CreateRoleUseCaseImpl;
