@@ -19,8 +19,8 @@ public class CreateReservationRequest {
     private double rentalRate;
     @NotBlank
     private double totalCost;
-    @NotBlank
+    @NotNull
     private String customerEmail;
-    //@NotNull("Car cannot be empty")
+    @NotNull("Car cannot be empty")
     private Car car;
 }

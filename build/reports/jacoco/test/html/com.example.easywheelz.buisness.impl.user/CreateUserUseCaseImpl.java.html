@@ -8,6 +8,7 @@ import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
+import com.example.easywheelz.persistance.entities.RoleEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -23,20 +24,24 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) {
 
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())){</span>
-<span class="nc" id="L27">            throw new IncorrectUserCredentialsError(&quot;This email is already in use.&quot;);</span>
+<span class="nc bnc" id="L27" title="All 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())){</span>
+<span class="nc" id="L28">            throw new IncorrectUserCredentialsError(&quot;This email is already in use.&quot;);</span>
         }
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (userRepository.existsByPhone(request.getPhone())){</span>
-<span class="nc" id="L30">            throw new IncorrectUserCredentialsError(&quot;This phone number is already in use.&quot;);</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (userRepository.existsByPhone(request.getPhone())){</span>
+<span class="nc" id="L31">            throw new IncorrectUserCredentialsError(&quot;This phone number is already in use.&quot;);</span>
         }
-<span class="nc" id="L32">           request.setRole(roleConverter.convert(roleRepository.findByRoleName(&quot;Customer&quot;)));</span>
+<span class="nc" id="L33">        RoleEntity role = roleRepository.findByRoleName(&quot;Customer&quot;);</span>
+<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (role == null){</span>
+<span class="nc" id="L35">            throw new IncorrectUserCredentialsError(&quot;There was an error creating ur account&quot;);</span>
+        }
+<span class="nc" id="L37">           request.setRole(roleConverter.convert(role));</span>
 
-<span class="nc" id="L34">        String encodedPassword = passwordEncoder.encode(request.getPassword());</span>
-<span class="nc" id="L35">        request.setPassword(encodedPassword);</span>
+<span class="nc" id="L39">        String encodedPassword = passwordEncoder.encode(request.getPassword());</span>
+<span class="nc" id="L40">        request.setPassword(encodedPassword);</span>
 
-<span class="nc" id="L37">        return CreateUserResponse.builder().id(</span>
-<span class="nc" id="L38">                userRepository.save(userConverter.convert(request)).getId()</span>
-<span class="nc" id="L39">        ).build();</span>
+<span class="nc" id="L42">        return CreateUserResponse.builder().id(</span>
+<span class="nc" id="L43">                userRepository.save(userConverter.convert(request)).getId()</span>
+<span class="nc" id="L44">        ).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

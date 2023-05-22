@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
-    private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
+        private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
     @Override
@@ -29,7 +29,7 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
 
             if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {
                 return CreateReservationResponse.builder().id(
-                        reservationRepository.saveAndFlush(converter.convert(request)).getId()
+                        reservationRepository.save(converter.convert(request)).getId()
                 ).build();
             }
         }
