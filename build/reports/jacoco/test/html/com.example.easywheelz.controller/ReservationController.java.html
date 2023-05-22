@@ -28,26 +28,26 @@ public class ReservationController {
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateReservationResponse&gt; createReservation(@RequestBody CreateReservationRequest request) {
-<span class="nc" id="L31">        CreateReservationResponse response = createReservation.createReservation(request);</span>
-<span class="nc" id="L32">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L31">        CreateReservationResponse response = createReservation.createReservation(request);</span>
+<span class="fc" id="L32">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
     @GetMapping(&quot;&quot;)
     public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllReservations() {
-<span class="nc" id="L36">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
+<span class="fc" id="L36">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
     }
     @GetMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Reservation&gt; getReservation(@PathVariable long resId) {
-<span class="nc" id="L40">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
+<span class="fc" id="L40">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
     }
     @PutMapping(&quot;&quot;)
     public ResponseEntity&lt;Void&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
-<span class="nc" id="L44">        updateReservation.updateReservation(request);</span>
-<span class="nc" id="L45">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L44">        updateReservation.updateReservation(request);</span>
+<span class="fc" id="L45">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Void&gt; deleteReservation(@PathVariable long resId) {
-<span class="nc" id="L49">        deleteReservation.deleteReservation(resId);</span>
-<span class="nc" id="L50">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L49">        deleteReservation.deleteReservation(resId);</span>
+<span class="fc" id="L50">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

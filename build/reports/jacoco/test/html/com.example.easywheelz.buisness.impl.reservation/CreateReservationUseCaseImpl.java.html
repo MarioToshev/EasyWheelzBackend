@@ -23,14 +23,14 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
     @Override
     @Transactional
     public CreateReservationResponse createReservation(CreateReservationRequest request) {
-<span class="fc" id="L26">        List&lt;ReservationEntity&gt; overlappingReservations = reservationRepository.findOverlappingReservations(request.getCar().getId(),</span>
-<span class="fc" id="L27">                request.getPickUpDate(), request.getReturnDate());</span>
-<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (overlappingReservations.isEmpty()) {</span>
+<span class="nc" id="L26">        List&lt;ReservationEntity&gt; overlappingReservations = reservationRepository.findOverlappingReservations(request.getCar().getId(),</span>
+<span class="nc" id="L27">                request.getPickUpDate(), request.getReturnDate());</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (overlappingReservations.isEmpty()) {</span>
 
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">            if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {</span>
-<span class="fc" id="L31">                return CreateReservationResponse.builder().id(</span>
-<span class="fc" id="L32">                        reservationRepository.save(converter.convert(request)).getId()</span>
-<span class="fc" id="L33">                ).build();</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">            if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {</span>
+<span class="nc" id="L31">                return CreateReservationResponse.builder().id(</span>
+<span class="nc" id="L32">                        reservationRepository.save(converter.convert(request)).getId()</span>
+<span class="nc" id="L33">                ).build();</span>
             }
         }
 <span class="nc" id="L36">          throw new  InvalidReservationExeption(&quot;This car is not available on the chosen dates&quot;);</span>
