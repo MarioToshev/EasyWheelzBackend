@@ -1,6 +1,6 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.buisness.interfaces.user.GetUsersUseCase;
@@ -11,12 +11,10 @@ import com.example.easywheelz.domain.user.CreateUserRequest;
 import com.example.easywheelz.domain.user.CreateUserResponse;
 import com.example.easywheelz.domain.user.UpdateUserRequest;
 import com.example.easywheelz.domain.user.User;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -2,15 +2,12 @@
 
 import com.example.easywheelz.buisness.converters.CarConverter;
 import com.example.easywheelz.buisness.interfaces.car.FindAllAvailableCarsUseCase;
-import com.example.easywheelz.controller.CarController;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.FilterCarsByAvailabilityRequest;
 import com.example.easywheelz.persistance.CarRepository;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 import java.util.List;
 @Service
 @AllArgsConstructor
@@ -20,7 +17,7 @@ public class FindAllAvailableCarsUseCaseImpl implements FindAllAvailableCarsUseC
      private final CarConverter converter;
     @Override
     public List&lt;Car&gt; GetAllAvailableCarsInDateRange(FilterCarsByAvailabilityRequest request) {
-<span class="nc" id="L23">        return carRepository.findAvailableCars(request.getStartDate(),request.getEndDate()).stream().map(converter :: convert).toList();</span>
+<span class="nc" id="L20">        return carRepository.findAvailableCars(request.getStartDate(),request.getEndDate()).stream().map(converter :: convert).toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

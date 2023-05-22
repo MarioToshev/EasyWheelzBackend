@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.persistance.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

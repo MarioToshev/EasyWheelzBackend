@@ -1,6 +1,5 @@
 package com.example.easywheelz.buisness.impl.car;
 
-import com.example.easywheelz.customExeptions.InvalidCarCredentials;
 import com.example.easywheelz.persistance.CarRepository;
 import com.example.easywheelz.persistance.FileRepository;
 import com.example.easywheelz.persistance.entities.CarEntity;
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
 
 import java.nio.charset.StandardCharsets;
@@ -17,7 +15,6 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 

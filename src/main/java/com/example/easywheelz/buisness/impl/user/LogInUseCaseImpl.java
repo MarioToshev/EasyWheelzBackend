@@ -1,8 +1,8 @@
 package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.buisness.interfaces.AccessToken.AccessTokenEncoder;
+import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenEncoder;
 import com.example.easywheelz.buisness.interfaces.user.LogInUseCase;
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.domain.AccessToken;
 import com.example.easywheelz.domain.user.LogInRequest;
 import com.example.easywheelz.domain.user.LogInResponse;

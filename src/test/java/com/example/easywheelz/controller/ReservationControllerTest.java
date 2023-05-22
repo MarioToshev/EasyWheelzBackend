@@ -10,7 +10,7 @@ import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
 import com.example.easywheelz.domain.user.User;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
+import com.example.easywheelz.custom.exeptions.InvalidReservationExeption;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -48,7 +48,7 @@ class ReservationControllerTest {
                 .returnDate(LocalDate.of(2023, 4, 15))
                 .rentalRate(23)
                 .totalCost(274.94)
-                //.customer(User.builder().build())
+                .customerEmail("email")
                 .car(Car.builder().build())
                 .build();
 
@@ -71,7 +71,7 @@ class ReservationControllerTest {
                 .returnDate(LocalDate.of(2023, 4, 15))
                 .rentalRate(23)
                 .totalCost(274.94)
-                //.customer(User.builder().build())
+                .customerEmail("email")
                 .car(Car.builder().build())
                 .build();
 

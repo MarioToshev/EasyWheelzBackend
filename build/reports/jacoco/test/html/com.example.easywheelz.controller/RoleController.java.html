@@ -6,7 +6,10 @@ import com.example.easywheelz.domain.role.CreateRoleResponse;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping(&quot;/roles&quot;)
@@ -17,8 +20,8 @@ public class RoleController {
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateRoleResponse&gt; createRole(@RequestBody CreateRoleRequest request) {
-<span class="nc" id="L20">        CreateRoleResponse response = createRoleUseCase.createRole(request);</span>
-<span class="nc" id="L21">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="nc" id="L23">        CreateRoleResponse response = createRoleUseCase.createRole(request);</span>
+<span class="nc" id="L24">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

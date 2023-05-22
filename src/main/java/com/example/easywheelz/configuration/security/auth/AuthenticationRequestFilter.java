@@ -1,8 +1,8 @@
 package com.example.easywheelz.configuration.security.auth;
 
 
-import com.example.easywheelz.buisness.interfaces.AccessToken.AccessTokenDecoder;
-import com.example.easywheelz.customExeptions.InvalidAccessTokenException;
+import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenDecoder;
+import com.example.easywheelz.custom.exeptions.InvalidAccessTokenException;
 import com.example.easywheelz.domain.AccessToken;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -16,7 +16,6 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 
 import java.io.IOException;
 

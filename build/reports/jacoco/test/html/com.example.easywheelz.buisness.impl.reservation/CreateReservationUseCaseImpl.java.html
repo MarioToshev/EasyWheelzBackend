@@ -3,7 +3,7 @@
 import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.CheckIfCarIsFreeUseCase;
 import com.example.easywheelz.buisness.interfaces.reservation.CreateReservationUseCase;
-import com.example.easywheelz.customExeptions.InvalidReservationExeption;
+import com.example.easywheelz.custom.exeptions.InvalidReservationExeption;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.persistance.ReservationRepository;
@@ -17,7 +17,7 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
-    private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
+        private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
     @Override
@@ -29,7 +29,7 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
 
 <span class="nc bnc" id="L30" title="All 2 branches missed.">            if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {</span>
 <span class="nc" id="L31">                return CreateReservationResponse.builder().id(</span>
-<span class="nc" id="L32">                        reservationRepository.saveAndFlush(converter.convert(request)).getId()</span>
+<span class="nc" id="L32">                        reservationRepository.save(converter.convert(request)).getId()</span>
 <span class="nc" id="L33">                ).build();</span>
             }
         }

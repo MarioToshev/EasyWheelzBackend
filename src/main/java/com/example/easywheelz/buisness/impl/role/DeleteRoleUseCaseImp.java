@@ -1,8 +1,8 @@
 package com.example.easywheelz.buisness.impl.role;
 
-import com.example.easywheelz.customExeptions.InvalidRoleException;
 import com.example.easywheelz.buisness.converters.RoleConverter;
 import com.example.easywheelz.buisness.interfaces.role.DeleteRoleUseCase;
+import com.example.easywheelz.custom.exeptions.InvalidRoleException;
 import com.example.easywheelz.persistance.RoleRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

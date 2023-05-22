@@ -1,6 +1,7 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
 import com.example.easywheelz.buisness.converters.ReservationConverter;
+import com.example.easywheelz.buisness.interfaces.reservation.CheckIfCarIsFreeUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.role.Role;
@@ -25,6 +26,9 @@ import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
 class CreateReservationUseCaseImplTest {
+
+    @Mock
+    private CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
 
     @Mock
     private ReservationRepository resRepository;
@@ -55,9 +59,10 @@ class CreateReservationUseCaseImplTest {
                 .returnDate(LocalDate.of(2023, 4, 15))
                 .rentalRate(23)
                 .totalCost(274.94)
-                //.customer(user)
+                .customerEmail("userEmail")
                 .car(Car.builder().build())
                 .build();
+        when(checkIfCarIsFreeUseCase.checkIfCarIsFree(reservation.getCar().getId(),reservation.getPickUpDate(),reservation.getReturnDate())).thenReturn(true);
 
         when(resRepository.save(reservationConverter.convert(reservation))).thenReturn(
                 ReservationEntity.builder()
@@ -87,7 +92,7 @@ class CreateReservationUseCaseImplTest {
                             .build();
         });
 
-        assertEquals("customer is marked non-null but is null",exception.getMessage());
+        assertEquals("customerEmail is marked non-null but is null",exception.getMessage());
     }
     @Test
     void CreateReservationTestNoCar(){
@@ -99,7 +104,7 @@ class CreateReservationUseCaseImplTest {
                     .returnDate(LocalDate.of(2023, 4,15))
                     .rentalRate(23)
                     .totalCost(274.94)
-                    //.customerEmail(User.builder().build())
+                    .customerEmail("")
                     .build();
         });
 

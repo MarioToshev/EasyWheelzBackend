@@ -5,15 +5,10 @@ import com.example.easywheelz.buisness.interfaces.car.FilterCarUseCase;
 import com.example.easywheelz.domain.car.Car;
 import com.example.easywheelz.domain.car.FilterRequest;
 import com.example.easywheelz.persistance.CarRepository;
-import com.example.easywheelz.persistance.CarSpecifications;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 @Service
 @AllArgsConstructor

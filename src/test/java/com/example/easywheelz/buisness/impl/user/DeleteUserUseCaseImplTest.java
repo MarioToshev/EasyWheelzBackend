@@ -1,6 +1,6 @@
 package com.example.easywheelz.buisness.impl.user;
 
-import com.example.easywheelz.customExeptions.IncorrectUserCredentialsError;
+import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.persistance.RoleRepository;
 import com.example.easywheelz.persistance.UserRepository;
 import com.example.easywheelz.persistance.entities.UserEntity;

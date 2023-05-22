@@ -1,19 +1,18 @@
 package com.example.easywheelz.buisness.impl;
 
-import com.example.easywheelz.buisness.interfaces.AccessToken.AccessTokenDecoder;
-import com.example.easywheelz.buisness.interfaces.AccessToken.AccessTokenEncoder;
-import com.example.easywheelz.customExeptions.InvalidAccessTokenException;
+import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenDecoder;
+import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenEncoder;
+import com.example.easywheelz.custom.exeptions.InvalidAccessTokenException;
 import com.example.easywheelz.domain.AccessToken;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
-import org.springframework.util.CollectionUtils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwt;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
 import java.security.Key;
 import java.time.Instant;

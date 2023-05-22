@@ -3,7 +3,6 @@ package com.example.easywheelz.controller;
 import com.example.easywheelz.buisness.interfaces.car.*;
 import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.easywheelz.domain.car.*;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 import java.util.List;
 @RestController
 @RequestMapping("/cars")

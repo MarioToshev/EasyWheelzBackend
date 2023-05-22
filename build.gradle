@@ -15,6 +15,7 @@ sonar {
   properties {
     property "sonar.projectKey", "EasyWheelz"
     property "sonar.projectName", "EasyWheelz"
+      property "sonar.coverage.exclusions", "**/configuration/**"
     property "sonar.qualitygate.wait", true 
   }
 }
@@ -78,12 +79,18 @@ jacocoTestReport {
     reports {
         xml.required = true
     }
+   dependsOn test
     afterEvaluate {
-        classDirectories.setFrom(files(classDirectories.files.collect {
-            fileTree(dir: it, exclude: 'com/example/easywheelz/configuration/**')
-        }))
+        classDirectories.setFrom(files(classDirectories.files.collect( {
+            fileTree(dir: it, exclude:
+            [
+                    "com.example.easywheelz.configuration/**",
+                     "com.example.easywheelz.domain"
+            ])
+        })))
     }
 }
+
 test.finalizedBy jacocoTestReport
 tasks.named('sonar').configure {
     dependsOn test
