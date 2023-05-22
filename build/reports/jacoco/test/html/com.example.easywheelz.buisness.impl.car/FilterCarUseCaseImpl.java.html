@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>FilterCarUseCaseImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.buisness.impl.car</a> &gt; <span class="el_source">FilterCarUseCaseImpl.java</span></div><h1>FilterCarUseCaseImpl.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.buisness.impl.car;
+
+import com.example.easywheelz.buisness.converters.CarConverter;
+import com.example.easywheelz.buisness.interfaces.car.FilterCarUseCase;
+import com.example.easywheelz.domain.car.Car;
+import com.example.easywheelz.domain.car.FilterRequest;
+import com.example.easywheelz.persistance.CarRepository;
+import com.example.easywheelz.persistance.CarSpecifications;
+import com.example.easywheelz.persistance.entities.CarEntity;
+import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+@Service
+@AllArgsConstructor
+public class FilterCarUseCaseImpl implements FilterCarUseCase {
+
+    private CarRepository carRepo;
+    private CarConverter converter;
+    @Override
+    public List&lt;Car&gt; filterCars(FilterRequest request) {
+<span class="fc" id="L26">        Sort sort = Sort.unsorted();</span>
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">        if (request.getSorting() != null) {</span>
+<span class="nc bnc" id="L28" title="All 2 branches missed.">            if (request.getSorting().equals(&quot;ascending&quot;)) {</span>
+<span class="nc" id="L29">                sort = Sort.by(Sort.Direction.ASC, &quot;pricePerDay&quot;);</span>
+            } else {
+<span class="nc" id="L31">                sort = Sort.by(Sort.Direction.DESC, &quot;pricePerDay&quot;);</span>
+            }
+        }
+<span class="pc bpc" id="L34" title="5 of 6 branches missed.">        if (request.getEndDate() == null &amp;&amp; request.getStartDate() == null &amp;&amp; request.getBrand().isEmpty()){</span>
+<span class="nc" id="L35">            return carRepo.findAll(sort).stream().map(converter :: convert).toList();</span>
+        }
+        else
+        {
+<span class="fc" id="L39">            return carRepo.findAvailableCarsWithBrand(request.getStartDate(),request.getEndDate(), request.getBrand(),sort)</span>
+<span class="fc" id="L40">                    .stream().map(converter :: convert).toList();</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

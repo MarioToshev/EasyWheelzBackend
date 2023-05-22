@@ -1,9 +1,7 @@
 package com.example.easywheelz.controller;
 
-import com.example.easywheelz.buisness.interfaces.reservation.CreateReservationUseCase;
-import com.example.easywheelz.buisness.interfaces.reservation.DeleteReservationUseCase;
-import com.example.easywheelz.buisness.interfaces.reservation.GetReservationUseCase;
-import com.example.easywheelz.buisness.interfaces.reservation.UpdateReservationUseCase;
+import com.example.easywheelz.buisness.interfaces.reservation.*;
+import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
@@ -24,7 +22,9 @@ public class ReservationController {
     private  final CreateReservationUseCase createReservation;
     private  final DeleteReservationUseCase deleteReservation;
     private  final UpdateReservationUseCase updateReservation;
+
     private  final GetReservationUseCase getReservation;
+    private  final GetAllReservationsOfaUserUseCase getAllReservationsOfaUserUseCase;
 
     @PostMapping("")
     public ResponseEntity<CreateReservationResponse> createReservation(@RequestBody CreateReservationRequest request) {
@@ -34,6 +34,10 @@ public class ReservationController {
     @GetMapping("")
     public ResponseEntity<List<Reservation>> getAllReservations() {
         return ResponseEntity.ok(getReservation.getAllReservations());
+    }
+    @PostMapping("/{userId}")
+    public ResponseEntity<List<Reservation>> getAllUserReservations(@PathVariable Long userId) {
+        return ResponseEntity.ok(getAllReservationsOfaUserUseCase.getAllReservationsOfAUser(userId));
     }
     @GetMapping("/{resId}")
     public ResponseEntity<Reservation> getReservation(@PathVariable long resId) {

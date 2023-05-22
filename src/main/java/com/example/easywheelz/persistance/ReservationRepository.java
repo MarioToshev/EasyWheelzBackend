@@ -17,5 +17,5 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
         boolean isCarUnavailableBetweenDates(@Param("carId") Long carId, @Param("pickUpDate") LocalDate pickUpDate, @Param("returnDate") LocalDate returnDate);
         @Query("SELECT r FROM ReservationEntity r WHERE r.car.id = :carId AND r.pickUpDate <= :returnDate AND r.returnDate >= :pickUpDate")
         List<ReservationEntity> findOverlappingReservations(@Param("carId") long carId, @Param("pickUpDate") LocalDate pickUpDate, @Param("returnDate") LocalDate returnDate);
-
+        List<ReservationEntity> findAllByCustomerId(Long userId);
 }
