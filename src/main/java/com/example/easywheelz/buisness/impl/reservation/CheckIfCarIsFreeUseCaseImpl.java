@@ -1,6 +1,5 @@
 package com.example.easywheelz.buisness.impl.reservation;
 
-import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.CheckIfCarIsFreeUseCase;
 import com.example.easywheelz.persistance.ReservationRepository;
 import lombok.AllArgsConstructor;

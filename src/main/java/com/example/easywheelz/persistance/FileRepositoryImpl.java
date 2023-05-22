@@ -2,7 +2,6 @@ package com.example.easywheelz.persistance;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import com.example.easywheelz.persistance.FileRepository;
 import com.example.easywheelz.customExeptions.ImageUploadExeption;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
