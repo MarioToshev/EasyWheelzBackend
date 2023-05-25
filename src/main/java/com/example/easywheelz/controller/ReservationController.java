@@ -6,6 +6,7 @@ import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,6 +33,8 @@ public class ReservationController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
     @GetMapping("")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<List<Reservation>> getAllReservations() {
         return ResponseEntity.ok(getReservation.getAllReservations());
     }

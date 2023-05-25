@@ -29,6 +29,8 @@ public class CarController {
 
 
     @PostMapping("")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<CreateCarResponse> createCar(@RequestBody CreateCarRequest request) {
         CreateCarResponse response = createCarUseCase.createCar(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
@@ -53,17 +55,20 @@ public class CarController {
         return ResponseEntity.ok(getCarUseCase.getCar(carId));
     }
     @PutMapping("")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<Void> updateCar(@RequestBody UpdateCarRequest request) {
         updateCarUseCase.updateCar(request);
         return ResponseEntity.noContent().build();
     }
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     @DeleteMapping("/{carId}")
     public ResponseEntity<Void> deleteCar(@PathVariable long carId) {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }
     @PostMapping("/{carId}")
-    @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,

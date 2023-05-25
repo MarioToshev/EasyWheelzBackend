@@ -21,6 +21,6 @@ public class Car {
     private String color;
     private String photoUrl;
     @NotBlank
-        private boolean availability;
+    private boolean availability;
 
 }

@@ -60,6 +60,8 @@ public class    UserController {
         return ResponseEntity.noContent().build();
     }
     @DeleteMapping("/{userId}")
+    @IsAuthenticated
+    @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<Void> deleteUser(@PathVariable long userId) {
         deleteUserUseCase.deleteUser(userId);
         return ResponseEntity.noContent().build();

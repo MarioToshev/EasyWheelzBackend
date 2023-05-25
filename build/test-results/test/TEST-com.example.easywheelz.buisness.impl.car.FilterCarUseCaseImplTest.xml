@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.car.FilterCarUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-22T13:20:23" hostname="MARIOS_PC" time="0.562">
-  <properties/>
-  <testcase name="filterCarsTestBrand()" classname="com.example.easywheelz.buisness.impl.car.FilterCarUseCaseImplTest" time="0.562"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
