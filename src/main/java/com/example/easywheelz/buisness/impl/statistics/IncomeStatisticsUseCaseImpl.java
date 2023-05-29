@@ -20,7 +20,7 @@ public class IncomeStatisticsUseCaseImpl implements IncomeStatisticsUseCase {
 
 
     @Override
-    public List<IncomePerMonth> gerIncomePerMonthStatistics() {
+    public List<IncomePerMonth> getIncomePerMonthStatistics() {
         List<Tuple> queryRes = repo.getIncomeOfReservationsPerMonth();
 
         List<IncomePerMonth> result = new ArrayList<>();

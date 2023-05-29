@@ -21,8 +21,8 @@ public interface ReservationRepository extends JpaRepository<ReservationEntity, 
         @Query("SELECT r FROM ReservationEntity r WHERE r.car.id = :carId AND r.pickUpDate <= :returnDate AND r.returnDate >= :pickUpDate")
         List<ReservationEntity> findOverlappingReservations(@Param("carId") long carId, @Param("pickUpDate") LocalDate pickUpDate, @Param("returnDate") LocalDate returnDate);
         List<ReservationEntity> findAllByCustomerId(Long userId);
-        @Query("select  Count(r.car.id) as reservations_count, MONTHNAME(r.returnDate) as month from ReservationEntity r  group by month")
+        @Query("select  Count(r.car.id) as reservations_count, MONTHNAME(r.returnDate) as month from ReservationEntity r  group by month ORDER BY r.returnDate")
         List<Tuple> getAmountOfReservationsPerMonth();
-        @Query("SELECT MONTHNAME(r.returnDate) as month, sum(r.totalCost) as income FROM CarEntity c inner join  ReservationEntity r on r.car.id = c.id group by month")
+        @Query("SELECT MONTHNAME(r.returnDate) as month, sum(r.totalCost) as income FROM CarEntity c inner join  ReservationEntity r on r.car.id = c.id group by month ORDER BY r.returnDate ")
         List<Tuple> getIncomeOfReservationsPerMonth();
 }

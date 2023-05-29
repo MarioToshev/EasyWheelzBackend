@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BrandUsageStatisticsUseCaseImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.buisness.impl.statistics</a> &gt; <span class="el_source">BrandUsageStatisticsUseCaseImpl.java</span></div><h1>BrandUsageStatisticsUseCaseImpl.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.buisness.impl.statistics;
+
+import com.example.easywheelz.buisness.interfaces.statistics.BrandUsageStatisticsUseCase;
+import com.example.easywheelz.domain.statistics.BrandCount;
+import com.example.easywheelz.persistance.CarRepository;
+import jakarta.persistence.Tuple;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+@Service
+@AllArgsConstructor
+public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseCase {
+
+    private CarRepository carRepository;
+    @Override
+    public List&lt;BrandCount&gt; brandUsageStatistics() {
+
+<span class="nc" id="L20">        List&lt;Tuple&gt; queryRes = carRepository.getTheCountOfAllBrandsInReservations();</span>
+
+<span class="nc" id="L22">        List&lt;BrandCount&gt; result = new ArrayList&lt;&gt;();</span>
+
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (Tuple t: queryRes) {</span>
+<span class="nc" id="L25">            result.add(</span>
+<span class="nc" id="L26">                    BrandCount.builder()</span>
+<span class="nc" id="L27">                            .count(t.get(&quot;count&quot;, Long.class))</span>
+<span class="nc" id="L28">                            .brand(t.get(&quot;brand&quot;, String.class))</span>
+<span class="nc" id="L29">                            .build());</span>
+<span class="nc" id="L30">        }</span>
+<span class="nc" id="L31">        return result;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -60,9 +60,11 @@ public class    UserController {
 <span class="nc" id="L60">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{userId}&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable long userId) {
-<span class="nc" id="L64">        deleteUserUseCase.deleteUser(userId);</span>
-<span class="nc" id="L65">        return ResponseEntity.noContent().build();</span>
+<span class="nc" id="L66">        deleteUserUseCase.deleteUser(userId);</span>
+<span class="nc" id="L67">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

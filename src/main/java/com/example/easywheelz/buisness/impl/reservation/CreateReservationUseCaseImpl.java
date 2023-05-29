@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -26,6 +27,9 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
         List<ReservationEntity> overlappingReservations = reservationRepository.findOverlappingReservations(request.getCar().getId(),
                 request.getPickUpDate(), request.getReturnDate());
         if (overlappingReservations.isEmpty()) {
+
+            long daysDifference = ChronoUnit.DAYS.between(request.getPickUpDate(), request.getReturnDate());
+            request.setTotalCost((daysDifference +1) * request.getCar().getPricePerDay());
 
             if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {
                 return CreateReservationResponse.builder().id(

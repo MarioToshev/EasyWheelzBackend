@@ -10,7 +10,6 @@ import com.example.easywheelz.domain.statistics.ReservationsPerMonth;
 import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -38,7 +37,7 @@ public class StatisticsController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<List<IncomePerMonth>> getIncomeStatByMonth() {
-        return ResponseEntity.ok(incomeStatisticsUseCase.gerIncomePerMonthStatistics());
+        return ResponseEntity.ok(incomeStatisticsUseCase.getIncomePerMonthStatistics());
     }
 
     @GetMapping("/reservations")

@@ -1,6 +1,5 @@
 package com.example.easywheelz.persistance;
 
-import com.example.easywheelz.domain.statistics.BrandCount;
 import com.example.easywheelz.persistance.entities.CarEntity;
 import jakarta.persistence.Tuple;
 import org.springframework.data.domain.Sort;
@@ -31,5 +30,5 @@ public interface CarRepository extends JpaRepository<CarEntity, Long>, JpaSpecif
     List<String> findAllCarBrands();
     List<CarEntity> findAll(Specification<CarEntity> spec, Sort sort);
     @Query("SELECT c.brand as brand, count(c.brand) as count FROM CarEntity c inner join  ReservationEntity r on r.car.id = c.id group by c.brand")
-    List<Tuple> getTheCountOfAllBrands();
+    List<Tuple> getTheCountOfAllBrandsInReservations();
 }

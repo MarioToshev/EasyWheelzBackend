@@ -2,10 +2,12 @@
 
 import com.example.easywheelz.buisness.interfaces.reservation.*;
 import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
+import com.example.easywheelz.domain.AccessToken;
 import com.example.easywheelz.domain.reservation.CreateReservationRequest;
 import com.example.easywheelz.domain.reservation.CreateReservationResponse;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
+import jakarta.annotation.security.RolesAllowed;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,36 +24,47 @@ public class ReservationController {
     private  final CreateReservationUseCase createReservation;
     private  final DeleteReservationUseCase deleteReservation;
     private  final UpdateReservationUseCase updateReservation;
-
     private  final GetReservationUseCase getReservation;
     private  final GetAllReservationsOfaUserUseCase getAllReservationsOfaUserUseCase;
+    private AccessToken requestAccessToken;
+
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateReservationResponse&gt; createReservation(@RequestBody CreateReservationRequest request) {
-<span class="fc" id="L31">        CreateReservationResponse response = createReservation.createReservation(request);</span>
-<span class="fc" id="L32">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="nc" id="L34">        CreateReservationResponse response = createReservation.createReservation(request);</span>
+<span class="nc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
     @GetMapping(&quot;&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllReservations() {
-<span class="fc" id="L36">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
+<span class="nc" id="L41">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
     }
-    @PostMapping(&quot;/{userId}&quot;)
+    @GetMapping(&quot;/history/{userId}&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;, &quot;ROLE_CUSTOMER&quot;})
     public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllUserReservations(@PathVariable Long userId) {
-<span class="nc" id="L40">        return ResponseEntity.ok(getAllReservationsOfaUserUseCase.getAllReservationsOfAUser(userId));</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (!requestAccessToken.hasRole(&quot;ROLE_ADMIN&quot;)) {</span>
+<span class="nc bnc" id="L48" title="All 2 branches missed.">            if (requestAccessToken.getUserId() != userId) {</span>
+<span class="nc" id="L49">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);</span>
+            }
+        }
+<span class="nc" id="L52">        return ResponseEntity.ok(getAllReservationsOfaUserUseCase.getAllReservationsOfAUser(userId));</span>
     }
+
     @GetMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Reservation&gt; getReservation(@PathVariable long resId) {
-<span class="fc" id="L44">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
+<span class="nc" id="L57">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
     }
     @PutMapping(&quot;&quot;)
     public ResponseEntity&lt;Void&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
-<span class="fc" id="L48">        updateReservation.updateReservation(request);</span>
-<span class="fc" id="L49">        return ResponseEntity.noContent().build();</span>
+<span class="nc" id="L61">        updateReservation.updateReservation(request);</span>
+<span class="nc" id="L62">        return ResponseEntity.noContent().build();</span>
     }
     @DeleteMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Void&gt; deleteReservation(@PathVariable long resId) {
-<span class="fc" id="L53">        deleteReservation.deleteReservation(resId);</span>
-<span class="fc" id="L54">        return ResponseEntity.noContent().build();</span>
+<span class="nc" id="L66">        deleteReservation.deleteReservation(resId);</span>
+<span class="nc" id="L67">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

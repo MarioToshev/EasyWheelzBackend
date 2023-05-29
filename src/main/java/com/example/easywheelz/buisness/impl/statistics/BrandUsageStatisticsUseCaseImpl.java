@@ -2,11 +2,9 @@ package com.example.easywheelz.buisness.impl.statistics;
 
 import com.example.easywheelz.buisness.interfaces.statistics.BrandUsageStatisticsUseCase;
 import com.example.easywheelz.domain.statistics.BrandCount;
-import com.example.easywheelz.domain.statistics.ReservationsPerMonth;
 import com.example.easywheelz.persistance.CarRepository;
 import jakarta.persistence.Tuple;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -19,7 +17,7 @@ public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseC
     @Override
     public List<BrandCount> brandUsageStatistics() {
 
-        List<Tuple> queryRes = carRepository.getTheCountOfAllBrands();
+        List<Tuple> queryRes = carRepository.getTheCountOfAllBrandsInReservations();
 
         List<BrandCount> result = new ArrayList<>();
 
@@ -30,10 +28,6 @@ public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseC
                             .brand(t.get("brand", String.class))
                             .build());
         }
-
-
         return result;
-
-
     }
 }
