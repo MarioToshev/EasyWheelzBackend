@@ -17,18 +17,18 @@ public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseC
     @Override
     public List&lt;BrandCount&gt; brandUsageStatistics() {
 
-<span class="nc" id="L20">        List&lt;Tuple&gt; queryRes = carRepository.getTheCountOfAllBrandsInReservations();</span>
+<span class="nc" id="L20">        List&lt;BrandCount&gt; queryRes = carRepository.getTheCountOfAllBrandsInReservations();</span>
 
-<span class="nc" id="L22">        List&lt;BrandCount&gt; result = new ArrayList&lt;&gt;();</span>
-
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        for (Tuple t: queryRes) {</span>
-<span class="nc" id="L25">            result.add(</span>
-<span class="nc" id="L26">                    BrandCount.builder()</span>
-<span class="nc" id="L27">                            .count(t.get(&quot;count&quot;, Long.class))</span>
-<span class="nc" id="L28">                            .brand(t.get(&quot;brand&quot;, String.class))</span>
-<span class="nc" id="L29">                            .build());</span>
-<span class="nc" id="L30">        }</span>
-<span class="nc" id="L31">        return result;</span>
+//        List&lt;BrandCount&gt; result = new ArrayList&lt;&gt;();
+//
+//        for (Tuple t: queryRes) {
+//            result.add(
+//                    BrandCount.builder()
+//                            .count(t.get(&quot;count&quot;, Long.class))
+//                            .brand(t.get(&quot;brand&quot;, String.class))
+//                            .build());
+//        }
+<span class="nc" id="L31">        return queryRes;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

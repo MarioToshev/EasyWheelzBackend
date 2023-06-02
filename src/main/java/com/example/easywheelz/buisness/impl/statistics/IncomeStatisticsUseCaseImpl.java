@@ -21,17 +21,6 @@ public class IncomeStatisticsUseCaseImpl implements IncomeStatisticsUseCase {
 
     @Override
     public List<IncomePerMonth> getIncomePerMonthStatistics() {
-        List<Tuple> queryRes = repo.getIncomeOfReservationsPerMonth();
-
-        List<IncomePerMonth> result = new ArrayList<>();
-
-        for (Tuple t: queryRes) {
-            result.add(
-                    IncomePerMonth.builder()
-                            .income(t.get("income", Double.class))
-                            .month(t.get("month", String.class))
-                            .build());
-        }
-        return result;
+        return repo.getIncomeOfReservationsPerMonth();
     }
 }

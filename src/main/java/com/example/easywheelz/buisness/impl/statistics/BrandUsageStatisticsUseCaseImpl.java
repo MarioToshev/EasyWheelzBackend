@@ -16,18 +16,6 @@ public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseC
     private CarRepository carRepository;
     @Override
     public List<BrandCount> brandUsageStatistics() {
-
-        List<Tuple> queryRes = carRepository.getTheCountOfAllBrandsInReservations();
-
-        List<BrandCount> result = new ArrayList<>();
-
-        for (Tuple t: queryRes) {
-            result.add(
-                    BrandCount.builder()
-                            .count(t.get("count", Long.class))
-                            .brand(t.get("brand", String.class))
-                            .build());
-        }
-        return result;
+        return carRepository.getTheCountOfAllBrandsInReservations();
     }
 }
