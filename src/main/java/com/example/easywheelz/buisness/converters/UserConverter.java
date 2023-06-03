@@ -32,10 +32,6 @@ public class UserConverter {
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .password(request.getPassword())
-                .role(
-                        RoleEntity.builder().roleName(request.getRole().getRoleName())
-                                .id(request.getRole().getId()).build()
-                )
                 .build();
     }
     public User convert(UserEntity user){

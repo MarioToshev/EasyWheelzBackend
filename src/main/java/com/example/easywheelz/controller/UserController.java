@@ -55,6 +55,7 @@ public class    UserController {
         return ResponseEntity.ok(getUsersUseCase.getUser(userId));
     }
     @PutMapping("")
+
     public ResponseEntity<Void> updateUser(@RequestBody UpdateUserRequest request) {
         updateUserUseCase.updateUser(request);
         return ResponseEntity.noContent().build();

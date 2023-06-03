@@ -27,7 +27,7 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
     @Override
     public List<User> getAllUsers() {
-        return userRepository.findAll().stream().map(converter::convert)
+        return userRepository.findAllByDisabledIs(false).stream().map(converter::convert)
                 .toList();
     }
 }

@@ -24,6 +24,5 @@ public class UpdateUserRequest {
     private String password;
     @NotEmpty
     private long driverLicense;
-    @NonNull
-    private Role role;
+    private String role;
 }

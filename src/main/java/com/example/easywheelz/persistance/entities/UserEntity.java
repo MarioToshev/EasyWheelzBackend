@@ -36,6 +36,8 @@ public class    UserEntity {
     @Column
     @NotNull
     private String password;
+    @Column
+    private Boolean disabled;
     @NotNull
     @ManyToOne
     @JoinColumn(name = "role_id")

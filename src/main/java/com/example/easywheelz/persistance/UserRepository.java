@@ -13,7 +13,7 @@ public interface UserRepository  extends JpaRepository<UserEntity,Long> {
     boolean existsByEmail(@NotBlank String email);
     boolean existsByPhone(@NotNull long phone);
     UserEntity findByEmail(String email);
-
+    List<UserEntity> findAllByDisabledIs(Boolean disabled);
 
 
 }
