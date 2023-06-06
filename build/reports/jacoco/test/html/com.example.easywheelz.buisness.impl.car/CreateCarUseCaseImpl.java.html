@@ -23,10 +23,11 @@ public class CreateCarUseCaseImpl implements CreateCarUseCase {
         {
 <span class="nc" id="L24">            throw new InvalidCarCredentials(&quot;A car with this licence plate already exists&quot;);</span>
         }
-<span class="nc" id="L26">        request.setAvailability(true);</span>
-<span class="nc" id="L27">        return CreateCarResponse.builder().id(</span>
-<span class="nc" id="L28">                carRepository.save(carConverter.convert(request)).getId()</span>
-<span class="nc" id="L29">        ).build();</span>
+
+<span class="nc" id="L27">        request.setAvailability(true);</span>
+<span class="nc" id="L28">        return CreateCarResponse.builder().id(</span>
+<span class="nc" id="L29">                carRepository.save(carConverter.convert(request)).getId()</span>
+<span class="nc" id="L30">        ).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

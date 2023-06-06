@@ -26,7 +26,7 @@ public class LogInUseCaseImpl implements LogInUseCase {
     @Override
     public LogInResponse login(LogInRequest loginRequest) {
 <span class="nc" id="L28">        UserEntity user = userRepository.findByEmail(loginRequest.getEmail());</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (user == null) {</span>
+<span class="nc bnc" id="L29" title="All 4 branches missed.">        if (user == null || user.getDisabled()) {</span>
 <span class="nc" id="L30">            throw new IncorrectUserCredentialsError(&quot;Invalid credentials&quot;);</span>
         }
 

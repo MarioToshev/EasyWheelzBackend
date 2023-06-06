@@ -58,7 +58,7 @@ class UserConverterTest {
                 .email("johndoe@example.com")
                 .phone(1234567890)
                 .driverLicense(12321312)
-                .role(Role.builder().roleName("Role").build())
+                .role("Role")
                 .build();
 
         UserEntity userEntity = converter.convert(user);

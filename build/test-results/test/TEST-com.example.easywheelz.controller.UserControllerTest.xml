@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.controller.UserControllerTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2023-06-06T11:57:18" hostname="MARIOS_PC" time="0.56">
+  <properties/>
+  <testcase name="deleteUserTestNotExisting()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.518"/>
+  <testcase name="GetUserSameTestAdmin()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.021"/>
+  <testcase name="GetSameUserTestCustomer()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.002"/>
+  <testcase name="GetOtherUserTestCustomer()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="GetUserTestNotExistingUser()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="GetAllUsersTesEmpty()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="updateUserTest()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.002"/>
+  <testcase name="createUserTest()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.003"/>
+  <testcase name="updateUserWrongCredentialsTest()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="GetOtherUserTestAdmin()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="createUserTestWrongData()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.002"/>
+  <testcase name="deleteUserTest()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <testcase name="GetAllUsersTest()" classname="com.example.easywheelz.controller.UserControllerTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

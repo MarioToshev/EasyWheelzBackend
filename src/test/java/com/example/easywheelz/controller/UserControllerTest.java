@@ -97,7 +97,7 @@ class UserControllerTest {
                 .driverLicense(29494380492L)
                 .phone(02435452423L)
                 .password("1234")
-                .role(new Role())
+                .role("role")
                 .build();
 
         doNothing().when(updateUserUseCase).updateUser(request);
@@ -114,7 +114,7 @@ class UserControllerTest {
                 .driverLicense(29494380492L)
                 .phone(02435452423L)
                 .password("1234")
-                .role(new Role())
+                .role("role")
                 .build();
         doThrow(new IncorrectUserCredentialsError("")).when(updateUserUseCase).updateUser(request);
 

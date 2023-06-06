@@ -3,8 +3,11 @@
 import com.example.easywheelz.buisness.interfaces.user.DeleteUserUseCase;
 import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.persistance.UserRepository;
+import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -14,10 +17,12 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 
     @Override
     public void deleteUser(long userId) {
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (userRepository.existsById(userId)){</span>
-<span class="nc" id="L18">            userRepository.deleteById(userId);</span>
+<span class="nc" id="L20">       Optional&lt;UserEntity&gt; user = userRepository.findById(userId);</span>
+<span class="nc bnc" id="L21" title="All 2 branches missed.">        if (user.isPresent()){</span>
+<span class="nc" id="L22">            user.get().setDisabled(true);</span>
+<span class="nc" id="L23">            userRepository.save(user.get());</span>
         }
-<span class="nc" id="L20">        else throw new IncorrectUserCredentialsError(&quot;You are trying to delete user that doesnt exist&quot;);</span>
-<span class="nc" id="L21">    }</span>
+<span class="nc" id="L25">        else throw new IncorrectUserCredentialsError(&quot;You are trying to delete user that doesnt exist&quot;);</span>
+<span class="nc" id="L26">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

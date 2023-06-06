@@ -26,15 +26,15 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     public void updateUser(UpdateUserRequest request) {
 
         RoleEntity role = roleRepository.findByRoleName(request.getRole());
-        UserEntity userfomBase = userRepository.findByEmail(request.getEmail());
+        UserEntity userFomBase = userRepository.findByEmail(request.getEmail());
         if (role == null){
             throw new IncorrectUserCredentialsError("Role doesn't exist");
         }
         UserEntity userToUpdate = converter.convert(request);
-        userToUpdate.setId(userfomBase.getId());
+        userToUpdate.setId(userFomBase.getId());
         userToUpdate.setRole(role);
-        userToUpdate.setPassword(userfomBase.getPassword());
-        userToUpdate.setDisabled(userfomBase.getDisabled());
+        userToUpdate.setPassword(userFomBase.getPassword());
+        userToUpdate.setDisabled(userFomBase.getDisabled());
         userRepository.save(userToUpdate);
     }
 }

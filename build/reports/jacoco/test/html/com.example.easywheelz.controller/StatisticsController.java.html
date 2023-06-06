@@ -44,7 +44,7 @@ public class StatisticsController {
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;ReservationsPerMonth&gt;&gt; getReservationStatistics() {
-<span class="fc" id="L47">        return ResponseEntity.ok(reservationsStatisticsUseCase.getReservationsPerMonthStatistics());</span>
+<span class="nc" id="L47">        return ResponseEntity.ok(reservationsStatisticsUseCase.getReservationsPerMonthStatistics());</span>
     }
 
 

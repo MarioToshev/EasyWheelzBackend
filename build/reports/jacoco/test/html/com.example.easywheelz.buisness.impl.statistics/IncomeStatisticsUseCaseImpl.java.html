@@ -21,18 +21,7 @@ public class IncomeStatisticsUseCaseImpl implements IncomeStatisticsUseCase {
 
     @Override
     public List&lt;IncomePerMonth&gt; getIncomePerMonthStatistics() {
-<span class="nc" id="L24">        List&lt;Tuple&gt; queryRes = repo.getIncomeOfReservationsPerMonth();</span>
-
-<span class="nc" id="L26">        List&lt;IncomePerMonth&gt; result = new ArrayList&lt;&gt;();</span>
-
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        for (Tuple t: queryRes) {</span>
-<span class="nc" id="L29">            result.add(</span>
-<span class="nc" id="L30">                    IncomePerMonth.builder()</span>
-<span class="nc" id="L31">                            .income(t.get(&quot;income&quot;, Double.class))</span>
-<span class="nc" id="L32">                            .month(t.get(&quot;month&quot;, String.class))</span>
-<span class="nc" id="L33">                            .build());</span>
-<span class="nc" id="L34">        }</span>
-<span class="nc" id="L35">        return result;</span>
+<span class="nc" id="L24">        return repo.getIncomeOfReservationsPerMonth();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

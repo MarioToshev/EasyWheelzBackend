@@ -53,7 +53,7 @@ class UpdateUserUseCaseImplTest {
                 .lastName(user.getLastName())
                 .email(user.getEmail())
                 .driverLicense(user.getDriverLicense())
-                .role(Role.builder().id(roleId).build())
+                .role("role")
                 .build()
         );
         when(userRepository.getReferenceById(user.getId())).thenReturn(user);
@@ -92,7 +92,7 @@ class UpdateUserUseCaseImplTest {
                 .lastName(user.getLastName())
                 .email(user.getEmail())
                 .driverLicense(user.getDriverLicense())
-                .role(Role.builder().id(roleId).build())
+                .role("role")
                 .build();
 
         Exception exception = assertThrows(IncorrectUserCredentialsError.class, () -> {

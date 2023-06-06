@@ -32,41 +32,37 @@ import org.springframework.stereotype.Service;
 <span class="nc" id="L32">                .firstName(request.getFirstName())</span>
 <span class="nc" id="L33">                .lastName(request.getLastName())</span>
 <span class="nc" id="L34">                .password(request.getPassword())</span>
-<span class="nc" id="L35">                .role(</span>
-<span class="nc" id="L36">                        RoleEntity.builder().roleName(request.getRole().getRoleName())</span>
-<span class="nc" id="L37">                                .id(request.getRole().getId()).build()</span>
-                )
-<span class="nc" id="L39">                .build();</span>
+<span class="nc" id="L35">                .build();</span>
     }
     public User convert(UserEntity user){
-<span class="nc" id="L42">        return User.builder()</span>
-<span class="nc" id="L43">                .id(user.getId())</span>
-<span class="nc" id="L44">                .phone(user.getPhone())</span>
-<span class="nc" id="L45">                .email(user.getEmail())</span>
-<span class="nc" id="L46">                .driverLicense(user.getDriverLicense())</span>
-<span class="nc" id="L47">                .firstName(user.getFirstName())</span>
-<span class="nc" id="L48">                .lastName(user.getLastName())</span>
-<span class="nc" id="L49">                .password(user.getPassword())</span>
-<span class="nc" id="L50">                .role(</span>
-<span class="nc" id="L51">                        Role.builder().roleName(user.getRole().getRoleName())</span>
-<span class="nc" id="L52">                                .id(user.getRole().getId()).build()</span>
+<span class="nc" id="L38">        return User.builder()</span>
+<span class="nc" id="L39">                .id(user.getId())</span>
+<span class="nc" id="L40">                .phone(user.getPhone())</span>
+<span class="nc" id="L41">                .email(user.getEmail())</span>
+<span class="nc" id="L42">                .driverLicense(user.getDriverLicense())</span>
+<span class="nc" id="L43">                .firstName(user.getFirstName())</span>
+<span class="nc" id="L44">                .lastName(user.getLastName())</span>
+<span class="nc" id="L45">                .password(user.getPassword())</span>
+<span class="nc" id="L46">                .role(</span>
+<span class="nc" id="L47">                        Role.builder().roleName(user.getRole().getRoleName())</span>
+<span class="nc" id="L48">                                .id(user.getRole().getId()).build()</span>
                 )
-<span class="nc" id="L54">                .build();</span>
+<span class="nc" id="L50">                .build();</span>
     }
     public UserEntity convert(User user){
-<span class="nc" id="L57">        return UserEntity.builder()</span>
-<span class="nc" id="L58">                .id(user.getId())</span>
-<span class="nc" id="L59">                .phone(user.getPhone())</span>
-<span class="nc" id="L60">                .email(user.getEmail())</span>
-<span class="nc" id="L61">                .driverLicense(user.getDriverLicense())</span>
-<span class="nc" id="L62">                .firstName(user.getFirstName())</span>
-<span class="nc" id="L63">                .lastName(user.getLastName())</span>
-<span class="nc" id="L64">                .password(user.getPassword())</span>
-<span class="nc" id="L65">                .role(</span>
-<span class="nc" id="L66">                        RoleEntity.builder().roleName(user.getRole().getRoleName())</span>
-<span class="nc" id="L67">                                .id(user.getRole().getId()).build()</span>
+<span class="nc" id="L53">        return UserEntity.builder()</span>
+<span class="nc" id="L54">                .id(user.getId())</span>
+<span class="nc" id="L55">                .phone(user.getPhone())</span>
+<span class="nc" id="L56">                .email(user.getEmail())</span>
+<span class="nc" id="L57">                .driverLicense(user.getDriverLicense())</span>
+<span class="nc" id="L58">                .firstName(user.getFirstName())</span>
+<span class="nc" id="L59">                .lastName(user.getLastName())</span>
+<span class="nc" id="L60">                .password(user.getPassword())</span>
+<span class="nc" id="L61">                .role(</span>
+<span class="nc" id="L62">                        RoleEntity.builder().roleName(user.getRole().getRoleName())</span>
+<span class="nc" id="L63">                                .id(user.getRole().getId()).build()</span>
                 )
-<span class="nc" id="L69">                .build();</span>
+<span class="nc" id="L65">                .build();</span>
     }
 
 }

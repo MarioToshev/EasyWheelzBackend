@@ -15,19 +15,7 @@ public class ReservationsStatisticsUseCaseImpl implements ReservationsStatistics
     private ReservationRepository repo;
     @Override
     public List&lt;ReservationsPerMonth&gt; getReservationsPerMonthStatistics() {
-
-<span class="nc" id="L19">        List&lt;Tuple&gt; queryRes = repo.getAmountOfReservationsPerMonth();</span>
-
-<span class="nc" id="L21">        List&lt;ReservationsPerMonth&gt; result = new ArrayList&lt;&gt;();</span>
-
-<span class="nc bnc" id="L23" title="All 2 branches missed.">        for (Tuple t: queryRes) {</span>
-<span class="nc" id="L24">            result.add(</span>
-<span class="nc" id="L25">                    ReservationsPerMonth.builder()</span>
-<span class="nc" id="L26">                            .reservations_count(t.get(&quot;reservations_count&quot;, Long.class))</span>
-<span class="nc" id="L27">                            .month(t.get(&quot;month&quot;, String.class))</span>
-<span class="nc" id="L28">                            .build());</span>
-<span class="nc" id="L29">        }</span>
-<span class="nc" id="L30">        return result;</span>
+<span class="nc" id="L18">       return repo.getAmountOfReservationsPerMonth();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

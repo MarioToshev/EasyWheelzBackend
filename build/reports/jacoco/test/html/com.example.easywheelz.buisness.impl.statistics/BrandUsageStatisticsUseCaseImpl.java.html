@@ -16,19 +16,7 @@ public class BrandUsageStatisticsUseCaseImpl implements BrandUsageStatisticsUseC
     private CarRepository carRepository;
     @Override
     public List&lt;BrandCount&gt; brandUsageStatistics() {
-
-<span class="nc" id="L20">        List&lt;BrandCount&gt; queryRes = carRepository.getTheCountOfAllBrandsInReservations();</span>
-
-//        List&lt;BrandCount&gt; result = new ArrayList&lt;&gt;();
-//
-//        for (Tuple t: queryRes) {
-//            result.add(
-//                    BrandCount.builder()
-//                            .count(t.get(&quot;count&quot;, Long.class))
-//                            .brand(t.get(&quot;brand&quot;, String.class))
-//                            .build());
-//        }
-<span class="nc" id="L31">        return queryRes;</span>
+<span class="nc" id="L19">        return carRepository.getTheCountOfAllBrandsInReservations();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
