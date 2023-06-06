@@ -1,7 +1,7 @@
 package com.example.easywheelz.buisness.impl;
 
-import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenDecoder;
-import com.example.easywheelz.buisness.interfaces.accessToken.AccessTokenEncoder;
+import com.example.easywheelz.buisness.interfaces.accesstoken.AccessTokenDecoder;
+import com.example.easywheelz.buisness.interfaces.accesstoken.AccessTokenEncoder;
 import com.example.easywheelz.custom.exeptions.InvalidAccessTokenException;
 import com.example.easywheelz.domain.AccessToken;
 import io.jsonwebtoken.Claims;

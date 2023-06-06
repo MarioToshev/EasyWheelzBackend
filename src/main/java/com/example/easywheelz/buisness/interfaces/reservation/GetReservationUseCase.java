@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface GetReservationUseCase {
     public Reservation getReservation(long id);
+
     public List<Reservation> getAllReservations();
 }
