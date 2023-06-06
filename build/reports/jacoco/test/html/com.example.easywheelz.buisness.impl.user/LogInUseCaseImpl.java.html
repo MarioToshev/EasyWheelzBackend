@@ -25,19 +25,19 @@ public class LogInUseCaseImpl implements LogInUseCase {
 
     @Override
     public LogInResponse login(LogInRequest loginRequest) {
-<span class="nc" id="L28">        UserEntity user = userRepository.findByEmail(loginRequest.getEmail());</span>
-<span class="nc bnc" id="L29" title="All 4 branches missed.">        if (user == null || user.getDisabled()) {</span>
+<span class="fc" id="L28">        UserEntity user = userRepository.findByEmail(loginRequest.getEmail());</span>
+<span class="pc bpc" id="L29" title="2 of 4 branches missed.">        if (user == null || user.getDisabled()) {</span>
 <span class="nc" id="L30">            throw new IncorrectUserCredentialsError(&quot;Invalid credentials&quot;);</span>
         }
 
-<span class="nc bnc" id="L33" title="All 2 branches missed.">        if (!matchesPassword(loginRequest.getPassword(), user.getPassword())) {</span>
-<span class="nc" id="L34">            throw new IncorrectUserCredentialsError(&quot;Invalid credentials&quot;);</span>
+<span class="pc bpc" id="L33" title="1 of 2 branches missed.">        if (!matchesPassword(loginRequest.getPassword(), user.getPassword())) {</span>
+<span class="fc" id="L34">            throw new IncorrectUserCredentialsError(&quot;Invalid credentials&quot;);</span>
         }
 
 <span class="nc" id="L37">        String accessToken = generateAccessToken(user);</span>
 <span class="nc" id="L38">        return LogInResponse.builder().accessToken(accessToken).build();</span>
     } private boolean matchesPassword(String rawPassword, String encodedPassword) {
-<span class="nc" id="L40">        return passwordEncoder.matches(rawPassword, encodedPassword);</span>
+<span class="fc" id="L40">        return passwordEncoder.matches(rawPassword, encodedPassword);</span>
     }
 
     private String generateAccessToken(UserEntity user) {

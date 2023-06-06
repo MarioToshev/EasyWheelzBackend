@@ -114,6 +114,7 @@ class LogInUseCaseImplTest {
                                 .email(request.getEmail())
                                 .password(request.getPassword())
                                 .role(RoleEntity.builder().roleName("admin").build())
+                                .disabled(false)
                                 .build()
                 );
         when(passwordEncoder.matches(request.getPassword(),request.getPassword())).thenReturn(false);
