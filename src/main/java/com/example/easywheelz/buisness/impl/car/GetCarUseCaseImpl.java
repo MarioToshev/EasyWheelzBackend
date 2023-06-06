@@ -16,9 +16,10 @@ public class GetCarUseCaseImpl implements GetCarUseCase {
 
     private final CarRepository carRepository;
     private final CarConverter carConverter;
+
     @Override
     public Car getCar(long id) {
-        if (carRepository.existsById(id)){
+        if (carRepository.existsById(id)) {
             return carConverter.convert(carRepository.getReferenceById(id));
         }
         throw new InvalidCarCredentials("Car not found");
@@ -26,6 +27,6 @@ public class GetCarUseCaseImpl implements GetCarUseCase {
 
     @Override
     public List<Car> getAllCars() {
-        return  carRepository.findAll().stream().map(carConverter::convert).toList();
+        return carRepository.findAll().stream().map(carConverter::convert).toList();
     }
 }

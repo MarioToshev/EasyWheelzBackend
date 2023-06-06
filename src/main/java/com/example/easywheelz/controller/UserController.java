@@ -22,7 +22,7 @@ import java.util.List;
 @RequestMapping("/users")
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
-public class    UserController {
+public class UserController {
     private final CreateUserUseCase createUserUseCase;
     private final UpdateUserUseCase updateUserUseCase;
     private final DeleteUserUseCase deleteUserUseCase;
@@ -34,6 +34,7 @@ public class    UserController {
         CreateUserResponse response = createUserUseCase.createUser(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
     @GetMapping("")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
@@ -45,21 +46,22 @@ public class    UserController {
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN", "ROLE_CUSTOMER"})
     public ResponseEntity<User> getUser(@PathVariable long userId) {
-        if (!requestAccessToken.hasRole("ROLE_ADMIN")){
-            if (requestAccessToken.getUserId() != userId)
-            {
+        if (!requestAccessToken.hasRole("ROLE_ADMIN")) {
+            if (requestAccessToken.getUserId() != userId) {
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);
             }
 
         }
         return ResponseEntity.ok(getUsersUseCase.getUser(userId));
     }
+
     @PutMapping("")
 
     public ResponseEntity<Void> updateUser(@RequestBody UpdateUserRequest request) {
         updateUserUseCase.updateUser(request);
         return ResponseEntity.noContent().build();
     }
+
     @DeleteMapping("/{userId}")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})

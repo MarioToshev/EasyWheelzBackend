@@ -25,10 +25,12 @@ import java.util.Map;
 @Service
 public class AccessTokenEncoderDecoderImpl implements AccessTokenDecoder, AccessTokenEncoder {
     private final Key key;
-        public AccessTokenEncoderDecoderImpl(@Value("E91E158E4C6656F68B1B5D1C316766DE98D2AD6EF3BFB44F78E9CFCDF5") String secretKey) {
+
+    public AccessTokenEncoderDecoderImpl(@Value("E91E158E4C6656F68B1B5D1C316766DE98D2AD6EF3BFB44F78E9CFCDF5") String secretKey) {
         byte[] keyBytes = Decoders.BASE64.decode(secretKey);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
+
     @Override
     public String encode(AccessToken accessToken) {
         Map<String, Object> claimsMap = new HashMap<>();
@@ -48,6 +50,7 @@ public class AccessTokenEncoderDecoderImpl implements AccessTokenDecoder, Access
                 .signWith(key)
                 .compact();
     }
+
     @Override
     public AccessToken decode(String accessTokenEncoded) {
         try {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class DeleteRoleUseCaseImp  implements DeleteRoleUseCase {
+public class DeleteRoleUseCaseImp implements DeleteRoleUseCase {
     private RoleRepository roleRepository;
 
     private RoleConverter converter;
@@ -17,10 +17,9 @@ public class DeleteRoleUseCaseImp  implements DeleteRoleUseCase {
 
     @Override
     public void deleteRole(long id) {
-        if(!roleRepository.existsById(id)){
-            throw  new InvalidRoleException("Role not found");
-        }
-        else {
+        if (!roleRepository.existsById(id)) {
+            throw new InvalidRoleException("Role not found");
+        } else {
             roleRepository.deleteById(id);
         }
     }

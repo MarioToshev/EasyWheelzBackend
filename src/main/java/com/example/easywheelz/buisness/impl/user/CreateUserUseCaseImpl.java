@@ -22,24 +22,25 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     private final RoleRepository roleRepository;
     private RoleConverter roleConverter;
     private final UserConverter userConverter;
+
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) {
 
-        if (userRepository.existsByEmail(request.getEmail())){
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new IncorrectUserCredentialsError("This email is already in use.");
         }
-        if (userRepository.existsByPhone(request.getPhone())){
+        if (userRepository.existsByPhone(request.getPhone())) {
             throw new IncorrectUserCredentialsError("This phone number is already in use.");
         }
         if (PasswordValidator.isValid(request.getPassword())) {
             throw new IncorrectUserCredentialsError("Password must contain at least  8 characters and a 1 special symbol");
         }
         RoleEntity role = roleRepository.findByRoleName("Customer");
-        if (role == null){
+        if (role == null) {
             throw new IncorrectUserCredentialsError("There was an error creating ur account");
         }
 
-           request.setRole(roleConverter.convert(role));
+        request.setRole(roleConverter.convert(role));
 
         String encodedPassword = passwordEncoder.encode(request.getPassword());
         request.setPassword(encodedPassword);

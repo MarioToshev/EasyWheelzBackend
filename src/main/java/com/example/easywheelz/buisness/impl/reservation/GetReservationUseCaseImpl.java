@@ -12,18 +12,21 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class GetReservationUseCaseImpl implements GetReservationUseCase
-{
-    private final ReservationRepository reservationRepository ;
+public class GetReservationUseCaseImpl implements GetReservationUseCase {
+    private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
-    @Override
-    public Reservation getReservation(long id){
 
-        if(reservationRepository.existsById(id)){
+    @Override
+    public Reservation getReservation(long id) {
+
+        if (reservationRepository.existsById(id)) {
             return converter.convert(reservationRepository.getReferenceById(id));
         }
         throw new InvalidReservationExeption("Reservation not found");
     }
+
     @Override
-    public List<Reservation> getAllReservations() { return reservationRepository.findAll().stream().map(converter::convert).toList();}
+    public List<Reservation> getAllReservations() {
+        return reservationRepository.findAll().stream().map(converter::convert).toList();
+    }
 }

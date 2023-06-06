@@ -7,9 +7,10 @@ import com.example.easywheelz.domain.user.User;
 import com.example.easywheelz.persistance.entities.RoleEntity;
 import com.example.easywheelz.persistance.entities.UserEntity;
 import org.springframework.stereotype.Service;
+
 @Service
 public class UserConverter {
-    public UserEntity convert(CreateUserRequest request ){
+    public UserEntity convert(CreateUserRequest request) {
         return UserEntity.builder()
                 .phone(request.getPhone())
                 .email(request.getEmail())
@@ -23,7 +24,8 @@ public class UserConverter {
                 )
                 .build();
     }
-    public UserEntity convert(UpdateUserRequest request){
+
+    public UserEntity convert(UpdateUserRequest request) {
         return UserEntity.builder()
                 .id(request.getId())
                 .phone(request.getPhone())
@@ -34,7 +36,8 @@ public class UserConverter {
                 .password(request.getPassword())
                 .build();
     }
-    public User convert(UserEntity user){
+
+    public User convert(UserEntity user) {
         return User.builder()
                 .id(user.getId())
                 .phone(user.getPhone())
@@ -49,7 +52,8 @@ public class UserConverter {
                 )
                 .build();
     }
-    public UserEntity convert(User user){
+
+    public UserEntity convert(User user) {
         return UserEntity.builder()
                 .id(user.getId())
                 .phone(user.getPhone())

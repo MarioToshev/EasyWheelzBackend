@@ -18,9 +18,10 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
-        private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
+    private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
+
     @Override
     @Transactional
     public CreateReservationResponse createReservation(CreateReservationRequest request) {
@@ -29,7 +30,7 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
         if (overlappingReservations.isEmpty()) {
 
             long daysDifference = ChronoUnit.DAYS.between(request.getPickUpDate(), request.getReturnDate());
-            request.setTotalCost((daysDifference +1) * request.getCar().getPricePerDay());
+            request.setTotalCost((daysDifference + 1) * request.getCar().getPricePerDay());
 
             if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {
                 return CreateReservationResponse.builder().id(
@@ -37,6 +38,6 @@ public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
                 ).build();
             }
         }
-          throw new  InvalidReservationExeption("This car is not available on the chosen dates");
+        throw new InvalidReservationExeption("This car is not available on the chosen dates");
     }
 }

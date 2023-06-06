@@ -21,11 +21,9 @@ public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
 
     @Override
     public CreateRoleResponse createRole(CreateRoleRequest request) {
-        if(request == null){
+        if (request == null) {
             throw new InvalidRoleException("Failed to save role entity");
-        }
-        else if(roleRepository.existsRoleByRoleName(request.getRoleName()))
-        {
+        } else if (roleRepository.existsRoleByRoleName(request.getRoleName())) {
             throw new InvalidRoleException("This role exists");
         }
         RoleEntity roleEntity = roleRepository.save(converter.convert(request));

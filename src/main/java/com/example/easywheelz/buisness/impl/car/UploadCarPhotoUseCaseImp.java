@@ -24,7 +24,7 @@ public class UploadCarPhotoUseCaseImp implements UploadCarPhotoUseCase {
             throw new NoSuchElementException("Car not found");
         else {
             String url = fileRepository.uploadPicture(photo);
-           CarEntity carEnt = car.get();
+            CarEntity carEnt = car.get();
             carEnt.setPhotoUrl(url);
             carRepository.save(carEnt);
         }

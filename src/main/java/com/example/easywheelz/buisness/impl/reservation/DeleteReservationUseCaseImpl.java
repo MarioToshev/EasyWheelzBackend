@@ -13,12 +13,10 @@ public class DeleteReservationUseCaseImpl implements DeleteReservationUseCase {
 
     @Override
     public void deleteReservation(long resId) {
-        if (reservationRepository.existsById(resId)){
+        if (reservationRepository.existsById(resId)) {
             reservationRepository.deleteById(resId);
-        }
-        else
-        {
-            throw  new InvalidReservationExeption("Reservation not found");
+        } else {
+            throw new InvalidReservationExeption("Reservation not found");
         }
     }
 }

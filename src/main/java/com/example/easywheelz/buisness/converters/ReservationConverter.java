@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ReservationConverter {
 
     private CarConverter carConverter;
-    private  UserConverter userConverter;
+    private UserConverter userConverter;
     private UserRepository userRepo;
 
     public ReservationEntity convert(CreateReservationRequest request) {
@@ -26,6 +26,7 @@ public class ReservationConverter {
                 .totalCost(request.getTotalCost())
                 .build();
     }
+
     public Reservation convert(ReservationEntity request) {
         return Reservation.builder()
                 .customer(userConverter.convert(request.getCustomer()))

@@ -20,12 +20,11 @@ public class UpdateCarUseCaseImpl implements UpdateCarUseCase {
     @Override
     public void updateCar(UpdateCarRequest request) {
         Optional<CarEntity> carFromBase = carRepository.findById(request.getId());
-        if (carFromBase.isPresent()){
+        if (carFromBase.isPresent()) {
             CarEntity carToUpdate = carConverter.convert(request);
             carToUpdate.setPhotoUrl(carFromBase.get().getPhotoUrl());
             carRepository.save(carToUpdate);
-        }
-        else {
+        } else {
             throw new InvalidCarCredentials("Car not found");
         }
 

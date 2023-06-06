@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
+
 @RestController
 @RequestMapping("/cars")
 @AllArgsConstructor
@@ -23,9 +24,8 @@ public class CarController {
     private final DeleteCarUseCase deleteCarUseCase;
     private final GetCarUseCase getCarUseCase;
     private final UploadCarPhotoUseCase uploadCarPhotoUseCase;
-    private  final  FilterCarUseCase filterCarUseCase;
-    private  final  GetAllCarBrandsUseCase getAllCarBrandsUseCase;
-
+    private final FilterCarUseCase filterCarUseCase;
+    private final GetAllCarBrandsUseCase getAllCarBrandsUseCase;
 
 
     @PostMapping("")
@@ -35,6 +35,7 @@ public class CarController {
         CreateCarResponse response = createCarUseCase.createCar(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
+
     @GetMapping("")
     public ResponseEntity<List<Car>> getAllCars() {
         return ResponseEntity.ok(getCarUseCase.getAllCars());
@@ -54,6 +55,7 @@ public class CarController {
     public ResponseEntity<Car> getCar(@PathVariable long carId) {
         return ResponseEntity.ok(getCarUseCase.getCar(carId));
     }
+
     @PutMapping("")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
@@ -61,6 +63,7 @@ public class CarController {
         updateCarUseCase.updateCar(request);
         return ResponseEntity.noContent().build();
     }
+
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
     @DeleteMapping("/{carId}")
@@ -68,14 +71,15 @@ public class CarController {
         deleteCarUseCase.deleteCar(carId);
         return ResponseEntity.noContent().build();
     }
+
     @PostMapping("/{carId}")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
     public ResponseEntity<Void> uploadPhoto(@PathVariable(value = "carId") final long id,
                                             @RequestParam("photo") MultipartFile photo) {
-            uploadCarPhotoUseCase.uploadPicture(photo, id);
-            return ResponseEntity.status(HttpStatus.OK).build();
-        }
+        uploadCarPhotoUseCase.uploadPicture(photo, id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
 
     @PostMapping("/filters")
     public List<Car> filterCars(@RequestBody FilterRequest request) {

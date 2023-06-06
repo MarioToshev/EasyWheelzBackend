@@ -11,9 +11,6 @@ import com.example.easywheelz.persistance.entities.UserEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.swing.text.html.Option;
-import java.util.Optional;
-
 @Service
 @AllArgsConstructor
 public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
@@ -22,12 +19,13 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     private final RoleRepository roleRepository;
 
     private final UserConverter converter;
+
     @Override
     public void updateUser(UpdateUserRequest request) {
 
         RoleEntity role = roleRepository.findByRoleName(request.getRole());
         UserEntity userFomBase = userRepository.findByEmail(request.getEmail());
-        if (role == null){
+        if (role == null) {
             throw new IncorrectUserCredentialsError("Role doesn't exist");
         }
         UserEntity userToUpdate = converter.convert(request);

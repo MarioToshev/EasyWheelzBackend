@@ -12,13 +12,15 @@ public class RoleConverter {
                 .roleName(request.getRoleName())
                 .build();
     }
+
     public RoleEntity convert(Role role) {
         return RoleEntity.builder()
                 .id(role.getId())
                 .roleName(role.getRoleName())
                 .build();
     }
-    public  Role convert(RoleEntity role) {
+
+    public Role convert(RoleEntity role) {
         return Role.builder()
                 .id(role.getId())
                 .roleName(role.getRoleName())

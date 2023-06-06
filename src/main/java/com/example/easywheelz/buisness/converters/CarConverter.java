@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CarConverter {
-    public CarEntity convert(@NotNull CreateCarRequest request){
+    public CarEntity convert(@NotNull CreateCarRequest request) {
         return CarEntity.builder()
                 .model(request.getModel())
                 .availability(request.isAvailability())
@@ -21,7 +21,8 @@ public class CarConverter {
                 .color(request.getColor())
                 .build();
     }
-    public CarEntity convert(@NotNull UpdateCarRequest request){
+
+    public CarEntity convert(@NotNull UpdateCarRequest request) {
         return CarEntity.builder()
                 .id(request.getId())
                 .model(request.getModel())
@@ -32,7 +33,8 @@ public class CarConverter {
                 .color(request.getColor())
                 .build();
     }
-    public Car convert(@NotNull CarEntity car){
+
+    public Car convert(@NotNull CarEntity car) {
         return Car.builder()
                 .id(car.getId())
                 .model(car.getModel())
@@ -44,7 +46,8 @@ public class CarConverter {
                 .photoUrl(car.getPhotoUrl())
                 .build();
     }
-    public CarEntity convert(@NotNull Car car){
+
+    public CarEntity convert(@NotNull Car car) {
         return CarEntity.builder()
                 .id(car.getId())
                 .model(car.getModel())

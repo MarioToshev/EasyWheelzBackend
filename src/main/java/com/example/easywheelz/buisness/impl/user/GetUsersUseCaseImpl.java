@@ -15,7 +15,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
-    private final UserRepository userRepository ;
+    private final UserRepository userRepository;
     private final UserConverter converter;
 
 

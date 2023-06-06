@@ -36,7 +36,9 @@ public class LogInUseCaseImpl implements LogInUseCase {
 
         String accessToken = generateAccessToken(user);
         return LogInResponse.builder().accessToken(accessToken).build();
-    } private boolean matchesPassword(String rawPassword, String encodedPassword) {
+    }
+
+    private boolean matchesPassword(String rawPassword, String encodedPassword) {
         return passwordEncoder.matches(rawPassword, encodedPassword);
     }
 

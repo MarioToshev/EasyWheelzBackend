@@ -14,14 +14,13 @@ public class UpdateReservationUseCaseImpl implements UpdateReservationUseCase {
 
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
+
     @Override
     public void updateReservation(UpdateReservationRequest request) {
-        if(reservationRepository.existsById(request.getId())){
+        if (reservationRepository.existsById(request.getId())) {
             reservationRepository.save(converter.convert(request));
 
-        }
-        else
-        {
+        } else {
             throw new InvalidReservationExeption("Reservation not found");
         }
     }

@@ -9,14 +9,16 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class FindAllAvailableCarsUseCaseImpl implements FindAllAvailableCarsUseCase {
 
-     private   final CarRepository carRepository;
-     private final CarConverter converter;
+    private final CarRepository carRepository;
+    private final CarConverter converter;
+
     @Override
     public List<Car> GetAllAvailableCarsInDateRange(FilterCarsByAvailabilityRequest request) {
-        return carRepository.findAvailableCars(request.getStartDate(),request.getEndDate()).stream().map(converter :: convert).toList();
+        return carRepository.findAvailableCars(request.getStartDate(), request.getEndDate()).stream().map(converter::convert).toList();
     }
 }

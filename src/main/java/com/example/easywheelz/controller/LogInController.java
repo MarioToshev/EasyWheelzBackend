@@ -9,12 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/login")
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class LogInController {
     private final LogInUseCase loginUseCase;
+
     @PostMapping
     public ResponseEntity<LogInResponse> login(@RequestBody @Valid LogInRequest loginRequest) {
         LogInResponse loginResponse = loginUseCase.login(loginRequest);

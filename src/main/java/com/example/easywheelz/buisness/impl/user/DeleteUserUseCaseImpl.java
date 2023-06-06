@@ -17,11 +17,10 @@ public class DeleteUserUseCaseImpl implements DeleteUserUseCase {
 
     @Override
     public void deleteUser(long userId) {
-       Optional<UserEntity> user = userRepository.findById(userId);
-        if (user.isPresent()){
+        Optional<UserEntity> user = userRepository.findById(userId);
+        if (user.isPresent()) {
             user.get().setDisabled(true);
             userRepository.save(user.get());
-        }
-        else throw new IncorrectUserCredentialsError("You are trying to delete user that doesnt exist");
+        } else throw new IncorrectUserCredentialsError("You are trying to delete user that doesnt exist");
     }
 }

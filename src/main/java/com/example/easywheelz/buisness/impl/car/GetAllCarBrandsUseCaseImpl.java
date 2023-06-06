@@ -6,11 +6,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class GetAllCarBrandsUseCaseImpl implements GetAllCarBrandsUseCase {
 
     private final CarRepository repo;
+
     @Override
     public List<String> getAllCarBrands() {
         return repo.findAllCarBrands();

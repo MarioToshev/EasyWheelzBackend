@@ -19,8 +19,7 @@ public class CreateCarUseCaseImpl implements CreateCarUseCase {
     @Override
     public CreateCarResponse createCar(CreateCarRequest request) {
 
-        if(carRepository.existsByLicensePlate(request.getLicensePlate()))
-        {
+        if (carRepository.existsByLicensePlate(request.getLicensePlate())) {
             throw new InvalidCarCredentials("A car with this licence plate already exists");
         }
 

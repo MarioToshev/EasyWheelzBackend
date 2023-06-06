@@ -10,12 +10,14 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class FilterCarUseCaseImpl implements FilterCarUseCase {
 
     private CarRepository carRepo;
     private CarConverter converter;
+
     @Override
     public List<Car> filterCars(FilterRequest request) {
         Sort sort = Sort.unsorted();
@@ -26,13 +28,11 @@ public class FilterCarUseCaseImpl implements FilterCarUseCase {
                 sort = Sort.by(Sort.Direction.DESC, "pricePerDay");
             }
         }
-        if (request.getEndDate() == null && request.getStartDate() == null && request.getBrand().isEmpty()){
-            return carRepo.findAll(sort).stream().map(converter :: convert).toList();
-        }
-        else
-        {
-            return carRepo.findAvailableCarsWithBrand(request.getStartDate(),request.getEndDate(), request.getBrand(),sort)
-                    .stream().map(converter :: convert).toList();
+        if (request.getEndDate() == null && request.getStartDate() == null && request.getBrand().isEmpty()) {
+            return carRepo.findAll(sort).stream().map(converter::convert).toList();
+        } else {
+            return carRepo.findAvailableCarsWithBrand(request.getStartDate(), request.getEndDate(), request.getBrand(), sort)
+                    .stream().map(converter::convert).toList();
         }
     }
 }

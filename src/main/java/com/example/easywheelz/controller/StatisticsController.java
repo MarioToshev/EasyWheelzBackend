@@ -33,6 +33,7 @@ public class StatisticsController {
 
         return ResponseEntity.ok(carStatisticsByBrand.brandUsageStatistics());
     }
+
     @GetMapping("/income")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
@@ -46,7 +47,6 @@ public class StatisticsController {
     public ResponseEntity<List<ReservationsPerMonth>> getReservationStatistics() {
         return ResponseEntity.ok(reservationsStatisticsUseCase.getReservationsPerMonthStatistics());
     }
-
 
 
 }
