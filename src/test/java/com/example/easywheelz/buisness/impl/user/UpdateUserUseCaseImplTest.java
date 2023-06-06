@@ -31,76 +31,84 @@ class UpdateUserUseCaseImplTest {
 
     @Test
     void UpdateUserTest() {
-        long roleId = 1;
+        String roleName = "role";
 
         UserEntity user = UserEntity.builder()
+                .id(1L)
                 .firstName("John")
                 .lastName("Doe")
                 .email("johndoe@example.com")
                 .phone(1234567890)
-                .role(RoleEntity.builder().id(roleId).build())
+                .role(RoleEntity.builder().id(1L).roleName(roleName).build())
                 .driverLicense(12321312)
                 .build();
 
         user.setEmail("john@gmail.com");
 
-        when(roleRepository.existsById(roleId)).thenReturn(true);
+        when(roleRepository.findByRoleName(roleName)).thenReturn(RoleEntity.builder().id(1L).roleName(roleName).build());
+        when(userRepository.findByEmail(user.getEmail())).thenReturn(user);
 
-        updateUsersUseCase.updateUser(UpdateUserRequest.builder()
-                .id(user.getId())
-                .phone(user.getPhone())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .email(user.getEmail())
-                .driverLicense(user.getDriverLicense())
-                .role("role")
-                .build()
-        );
+
+        var request =
+                UpdateUserRequest.builder()
+                        .id(user.getId())
+                        .phone(user.getPhone())
+                        .firstName(user.getFirstName())
+                        .lastName(user.getLastName())
+                        .email(user.getEmail())
+                        .driverLicense(user.getDriverLicense())
+                        .role("role")
+                        .build();
+        when(userConverter.convert(request)).thenReturn(user);
+
+
+        updateUsersUseCase.updateUser(request);
+
         when(userRepository.getReferenceById(user.getId())).thenReturn(user);
         var updatedUser = userRepository.getReferenceById(user.getId());
 
         assertEquals(updatedUser, user);
-        verify(roleRepository).existsById(roleId);
+        verify(roleRepository).findByRoleName(roleName);
+        verify(userRepository).findByEmail(user.getEmail());
+
 
     }
 
     @Test
     void UpdateUserTestUnexistingRole() {
-        long roleId = 1;
+
+        String roleName = "role";
 
         UserEntity user = UserEntity.builder()
+                .id(1L)
                 .firstName("John")
                 .lastName("Doe")
                 .email("johndoe@example.com")
                 .phone(1234567890)
-                .role(RoleEntity.builder().id(roleId).build())
+                .role(RoleEntity.builder().id(1L).roleName(roleName).build())
                 .driverLicense(12321312)
                 .build();
 
         user.setEmail("john@gmail.com");
 
-        when(roleRepository.existsById(roleId)).thenReturn(false);
+        when(roleRepository.findByRoleName(roleName)).thenReturn(null);
 
-
-        when(userRepository.getReferenceById(user.getId())).thenReturn(user);
-        var updatedUser = userRepository.getReferenceById(user.getId());
-
-        UpdateUserRequest request = UpdateUserRequest.builder()
-                .id(user.getId())
-                .phone(user.getPhone())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .email(user.getEmail())
-                .driverLicense(user.getDriverLicense())
-                .role("role")
-                .build();
+        var request =
+                UpdateUserRequest.builder()
+                        .id(user.getId())
+                        .phone(user.getPhone())
+                        .firstName(user.getFirstName())
+                        .lastName(user.getLastName())
+                        .email(user.getEmail())
+                        .driverLicense(user.getDriverLicense())
+                        .role("role")
+                        .build();
 
         Exception exception = assertThrows(IncorrectUserCredentialsError.class, () -> {
             updateUsersUseCase.updateUser(request);
         });
 
         assertEquals("Role doesn't exist", exception.getMessage());
-        assertEquals(updatedUser, user);
-        verify(roleRepository).existsById(roleId);
+        verify(roleRepository).findByRoleName(roleName);
     }
 }

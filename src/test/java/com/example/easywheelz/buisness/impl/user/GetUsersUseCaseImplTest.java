@@ -59,7 +59,7 @@ class GetUsersUseCaseImplTest {
     @Test
     void testGetAllUsersNoUsers() {
         assertEquals(Collections.emptyList(),getUsersUseCase.getAllUsers());
-        verify(userRepository).findAll();
+        verify(userRepository).findAllByDisabledIs(false);
     }
 
 }

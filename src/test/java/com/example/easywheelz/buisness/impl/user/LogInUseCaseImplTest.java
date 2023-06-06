@@ -44,6 +44,7 @@ class LogInUseCaseImplTest {
                                 .email(request.getEmail())
                                 .password(request.getPassword())
                                 .role(RoleEntity.builder().roleName("admin").build())
+                                .disabled(false)
                                 .build()
                 );
         when(passwordEncoder.matches(request.getPassword(),request.getPassword())).thenReturn(true);
@@ -55,6 +56,30 @@ class LogInUseCaseImplTest {
         verify(userRepository).findByEmail(request.getEmail());
         verify(passwordEncoder).matches(request.getPassword(),request.getPassword());
         verify(accessTokenEncoder).encode(any(AccessToken.class));
+    }
+    @Test
+    void loginTestDisabled(){
+
+        LogInRequest request   = LogInRequest.builder()
+                .email("m@m.m")
+                .password("123").build();
+
+
+        when(userRepository.findByEmail(request.getEmail()))
+                .thenReturn(
+                        UserEntity.builder()
+                                .email(request.getEmail())
+                                .password(request.getPassword())
+                                .role(RoleEntity.builder().roleName("admin").build())
+                                .disabled(true)
+                                .build()
+                );
+
+        Exception exception = assertThrows(IncorrectUserCredentialsError.class, () -> {
+            service.login(request);
+        });
+        assertEquals("Invalid credentials",exception.getMessage());
+        verify(userRepository).findByEmail(request.getEmail());
     }
 
     @Test

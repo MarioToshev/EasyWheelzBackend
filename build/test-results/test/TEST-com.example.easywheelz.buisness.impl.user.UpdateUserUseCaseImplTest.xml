@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-06T12:33:51" hostname="MARIOS_PC" time="0.55">
+  <properties/>
+  <testcase name="UpdateUserTestUnexistingRole()" classname="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" time="0.55"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
