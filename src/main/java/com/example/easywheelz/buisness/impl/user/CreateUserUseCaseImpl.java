@@ -2,6 +2,7 @@ package com.example.easywheelz.buisness.impl.user;
 
 import com.example.easywheelz.buisness.converters.RoleConverter;
 import com.example.easywheelz.buisness.converters.UserConverter;
+import com.example.easywheelz.buisness.impl.PasswordValidator;
 import com.example.easywheelz.buisness.interfaces.user.CreateUserUseCase;
 import com.example.easywheelz.custom.exeptions.IncorrectUserCredentialsError;
 import com.example.easywheelz.domain.user.CreateUserRequest;
@@ -30,10 +31,14 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
         if (userRepository.existsByPhone(request.getPhone())){
             throw new IncorrectUserCredentialsError("This phone number is already in use.");
         }
+        if (PasswordValidator.isValid(request.getPassword())) {
+            throw new IncorrectUserCredentialsError("Password must contain at least  8 characters and a 1 special symbol");
+        }
         RoleEntity role = roleRepository.findByRoleName("Customer");
         if (role == null){
             throw new IncorrectUserCredentialsError("There was an error creating ur account");
         }
+
            request.setRole(roleConverter.convert(role));
 
         String encodedPassword = passwordEncoder.encode(request.getPassword());

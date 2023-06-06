@@ -23,6 +23,7 @@ public class CreateCarUseCaseImpl implements CreateCarUseCase {
         {
             throw new InvalidCarCredentials("A car with this licence plate already exists");
         }
+
         request.setAvailability(true);
         return CreateCarResponse.builder().id(
                 carRepository.save(carConverter.convert(request)).getId()
