@@ -6,14 +6,16 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @AllArgsConstructor
 @Service
 public class GetAllCarBrandsUseCaseImpl implements GetAllCarBrandsUseCase {
 
     private final CarRepository repo;
+
     @Override
     public List&lt;String&gt; getAllCarBrands() {
-<span class="nc" id="L16">        return repo.findAllCarBrands();</span>
+<span class="nc" id="L18">        return repo.findAllCarBrands();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

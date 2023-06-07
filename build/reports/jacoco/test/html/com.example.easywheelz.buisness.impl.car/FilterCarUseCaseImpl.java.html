@@ -10,29 +10,29 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class FilterCarUseCaseImpl implements FilterCarUseCase {
 
     private CarRepository carRepo;
     private CarConverter converter;
+
     @Override
     public List&lt;Car&gt; filterCars(FilterRequest request) {
-<span class="nc" id="L21">        Sort sort = Sort.unsorted();</span>
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (request.getSorting() != null) {</span>
-<span class="nc bnc" id="L23" title="All 2 branches missed.">            if (request.getSorting().equals(&quot;ascending&quot;)) {</span>
-<span class="nc" id="L24">                sort = Sort.by(Sort.Direction.ASC, &quot;pricePerDay&quot;);</span>
+<span class="nc" id="L23">        Sort sort = Sort.unsorted();</span>
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (request.getSorting() != null) {</span>
+<span class="nc bnc" id="L25" title="All 2 branches missed.">            if (request.getSorting().equals(&quot;ascending&quot;)) {</span>
+<span class="nc" id="L26">                sort = Sort.by(Sort.Direction.ASC, &quot;pricePerDay&quot;);</span>
             } else {
-<span class="nc" id="L26">                sort = Sort.by(Sort.Direction.DESC, &quot;pricePerDay&quot;);</span>
+<span class="nc" id="L28">                sort = Sort.by(Sort.Direction.DESC, &quot;pricePerDay&quot;);</span>
             }
         }
-<span class="nc bnc" id="L29" title="All 6 branches missed.">        if (request.getEndDate() == null &amp;&amp; request.getStartDate() == null &amp;&amp; request.getBrand().isEmpty()){</span>
-<span class="nc" id="L30">            return carRepo.findAll(sort).stream().map(converter :: convert).toList();</span>
-        }
-        else
-        {
-<span class="nc" id="L34">            return carRepo.findAvailableCarsWithBrand(request.getStartDate(),request.getEndDate(), request.getBrand(),sort)</span>
-<span class="nc" id="L35">                    .stream().map(converter :: convert).toList();</span>
+<span class="nc bnc" id="L31" title="All 6 branches missed.">        if (request.getEndDate() == null &amp;&amp; request.getStartDate() == null &amp;&amp; request.getBrand().isEmpty()) {</span>
+<span class="nc" id="L32">            return carRepo.findAll(sort).stream().map(converter::convert).toList();</span>
+        } else {
+<span class="nc" id="L34">            return carRepo.findAvailableCarsWithBrand(request.getStartDate(), request.getEndDate(), request.getBrand(), sort)</span>
+<span class="nc" id="L35">                    .stream().map(converter::convert).toList();</span>
         }
     }
 }

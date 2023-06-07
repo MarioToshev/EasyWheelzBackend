@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CarConverter {
-    public CarEntity convert(@NotNull CreateCarRequest request){
+    public CarEntity convert(@NotNull CreateCarRequest request) {
 <span class="nc" id="L15">        return CarEntity.builder()</span>
 <span class="nc" id="L16">                .model(request.getModel())</span>
 <span class="nc" id="L17">                .availability(request.isAvailability())</span>
@@ -21,40 +21,43 @@ public class CarConverter {
 <span class="nc" id="L21">                .color(request.getColor())</span>
 <span class="nc" id="L22">                .build();</span>
     }
-    public CarEntity convert(@NotNull UpdateCarRequest request){
-<span class="nc" id="L25">        return CarEntity.builder()</span>
-<span class="nc" id="L26">                .id(request.getId())</span>
-<span class="nc" id="L27">                .model(request.getModel())</span>
-<span class="nc" id="L28">                .availability(request.isAvailability())</span>
-<span class="nc" id="L29">                .brand(request.getBrand())</span>
-<span class="nc" id="L30">                .pricePerDay(request.getPricePerDay())</span>
-<span class="nc" id="L31">                .licensePlate(request.getLicensePlate())</span>
-<span class="nc" id="L32">                .color(request.getColor())</span>
-<span class="nc" id="L33">                .build();</span>
+
+    public CarEntity convert(@NotNull UpdateCarRequest request) {
+<span class="nc" id="L26">        return CarEntity.builder()</span>
+<span class="nc" id="L27">                .id(request.getId())</span>
+<span class="nc" id="L28">                .model(request.getModel())</span>
+<span class="nc" id="L29">                .availability(request.isAvailability())</span>
+<span class="nc" id="L30">                .brand(request.getBrand())</span>
+<span class="nc" id="L31">                .pricePerDay(request.getPricePerDay())</span>
+<span class="nc" id="L32">                .licensePlate(request.getLicensePlate())</span>
+<span class="nc" id="L33">                .color(request.getColor())</span>
+<span class="nc" id="L34">                .build();</span>
     }
-    public Car convert(@NotNull CarEntity car){
-<span class="nc" id="L36">        return Car.builder()</span>
-<span class="nc" id="L37">                .id(car.getId())</span>
-<span class="nc" id="L38">                .model(car.getModel())</span>
-<span class="nc" id="L39">                .availability(car.isAvailability())</span>
-<span class="nc" id="L40">                .brand(car.getBrand())</span>
-<span class="nc" id="L41">                .pricePerDay(car.getPricePerDay())</span>
-<span class="nc" id="L42">                .licensePlate(car.getLicensePlate())</span>
-<span class="nc" id="L43">                .color(car.getColor())</span>
-<span class="nc" id="L44">                .photoUrl(car.getPhotoUrl())</span>
-<span class="nc" id="L45">                .build();</span>
+
+    public Car convert(@NotNull CarEntity car) {
+<span class="nc" id="L38">        return Car.builder()</span>
+<span class="nc" id="L39">                .id(car.getId())</span>
+<span class="nc" id="L40">                .model(car.getModel())</span>
+<span class="nc" id="L41">                .availability(car.isAvailability())</span>
+<span class="nc" id="L42">                .brand(car.getBrand())</span>
+<span class="nc" id="L43">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L44">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L45">                .color(car.getColor())</span>
+<span class="nc" id="L46">                .photoUrl(car.getPhotoUrl())</span>
+<span class="nc" id="L47">                .build();</span>
     }
-    public CarEntity convert(@NotNull Car car){
-<span class="nc" id="L48">        return CarEntity.builder()</span>
-<span class="nc" id="L49">                .id(car.getId())</span>
-<span class="nc" id="L50">                .model(car.getModel())</span>
-<span class="nc" id="L51">                .availability(car.isAvailability())</span>
-<span class="nc" id="L52">                .brand(car.getBrand())</span>
-<span class="nc" id="L53">                .pricePerDay(car.getPricePerDay())</span>
-<span class="nc" id="L54">                .licensePlate(car.getLicensePlate())</span>
-<span class="nc" id="L55">                .color(car.getColor())</span>
-<span class="nc" id="L56">                .photoUrl(car.getPhotoUrl())</span>
-<span class="nc" id="L57">                .build();</span>
+
+    public CarEntity convert(@NotNull Car car) {
+<span class="nc" id="L51">        return CarEntity.builder()</span>
+<span class="nc" id="L52">                .id(car.getId())</span>
+<span class="nc" id="L53">                .model(car.getModel())</span>
+<span class="nc" id="L54">                .availability(car.isAvailability())</span>
+<span class="nc" id="L55">                .brand(car.getBrand())</span>
+<span class="nc" id="L56">                .pricePerDay(car.getPricePerDay())</span>
+<span class="nc" id="L57">                .licensePlate(car.getLicensePlate())</span>
+<span class="nc" id="L58">                .color(car.getColor())</span>
+<span class="nc" id="L59">                .photoUrl(car.getPhotoUrl())</span>
+<span class="nc" id="L60">                .build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

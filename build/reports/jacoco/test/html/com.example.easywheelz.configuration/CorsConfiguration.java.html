@@ -5,18 +5,18 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-<span class="nc" id="L8">public class CorsConfiguration implements WebMvcConfigurer {</span>
+<span class="fc" id="L8">public class CorsConfiguration implements WebMvcConfigurer {</span>
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-<span class="nc" id="L12">        registry.addMapping(&quot;/**&quot;)</span>
-<span class="nc" id="L13">                .allowedOrigins(&quot;http://localhost:3000&quot;)</span>
-<span class="nc" id="L14">                .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;)</span>
-<span class="nc" id="L15">                .allowedHeaders(&quot;*&quot;)</span>
-<span class="nc" id="L16">                .exposedHeaders(&quot;Authorization&quot;, &quot;Content-Disposition&quot;)</span>
-<span class="nc" id="L17">                .allowCredentials(true)</span>
-<span class="nc" id="L18">                .maxAge(3600);</span>
-<span class="nc" id="L19">    }</span>
+<span class="fc" id="L12">        registry.addMapping(&quot;/**&quot;)</span>
+<span class="fc" id="L13">                .allowedOrigins(&quot;http://localhost:3000&quot;)</span>
+<span class="fc" id="L14">                .allowedMethods(&quot;GET&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;)</span>
+<span class="fc" id="L15">                .allowedHeaders(&quot;*&quot;)</span>
+<span class="fc" id="L16">                .exposedHeaders(&quot;Authorization&quot;, &quot;Content-Disposition&quot;)</span>
+<span class="fc" id="L17">                .allowCredentials(true)</span>
+<span class="fc" id="L18">                .maxAge(3600);</span>
+<span class="fc" id="L19">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ReservationConverter {
 
     private CarConverter carConverter;
-    private  UserConverter userConverter;
+    private UserConverter userConverter;
     private UserRepository userRepo;
 
     public ReservationEntity convert(CreateReservationRequest request) {
@@ -26,26 +26,27 @@ public class ReservationConverter {
 <span class="nc" id="L26">                .totalCost(request.getTotalCost())</span>
 <span class="nc" id="L27">                .build();</span>
     }
+
     public Reservation convert(ReservationEntity request) {
-<span class="nc" id="L30">        return Reservation.builder()</span>
-<span class="nc" id="L31">                .customer(userConverter.convert(request.getCustomer()))</span>
-<span class="nc" id="L32">                .car(carConverter.convert(request.getCar()))</span>
-<span class="nc" id="L33">                .pickUpDate(request.getPickUpDate())</span>
-<span class="nc" id="L34">                .returnDate(request.getReturnDate())</span>
-<span class="nc" id="L35">                .rentalRate(request.getRentalRate())</span>
-<span class="nc" id="L36">                .totalCost(request.getTotalCost())</span>
-<span class="nc" id="L37">                .build();</span>
+<span class="nc" id="L31">        return Reservation.builder()</span>
+<span class="nc" id="L32">                .customer(userConverter.convert(request.getCustomer()))</span>
+<span class="nc" id="L33">                .car(carConverter.convert(request.getCar()))</span>
+<span class="nc" id="L34">                .pickUpDate(request.getPickUpDate())</span>
+<span class="nc" id="L35">                .returnDate(request.getReturnDate())</span>
+<span class="nc" id="L36">                .rentalRate(request.getRentalRate())</span>
+<span class="nc" id="L37">                .totalCost(request.getTotalCost())</span>
+<span class="nc" id="L38">                .build();</span>
     }
 
     public ReservationEntity convert(UpdateReservationRequest request) {
-<span class="nc" id="L41">        return ReservationEntity.builder()</span>
-<span class="nc" id="L42">                .customer(userConverter.convert(request.getCustomer()))</span>
-<span class="nc" id="L43">                .car(carConverter.convert(request.getCar()))</span>
-<span class="nc" id="L44">                .pickUpDate(request.getPickUpDate())</span>
-<span class="nc" id="L45">                .returnDate(request.getReturnDate())</span>
-<span class="nc" id="L46">                .rentalRate(request.getRentalRate())</span>
-<span class="nc" id="L47">                .totalCost(request.getTotalCost())</span>
-<span class="nc" id="L48">                .build();</span>
+<span class="nc" id="L42">        return ReservationEntity.builder()</span>
+<span class="nc" id="L43">                .customer(userConverter.convert(request.getCustomer()))</span>
+<span class="nc" id="L44">                .car(carConverter.convert(request.getCar()))</span>
+<span class="nc" id="L45">                .pickUpDate(request.getPickUpDate())</span>
+<span class="nc" id="L46">                .returnDate(request.getReturnDate())</span>
+<span class="nc" id="L47">                .rentalRate(request.getRentalRate())</span>
+<span class="nc" id="L48">                .totalCost(request.getTotalCost())</span>
+<span class="nc" id="L49">                .build();</span>
     }
 }
 

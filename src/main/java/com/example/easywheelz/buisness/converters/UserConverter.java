@@ -22,6 +22,7 @@ public class UserConverter {
                         RoleEntity.builder().roleName(request.getRole().getRoleName())
                                 .id(request.getRole().getId()).build()
                 )
+                .disabled(false)
                 .build();
     }
 

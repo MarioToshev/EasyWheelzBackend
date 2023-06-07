@@ -18,26 +18,27 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CreateReservationUseCaseImpl implements CreateReservationUseCase {
-        private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
+    private final CheckIfCarIsFreeUseCase checkIfCarIsFreeUseCase;
     private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
+
     @Override
     @Transactional
     public CreateReservationResponse createReservation(CreateReservationRequest request) {
-<span class="nc" id="L27">        List&lt;ReservationEntity&gt; overlappingReservations = reservationRepository.findOverlappingReservations(request.getCar().getId(),</span>
-<span class="nc" id="L28">                request.getPickUpDate(), request.getReturnDate());</span>
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (overlappingReservations.isEmpty()) {</span>
+<span class="nc" id="L28">        List&lt;ReservationEntity&gt; overlappingReservations = reservationRepository.findOverlappingReservations(request.getCar().getId(),</span>
+<span class="nc" id="L29">                request.getPickUpDate(), request.getReturnDate());</span>
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (overlappingReservations.isEmpty()) {</span>
 
-<span class="nc" id="L31">            long daysDifference = ChronoUnit.DAYS.between(request.getPickUpDate(), request.getReturnDate());</span>
-<span class="nc" id="L32">            request.setTotalCost((daysDifference +1) * request.getCar().getPricePerDay());</span>
+<span class="nc" id="L32">            long daysDifference = ChronoUnit.DAYS.between(request.getPickUpDate(), request.getReturnDate());</span>
+<span class="nc" id="L33">            request.setTotalCost((daysDifference + 1) * request.getCar().getPricePerDay());</span>
 
-<span class="nc bnc" id="L34" title="All 2 branches missed.">            if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {</span>
-<span class="nc" id="L35">                return CreateReservationResponse.builder().id(</span>
-<span class="nc" id="L36">                        reservationRepository.save(converter.convert(request)).getId()</span>
-<span class="nc" id="L37">                ).build();</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">            if (checkIfCarIsFreeUseCase.checkIfCarIsFree(request.getCar().getId(), request.getPickUpDate(), request.getReturnDate())) {</span>
+<span class="nc" id="L36">                return CreateReservationResponse.builder().id(</span>
+<span class="nc" id="L37">                        reservationRepository.save(converter.convert(request)).getId()</span>
+<span class="nc" id="L38">                ).build();</span>
             }
         }
-<span class="nc" id="L40">          throw new  InvalidReservationExeption(&quot;This car is not available on the chosen dates&quot;);</span>
+<span class="nc" id="L41">        throw new InvalidReservationExeption(&quot;This car is not available on the chosen dates&quot;);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

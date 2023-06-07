@@ -33,20 +33,20 @@ public class StatisticsController {
 
 <span class="nc" id="L34">        return ResponseEntity.ok(carStatisticsByBrand.brandUsageStatistics());</span>
     }
+
     @GetMapping(&quot;/income&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;IncomePerMonth&gt;&gt; getIncomeStatByMonth() {
-<span class="nc" id="L40">        return ResponseEntity.ok(incomeStatisticsUseCase.getIncomePerMonthStatistics());</span>
+<span class="nc" id="L41">        return ResponseEntity.ok(incomeStatisticsUseCase.getIncomePerMonthStatistics());</span>
     }
 
     @GetMapping(&quot;/reservations&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;ReservationsPerMonth&gt;&gt; getReservationStatistics() {
-<span class="nc" id="L47">        return ResponseEntity.ok(reservationsStatisticsUseCase.getReservationsPerMonthStatistics());</span>
+<span class="nc" id="L48">        return ResponseEntity.ok(reservationsStatisticsUseCase.getReservationsPerMonthStatistics());</span>
     }
-
 
 
 }

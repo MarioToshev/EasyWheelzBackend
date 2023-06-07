@@ -45,6 +45,7 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
         String encodedPassword = passwordEncoder.encode(request.getPassword());
         request.setPassword(encodedPassword);
 
+
         return CreateUserResponse.builder().id(
                 userRepository.save(userConverter.convert(request)).getId()
         ).build();

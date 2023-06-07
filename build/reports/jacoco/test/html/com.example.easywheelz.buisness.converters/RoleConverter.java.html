@@ -6,23 +6,25 @@ import com.example.easywheelz.persistance.entities.RoleEntity;
 import org.springframework.stereotype.Service;
 
 @Service
-<span class="nc" id="L9">public class RoleConverter {</span>
+<span class="fc" id="L9">public class RoleConverter {</span>
     public RoleEntity convert(CreateRoleRequest request) {
 <span class="nc" id="L11">        return RoleEntity.builder()</span>
 <span class="nc" id="L12">                .roleName(request.getRoleName())</span>
 <span class="nc" id="L13">                .build();</span>
     }
+
     public RoleEntity convert(Role role) {
-<span class="nc" id="L16">        return RoleEntity.builder()</span>
-<span class="nc" id="L17">                .id(role.getId())</span>
-<span class="nc" id="L18">                .roleName(role.getRoleName())</span>
-<span class="nc" id="L19">                .build();</span>
+<span class="nc" id="L17">        return RoleEntity.builder()</span>
+<span class="nc" id="L18">                .id(role.getId())</span>
+<span class="nc" id="L19">                .roleName(role.getRoleName())</span>
+<span class="nc" id="L20">                .build();</span>
     }
-    public  Role convert(RoleEntity role) {
-<span class="nc" id="L22">        return Role.builder()</span>
-<span class="nc" id="L23">                .id(role.getId())</span>
-<span class="nc" id="L24">                .roleName(role.getRoleName())</span>
-<span class="nc" id="L25">                .build();</span>
+
+    public Role convert(RoleEntity role) {
+<span class="nc" id="L24">        return Role.builder()</span>
+<span class="nc" id="L25">                .id(role.getId())</span>
+<span class="nc" id="L26">                .roleName(role.getRoleName())</span>
+<span class="nc" id="L27">                .build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

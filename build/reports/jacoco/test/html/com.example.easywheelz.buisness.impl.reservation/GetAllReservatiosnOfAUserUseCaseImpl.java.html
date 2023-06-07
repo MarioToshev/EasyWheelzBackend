@@ -2,23 +2,23 @@
 
 import com.example.easywheelz.buisness.converters.ReservationConverter;
 import com.example.easywheelz.buisness.interfaces.reservation.GetAllReservationsOfaUserUseCase;
-import com.example.easywheelz.controller.ReservationController;
 import com.example.easywheelz.domain.reservation.Reservation;
 import com.example.easywheelz.persistance.ReservationRepository;
-import com.example.easywheelz.persistance.entities.RoleEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @AllArgsConstructor
 @Service
-public class GetAllReservatiosnOfAUserUseCaseImpl  implements GetAllReservationsOfaUserUseCase {
+public class GetAllReservatiosnOfAUserUseCaseImpl implements GetAllReservationsOfaUserUseCase {
 
     private ReservationRepository repo;
     private ReservationConverter converter;
+
     @Override
     public List&lt;Reservation&gt; getAllReservationsOfAUser(Long userId) {
-<span class="nc" id="L21">        return repo.findAllByCustomerId(userId).stream().map(converter :: convert).toList();</span>
+<span class="nc" id="L21">        return repo.findAllByCustomerId(userId).stream().map(converter::convert).toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

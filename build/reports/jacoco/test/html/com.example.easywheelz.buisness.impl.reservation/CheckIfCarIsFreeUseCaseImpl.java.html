@@ -6,13 +6,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+
 @Service
 @AllArgsConstructor
 public class CheckIfCarIsFreeUseCaseImpl implements CheckIfCarIsFreeUseCase {
     private final ReservationRepository reservationRepository;
+
     @Override
     public boolean checkIfCarIsFree(long carId, LocalDate startDate, LocalDate endDate) {
-<span class="nc" id="L15">        return  reservationRepository.isCarUnavailableBetweenDates(carId,startDate,endDate);</span>
+<span class="nc" id="L17">        return reservationRepository.isCarUnavailableBetweenDates(carId, startDate, endDate);</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

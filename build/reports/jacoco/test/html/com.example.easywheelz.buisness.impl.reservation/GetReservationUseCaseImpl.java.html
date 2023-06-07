@@ -12,19 +12,22 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class GetReservationUseCaseImpl implements GetReservationUseCase
-{
-    private final ReservationRepository reservationRepository ;
+public class GetReservationUseCaseImpl implements GetReservationUseCase {
+    private final ReservationRepository reservationRepository;
     private final ReservationConverter converter;
-    @Override
-    public Reservation getReservation(long id){
 
-<span class="nc bnc" id="L22" title="All 2 branches missed.">        if(reservationRepository.existsById(id)){</span>
+    @Override
+    public Reservation getReservation(long id) {
+
+<span class="nc bnc" id="L22" title="All 2 branches missed.">        if (reservationRepository.existsById(id)) {</span>
 <span class="nc" id="L23">            return converter.convert(reservationRepository.getReferenceById(id));</span>
         }
 <span class="nc" id="L25">        throw new InvalidReservationExeption(&quot;Reservation not found&quot;);</span>
     }
+
     @Override
-<span class="nc" id="L28">    public List&lt;Reservation&gt; getAllReservations() { return reservationRepository.findAll().stream().map(converter::convert).toList();}</span>
+    public List&lt;Reservation&gt; getAllReservations() {
+<span class="nc" id="L30">        return reservationRepository.findAll().stream().map(converter::convert).toList();</span>
+    }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

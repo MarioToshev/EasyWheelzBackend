@@ -3,25 +3,24 @@
 import com.example.easywheelz.buisness.interfaces.car.DeleteCarUseCase;
 import com.example.easywheelz.custom.exeptions.InvalidCarCredentials;
 import com.example.easywheelz.persistance.CarRepository;
-import com.example.easywheelz.persistance.entities.CarEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class DeleteCarUseCaseImpl implements DeleteCarUseCase{
+public class DeleteCarUseCaseImpl implements DeleteCarUseCase {
     private final CarRepository carRepository;
+
     @Override
     public void deleteCar(long carId) {
 
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (carRepository.existsById(carId)){</span>
+<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (carRepository.existsById(carId)) {</span>
 
 <span class="nc" id="L19">            carRepository.deleteById(carId);</span>
 
+        } else {
+<span class="nc" id="L22">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
         }
-        else {
-<span class="nc" id="L23">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
-        }
-<span class="nc" id="L25">    }</span>
+<span class="nc" id="L24">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

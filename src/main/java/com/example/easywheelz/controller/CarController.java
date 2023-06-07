@@ -27,7 +27,10 @@ public class CarController {
     private final FilterCarUseCase filterCarUseCase;
     private final GetAllCarBrandsUseCase getAllCarBrandsUseCase;
 
-
+    @GetMapping("")
+    public ResponseEntity<List<Car>> getAllCars() {
+        return ResponseEntity.ok(getCarUseCase.getAllCars());
+    }
     @PostMapping("")
     @IsAuthenticated
     @RolesAllowed({"ROLE_ADMIN"})
@@ -36,10 +39,7 @@ public class CarController {
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
-    @GetMapping("")
-    public ResponseEntity<List<Car>> getAllCars() {
-        return ResponseEntity.ok(getCarUseCase.getAllCars());
-    }
+
 
 //    @GetMapping("/filter")
 //    public ResponseEntity<List<Car>> getAllAvailableCars(@RequestBody FilterCarsByAvailabilityRequest request) {
