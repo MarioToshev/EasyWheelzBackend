@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = &quot;http://localhost:3000&quot;, allowCredentials = &quot;true&quot;)
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
-    private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
+    //private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
 
     private final UpdateCarUseCase updateCarUseCase;
     private final DeleteCarUseCase deleteCarUseCase;
@@ -29,14 +29,14 @@ public class CarController {
 
     @GetMapping(&quot;&quot;)
     public ResponseEntity&lt;List&lt;Car&gt;&gt; getAllCars() {
-<span class="nc" id="L32">        return ResponseEntity.ok(getCarUseCase.getAllCars());</span>
+<span class="fc" id="L32">        return ResponseEntity.ok(getCarUseCase.getAllCars());</span>
     }
     @PostMapping(&quot;&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;CreateCarResponse&gt; createCar(@RequestBody CreateCarRequest request) {
-<span class="nc" id="L38">        CreateCarResponse response = createCarUseCase.createCar(request);</span>
-<span class="nc" id="L39">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L38">        CreateCarResponse response = createCarUseCase.createCar(request);</span>
+<span class="fc" id="L39">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
 
 
@@ -48,28 +48,28 @@ public class CarController {
 
     @GetMapping(&quot;/brands&quot;)
     public ResponseEntity&lt;List&lt;String&gt;&gt; getAllAvailableCars() {
-<span class="nc" id="L51">        return ResponseEntity.ok(getAllCarBrandsUseCase.getAllCarBrands());</span>
+<span class="fc" id="L51">        return ResponseEntity.ok(getAllCarBrandsUseCase.getAllCarBrands());</span>
     }
 
     @GetMapping(&quot;/{carId}&quot;)
     public ResponseEntity&lt;Car&gt; getCar(@PathVariable long carId) {
-<span class="nc" id="L56">        return ResponseEntity.ok(getCarUseCase.getCar(carId));</span>
+<span class="fc" id="L56">        return ResponseEntity.ok(getCarUseCase.getCar(carId));</span>
     }
 
     @PutMapping(&quot;&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;Void&gt; updateCar(@RequestBody UpdateCarRequest request) {
-<span class="nc" id="L63">        updateCarUseCase.updateCar(request);</span>
-<span class="nc" id="L64">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L63">        updateCarUseCase.updateCar(request);</span>
+<span class="fc" id="L64">        return ResponseEntity.noContent().build();</span>
     }
 
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     @DeleteMapping(&quot;/{carId}&quot;)
     public ResponseEntity&lt;Void&gt; deleteCar(@PathVariable long carId) {
-<span class="nc" id="L71">        deleteCarUseCase.deleteCar(carId);</span>
-<span class="nc" id="L72">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L71">        deleteCarUseCase.deleteCar(carId);</span>
+<span class="fc" id="L72">        return ResponseEntity.noContent().build();</span>
     }
 
     @PostMapping(&quot;/{carId}&quot;)
@@ -83,7 +83,7 @@ public class CarController {
 
     @PostMapping(&quot;/filters&quot;)
     public List&lt;Car&gt; filterCars(@RequestBody FilterRequest request) {
-<span class="nc" id="L86">        return filterCarUseCase.filterCars(request);</span>
+<span class="fc" id="L86">        return filterCarUseCase.filterCars(request);</span>
     }
 
 }

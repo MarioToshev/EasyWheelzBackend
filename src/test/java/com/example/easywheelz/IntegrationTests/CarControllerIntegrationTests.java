@@ -1,10 +1,8 @@
 package com.example.easywheelz.IntegrationTests;
 
 import com.example.easywheelz.buisness.interfaces.car.*;
-import com.example.easywheelz.domain.car.Car;
-import com.example.easywheelz.domain.car.CreateCarRequest;
-import com.example.easywheelz.domain.car.CreateCarResponse;
-import com.example.easywheelz.domain.car.UpdateCarRequest;
+import com.example.easywheelz.domain.car.*;
+import com.example.easywheelz.persistance.entities.CarEntity;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -17,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -25,6 +24,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.nio.charset.StandardCharsets;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -46,8 +46,6 @@ public class CarControllerIntegrationTests {
     private MockMvc mockMvc;
     @MockBean
     private CreateCarUseCase createCarUseCase;
-    @MockBean
-    private FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
     @MockBean
     private UpdateCarUseCase updateCarUseCase;
     @MockBean
@@ -130,8 +128,6 @@ public class CarControllerIntegrationTests {
                 """));
         verify(getCarUseCase, times(1)).getAllCars();
     }
-
-
 
     @Test
     @WithMockUser(username = "admin", roles = {"ADMIN"})
@@ -300,4 +296,107 @@ public class CarControllerIntegrationTests {
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isForbidden());
     }
+
+
+    @Test
+    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    void getFillteredCarsTest() throws Exception {
+
+        Car car = Car.builder().id(1L)
+                .licensePlate("AB-12f4")
+                .model("Chevrolet")
+                .brand("Corvette")
+                .pricePerDay(150)
+                .color("Red")
+                .build();
+        Car car1 = Car.builder().id(1L)
+                .licensePlate("AB-12f4")
+                .model("Chevrolet")
+                .brand("Corvette")
+                .pricePerDay(150)
+                .color("Red")
+                .build();
+
+        FilterRequest request = FilterRequest.builder().brand("Chevrolet").build();
+
+
+        List<Car> cars = List.of(car, car1);
+
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.configure(SerializationFeature.WRAP_ROOT_VALUE, false);
+        ObjectWriter ow = mapper.writer().withDefaultPrettyPrinter();
+        String requestJSON = ow.writeValueAsString(request);
+
+        when(filterCarUseCase.filterCars(request)).thenReturn(cars);
+
+        mockMvc.perform(MockMvcRequestBuilders
+                        .post("/cars/filters")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(requestJSON))
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+      [
+            {
+                "id": 1,
+                "licensePlate": "AB-12f4",
+                "model": "Chevrolet",
+                "brand": "Corvette",
+                "pricePerDay": 150.0,
+                "color": "Red"
+            },
+             {
+                "id": 1,
+                "licensePlate": "AB-12f4",
+                "model": "Chevrolet",
+                "brand": "Corvette",
+                "pricePerDay": 150.0,
+                "color": "Red"
+            }
+        ]
+"""));
+        verify(filterCarUseCase, times(1)).filterCars(request   );
+    }
+    @Test
+    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    void getAllBrands() throws Exception {
+
+        List<String> brands = List.of("mustang", "ferrari");
+
+
+        when(getAllCarBrandsUseCase.getAllCarBrands()).thenReturn(brands);
+
+        mockMvc.perform(get("/cars/brands").contentType(MediaType.APPLICATION_JSON)).andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                [
+               "mustang",
+                "ferrari"
+                ]
+                """));
+        verify(getAllCarBrandsUseCase, times(1)).getAllCarBrands();
+    }
+    @Test
+    @WithMockUser(username = "admin", roles = {"ADMIN"})
+    void uploadPictureTest() throws Exception {
+
+        List<String> brands = List.of("mustang", "ferrari");
+
+
+        when(getAllCarBrandsUseCase.getAllCarBrands()).thenReturn(brands);
+
+        mockMvc.perform(get("/cars/brands").contentType(MediaType.APPLICATION_JSON)).andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(header().string("Content-Type", APPLICATION_JSON_VALUE))
+                .andExpect(content().json("""
+                [
+               "mustang",
+                "ferrari"
+                ]
+                """));
+        verify(getAllCarBrandsUseCase, times(1)).getAllCarBrands();
+    }
+
 }

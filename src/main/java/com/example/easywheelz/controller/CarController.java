@@ -18,7 +18,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:3000", allowCredentials = "true")
 public class CarController {
     private final CreateCarUseCase createCarUseCase;
-    private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
+    //private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
 
     private final UpdateCarUseCase updateCarUseCase;
     private final DeleteCarUseCase deleteCarUseCase;

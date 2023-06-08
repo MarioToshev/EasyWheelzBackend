@@ -34,8 +34,8 @@ public class AuthenticationRequestFilter extends OncePerRequestFilter {
 
 <span class="fc" id="L35">        final String requestTokenHeader = request.getHeader(&quot;Authorization&quot;);</span>
 <span class="pc bpc" id="L36" title="3 of 4 branches missed.">        if (requestTokenHeader == null || !requestTokenHeader.startsWith(&quot;Bearer &quot;)) {</span>
-<span class="nc" id="L37">            chain.doFilter(request, response);</span>
-<span class="nc" id="L38">            return;</span>
+<span class="fc" id="L37">            chain.doFilter(request, response);</span>
+<span class="fc" id="L38">            return;</span>
         }
 
 <span class="nc" id="L41">        String accessToken = requestTokenHeader.substring(7);</span>

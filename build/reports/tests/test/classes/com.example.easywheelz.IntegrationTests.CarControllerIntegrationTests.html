@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">1</div>
+<div class="counter">12</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.053s</div>
+<div class="counter">0.712s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,8 +78,63 @@
 </tr>
 </thead>
 <tr>
+<td class="success">CreateCarCarTest()</td>
+<td class="success">0.182s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">CreateCarCarTestNotAdmin()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">DeleteCarNotAdminTest()</td>
-<td class="success">0.053s</td>
+<td class="success">0.020s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">DeleteCarTest()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">UpdateCarNotAdminTest()</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">UpdateCarTest()</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllBrands()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllCarsReturnsEmptyTest()</td>
+<td class="success">0.357s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getAllCarsTest()</td>
+<td class="success">0.018s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getCarTest()</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">getFillteredCarsTest()</td>
+<td class="success">0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">uploadPictureTest()</td>
+<td class="success">0.014s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,14 +142,14 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>12:18:27.425 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CarControllerIntegrationTests]: using SpringBootContextLoader
-12:18:27.432 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
-12:18:27.433 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests]: CarControllerIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-12:18:27.477 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CarControllerIntegrationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
-12:18:27.553 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [E:\project\easywheels\easywheels\build\classes\java\main\com\example\easywheelz\EasyWheelzApplication.class]
-12:18:27.555 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.easywheelz.EasyWheelzApplication for test class com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests
-12:18:27.666 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CarControllerIntegrationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, WithSecurityContextTestExecutionListener, EventPublishingTestExecutionListener, ReactorContextTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
-12:18:27.667 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CarControllerIntegrationTests], class annotated with @DirtiesContext [false] with mode [null]
+<pre>14:39:40.327 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [CarControllerIntegrationTests]: using SpringBootContextLoader
+14:39:40.340 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests]: no resource found for suffixes {-context.xml, Context.groovy}.
+14:39:40.342 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests]: CarControllerIntegrationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+14:39:40.423 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using ContextCustomizers for test class [CarControllerIntegrationTests]: [DisableObservabilityContextCustomizer, PropertyMappingContextCustomizer, Customizer, ImportsContextCustomizer, ExcludeFilterContextCustomizer, DuplicateJsonObjectContextCustomizer, MockitoContextCustomizer, TestRestTemplateContextCustomizer]
+14:39:40.576 [Test worker] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [C:\Users\mario\Desktop\asd\easywheels\build\classes\java\main\com\example\easywheelz\EasyWheelzApplication.class]
+14:39:40.578 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.example.easywheelz.EasyWheelzApplication for test class com.example.easywheelz.IntegrationTests.CarControllerIntegrationTests
+14:39:40.810 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners for test class [CarControllerIntegrationTests]: [ServletTestExecutionListener, DirtiesContextBeforeModesTestExecutionListener, ApplicationEventsTestExecutionListener, MockitoTestExecutionListener, DependencyInjectionTestExecutionListener, DirtiesContextTestExecutionListener, TransactionalTestExecutionListener, SqlScriptsTestExecutionListener, WithSecurityContextTestExecutionListener, EventPublishingTestExecutionListener, ReactorContextTestExecutionListener, RestDocsTestExecutionListener, MockRestServiceServerResetTestExecutionListener, MockMvcPrintOnlyOnFailureTestExecutionListener, WebDriverTestExecutionListener, MockWebServiceServerTestExecutionListener, ResetMocksTestExecutionListener]
+14:39:40.813 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: class [CarControllerIntegrationTests], class annotated with @DirtiesContext [false] with mode [null]
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -104,34 +159,219 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.0.3)
 
-2023-06-07T12:18:27.895+02:00  INFO 15864 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : Starting CarControllerIntegrationTests using Java 17.0.6 with PID 15864 (started by mario in E:\project\easywheels\easywheels)
-2023-06-07T12:18:27.896+02:00  INFO 15864 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2023-06-07T12:18:28.537+02:00  INFO 15864 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-06-07T12:18:28.617+02:00  INFO 15864 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 70 ms. Found 4 JPA repository interfaces.
-2023-06-07T12:18:29.414+02:00  INFO 15864 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityConfig' of type [com.example.easywheelz.configuration.security.MethodSecurityConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
-2023-06-07T12:18:29.571+02:00  INFO 15864 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-06-07T12:18:29.614+02:00  INFO 15864 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
-2023-06-07T12:18:29.736+02:00  INFO 15864 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2023-06-07T12:18:29.853+02:00  INFO 15864 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@633a4a3d
-2023-06-07T12:18:29.854+02:00  INFO 15864 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2023-06-07T12:18:29.884+02:00  WARN 15864 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
-2023-06-07T12:18:29.887+02:00  INFO 15864 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
-2023-06-07T12:18:30.384+02:00  INFO 15864 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-06-07T12:18:30.391+02:00  INFO 15864 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-06-07T12:18:31.383+02:00  WARN 15864 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
+2023-06-08T14:39:41.527+02:00  INFO 11688 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : Starting CarControllerIntegrationTests using Java 17.0.6 with PID 11688 (started by mario in C:\Users\mario\Desktop\asd\easywheels)
+2023-06-08T14:39:41.529+02:00  INFO 11688 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2023-06-08T14:39:43.149+02:00  INFO 11688 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-08T14:39:43.310+02:00  INFO 11688 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 146 ms. Found 4 JPA repository interfaces.
+2023-06-08T14:39:45.634+02:00  INFO 11688 --- [    Test worker] trationDelegate$BeanPostProcessorChecker : Bean 'methodSecurityConfig' of type [com.example.easywheelz.configuration.security.MethodSecurityConfig$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-08T14:39:46.061+02:00  INFO 11688 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-08T14:39:46.190+02:00  INFO 11688 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-06-08T14:39:46.811+02:00  INFO 11688 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-08T14:39:47.109+02:00  INFO 11688 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@26e66e13
+2023-06-08T14:39:47.112+02:00  INFO 11688 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-08T14:39:47.174+02:00  WARN 11688 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+2023-06-08T14:39:47.180+02:00  INFO 11688 --- [    Test worker] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-06-08T14:39:48.522+02:00  INFO 11688 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-08T14:39:48.538+02:00  INFO 11688 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-08T14:39:50.423+02:00  WARN 11688 --- [    Test worker] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 748d3d9d-c44e-4eac-8d90-d4fd2dfae6ed
+Using generated security password: 85d6798e-0050-4c23-b696-432cdd72b340
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2023-06-07T12:18:31.516+02:00  INFO 15864 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@a928e3a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5bb0103, org.springframework.security.web.context.SecurityContextHolderFilter@7d520599, org.springframework.security.web.header.HeaderWriterFilter@35934a51, org.springframework.security.web.authentication.logout.LogoutFilter@707172a8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@142d7f77, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6860dac6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3f80a1b5, org.springframework.security.web.session.SessionManagementFilter@7890fa09, org.springframework.security.web.access.ExceptionTranslationFilter@6afa2843]
-2023-06-07T12:18:32.033+02:00  INFO 15864 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2023-06-07T12:18:32.033+02:00  INFO 15864 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2023-06-07T12:18:32.034+02:00  INFO 15864 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2023-06-07T12:18:32.042+02:00  INFO 15864 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
-2023-06-07T12:18:32.043+02:00  INFO 15864 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@556adfac]]
-2023-06-07T12:18:32.043+02:00  INFO 15864 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
-2023-06-07T12:18:32.051+02:00  INFO 15864 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : Started CarControllerIntegrationTests in 4.347 seconds (process running for 5.558)
+2023-06-08T14:39:50.609+02:00  INFO 11688 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@dc7c1dd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1152a425, org.springframework.security.web.context.SecurityContextHolderFilter@4a41f4bd, org.springframework.security.web.header.HeaderWriterFilter@78951b5d, org.springframework.security.web.authentication.logout.LogoutFilter@35934a51, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1632ea0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4d673131, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@31170821, org.springframework.security.web.session.SessionManagementFilter@47c74455, org.springframework.security.web.access.ExceptionTranslationFilter@3f817436]
+2023-06-08T14:39:52.017+02:00  INFO 11688 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2023-06-08T14:39:52.017+02:00  INFO 11688 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2023-06-08T14:39:52.019+02:00  INFO 11688 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
+2023-06-08T14:39:52.044+02:00  INFO 11688 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2023-06-08T14:39:52.047+02:00  INFO 11688 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@1b866475]]
+2023-06-08T14:39:52.048+02:00  INFO 11688 --- [    Test worker] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2023-06-08T14:39:52.073+02:00  INFO 11688 --- [    Test worker] c.e.e.I.CarControllerIntegrationTests    : Started CarControllerIntegrationTests in 11.176 seconds (process running for 13.371)
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /cars
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.easywheelz.controller.CarController
+           Method = com.example.easywheelz.controller.CarController#getAllCars()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = []
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /cars/brands
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.easywheelz.controller.CarController
+           Method = com.example.easywheelz.controller.CarController#getAllAvailableCars()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = [&quot;mustang&quot;,&quot;ferrari&quot;]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /cars/brands
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.easywheelz.controller.CarController
+           Method = com.example.easywheelz.controller.CarController#getAllAvailableCars()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = [&quot;mustang&quot;,&quot;ferrari&quot;]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /cars
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.easywheelz.controller.CarController
+           Method = com.example.easywheelz.controller.CarController#getAllCars()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = [{&quot;id&quot;:1,&quot;licensePlate&quot;:&quot;AB-12f4&quot;,&quot;model&quot;:&quot;Chevrolet&quot;,&quot;brand&quot;:&quot;Corvette&quot;,&quot;pricePerDay&quot;:150.0,&quot;color&quot;:&quot;Red&quot;,&quot;photoUrl&quot;:null,&quot;availability&quot;:false},{&quot;id&quot;:1,&quot;licensePlate&quot;:&quot;AB-12f4&quot;,&quot;model&quot;:&quot;Chevrolet&quot;,&quot;brand&quot;:&quot;Corvette&quot;,&quot;pricePerDay&quot;:150.0,&quot;color&quot;:&quot;Red&quot;,&quot;photoUrl&quot;:null,&quot;availability&quot;:false}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /cars/1
+       Parameters = {}
+          Headers = [Content-Type:&quot;application/json;charset=UTF-8&quot;]
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.example.easywheelz.controller.CarController
+           Method = com.example.easywheelz.controller.CarController#getCar(long)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Vary:&quot;Origin&quot;, &quot;Access-Control-Request-Method&quot;, &quot;Access-Control-Request-Headers&quot;, Content-Type:&quot;application/json&quot;, X-Content-Type-Options:&quot;nosniff&quot;, X-XSS-Protection:&quot;0&quot;, Cache-Control:&quot;no-cache, no-store, max-age=0, must-revalidate&quot;, Pragma:&quot;no-cache&quot;, Expires:&quot;0&quot;, X-Frame-Options:&quot;DENY&quot;]
+     Content type = application/json
+             Body = {&quot;id&quot;:1,&quot;licensePlate&quot;:&quot;AB-12f4&quot;,&quot;model&quot;:&quot;Chevrolet&quot;,&quot;brand&quot;:&quot;Corvette&quot;,&quot;pricePerDay&quot;:150.0,&quot;color&quot;:&quot;Red&quot;,&quot;photoUrl&quot;:null,&quot;availability&quot;:false}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
 </pre>
 </span>
 </div>
@@ -143,7 +383,7 @@ This generated password is for development use only. Your security configuration
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.6.1</a> at Jun 7, 2023, 12:18:32 PM</p>
+<a href="http://www.gradle.org">Gradle 7.6.1</a> at Jun 8, 2023, 2:39:53 PM</p>
 </div>
 </div>
 </body>
