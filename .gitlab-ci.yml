@@ -43,14 +43,14 @@ sonarqube-check:
 test: 
   stage: test 
   script: 
-    - .gradlew test
+    - gradle test
 
 
 dockersize:
   stage: dockersize
   script:
     - gradle clean assemble
-    - docker build -t $DOCKER_IMAGE
+    - docker build -t $DOCKER_IMAGE ./
   only:
     - master
 
