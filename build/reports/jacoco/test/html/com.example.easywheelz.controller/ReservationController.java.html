@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ReservationController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.controller</a> &gt; <span class="el_source">ReservationController.java</span></div><h1>ReservationController.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.controller;
+
+import com.example.easywheelz.buisness.interfaces.reservation.*;
+import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
+import com.example.easywheelz.domain.AccessToken;
+import com.example.easywheelz.domain.reservation.CreateReservationRequest;
+import com.example.easywheelz.domain.reservation.CreateReservationResponse;
+import com.example.easywheelz.domain.reservation.Reservation;
+import com.example.easywheelz.domain.reservation.UpdateReservationRequest;
+import jakarta.annotation.security.RolesAllowed;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@Controller
+@AllArgsConstructor
+@RequestMapping(&quot;/reservations&quot;)
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;, allowCredentials = &quot;true&quot;)
+public class ReservationController {
+    private final CreateReservationUseCase createReservation;
+    private final DeleteReservationUseCase deleteReservation;
+    private final UpdateReservationUseCase updateReservation;
+    private final GetReservationUseCase getReservation;
+    private final GetAllReservationsOfaUserUseCase getAllReservationsOfaUserUseCase;
+    private AccessToken requestAccessToken;
+
+
+    @PostMapping(&quot;&quot;)
+    public ResponseEntity&lt;CreateReservationResponse&gt; createReservation(@RequestBody CreateReservationRequest request) {
+<span class="nc" id="L34">        CreateReservationResponse response = createReservation.createReservation(request);</span>
+<span class="nc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+    }
+
+    @GetMapping(&quot;&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
+    public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllReservations() {
+<span class="nc" id="L42">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
+    }
+
+    @GetMapping(&quot;/history/{userId}&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;, &quot;ROLE_CUSTOMER&quot;})
+    public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllUserReservations(@PathVariable Long userId) {
+<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (!requestAccessToken.hasRole(&quot;ROLE_ADMIN&quot;)) {</span>
+<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (!requestAccessToken.getUserId().equals(userId)) {</span>
+<span class="nc" id="L51">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);</span>
+            }
+        }
+<span class="nc" id="L54">        return ResponseEntity.ok(getAllReservationsOfaUserUseCase.getAllReservationsOfAUser(userId));</span>
+    }
+
+    @GetMapping(&quot;/{resId}&quot;)
+    public ResponseEntity&lt;Reservation&gt; getReservation(@PathVariable long resId) {
+<span class="nc" id="L59">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
+    }
+
+    @PutMapping(&quot;&quot;)
+    public ResponseEntity&lt;Void&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
+<span class="nc" id="L64">        updateReservation.updateReservation(request);</span>
+<span class="nc" id="L65">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @DeleteMapping(&quot;/{resId}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteReservation(@PathVariable long resId) {
+<span class="nc" id="L70">        deleteReservation.deleteReservation(resId);</span>
+<span class="nc" id="L71">        return ResponseEntity.noContent().build();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CarController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.controller</a> &gt; <span class="el_source">CarController.java</span></div><h1>CarController.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.controller;
+
+import com.example.easywheelz.buisness.interfaces.car.*;
+import com.example.easywheelz.configuration.security.isauthenticated.IsAuthenticated;
+import com.example.easywheelz.domain.car.*;
+import jakarta.annotation.security.RolesAllowed;
+import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(&quot;/cars&quot;)
+@AllArgsConstructor
+@CrossOrigin(origins = &quot;http://localhost:3000&quot;, allowCredentials = &quot;true&quot;)
+public class CarController {
+    private final CreateCarUseCase createCarUseCase;
+    //private final FindAllAvailableCarsUseCase findAllAvailableCarsUseCars;
+
+    private final UpdateCarUseCase updateCarUseCase;
+    private final DeleteCarUseCase deleteCarUseCase;
+    private final GetCarUseCase getCarUseCase;
+    private final UploadCarPhotoUseCase uploadCarPhotoUseCase;
+    private final FilterCarUseCase filterCarUseCase;
+    private final GetAllCarBrandsUseCase getAllCarBrandsUseCase;
+
+    @GetMapping(&quot;&quot;)
+    public ResponseEntity&lt;List&lt;Car&gt;&gt; getAllCars() {
+<span class="nc" id="L32">        return ResponseEntity.ok(getCarUseCase.getAllCars());</span>
+    }
+    @PostMapping(&quot;&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
+    public ResponseEntity&lt;CreateCarResponse&gt; createCar(@RequestBody CreateCarRequest request) {
+<span class="nc" id="L38">        CreateCarResponse response = createCarUseCase.createCar(request);</span>
+<span class="nc" id="L39">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+    }
+
+
+
+//    @GetMapping(&quot;/filter&quot;)
+//    public ResponseEntity&lt;List&lt;Car&gt;&gt; getAllAvailableCars(@RequestBody FilterCarsByAvailabilityRequest request) {
+//        return ResponseEntity.ok(findAllAvailableCarsUseCars.GetAllAvailableCarsInDateRange(request));
+//    }
+
+    @GetMapping(&quot;/brands&quot;)
+    public ResponseEntity&lt;List&lt;String&gt;&gt; getAllAvailableCars() {
+<span class="nc" id="L51">        return ResponseEntity.ok(getAllCarBrandsUseCase.getAllCarBrands());</span>
+    }
+
+    @GetMapping(&quot;/{carId}&quot;)
+    public ResponseEntity&lt;Car&gt; getCar(@PathVariable long carId) {
+<span class="nc" id="L56">        return ResponseEntity.ok(getCarUseCase.getCar(carId));</span>
+    }
+
+    @PutMapping(&quot;&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
+    public ResponseEntity&lt;Void&gt; updateCar(@RequestBody UpdateCarRequest request) {
+<span class="nc" id="L63">        updateCarUseCase.updateCar(request);</span>
+<span class="nc" id="L64">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
+    @DeleteMapping(&quot;/{carId}&quot;)
+    public ResponseEntity&lt;Void&gt; deleteCar(@PathVariable long carId) {
+<span class="nc" id="L71">        deleteCarUseCase.deleteCar(carId);</span>
+<span class="nc" id="L72">        return ResponseEntity.noContent().build();</span>
+    }
+
+    @PostMapping(&quot;/{carId}&quot;)
+    @IsAuthenticated
+    @RolesAllowed({&quot;ROLE_ADMIN&quot;})
+    public ResponseEntity&lt;Void&gt; uploadPhoto(@PathVariable(value = &quot;carId&quot;) final long id,
+                                            @RequestParam(&quot;photo&quot;) MultipartFile photo) {
+<span class="nc" id="L80">        uploadCarPhotoUseCase.uploadPicture(photo, id);</span>
+<span class="nc" id="L81">        return ResponseEntity.status(HttpStatus.OK).build();</span>
+    }
+
+    @PostMapping(&quot;/filters&quot;)
+    public List&lt;Car&gt; filterCars(@RequestBody FilterRequest request) {
+<span class="nc" id="L86">        return filterCarUseCase.filterCars(request);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

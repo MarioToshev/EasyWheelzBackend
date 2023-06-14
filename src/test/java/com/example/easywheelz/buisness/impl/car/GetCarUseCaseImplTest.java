@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Collections;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.verify;
@@ -42,14 +43,12 @@ class   GetCarUseCaseImplTest {
 
 
 
-        when(carRepository.existsById(car.getId())).thenReturn(true);
-        when(carRepository.getReferenceById(car.getId())).thenReturn(car);
+        when(carRepository.findById(car.getId())).thenReturn(Optional.of(car));
 
         Car car1 = getCarUseCase.getCar(car.getId());
 
         assertEquals(carConverter.convert(car),car1);
-        verify(carRepository).existsById(car.getId());
-        verify(carRepository).getReferenceById(car.getId());
+        verify(carRepository).findById(car.getId());
     }
 
     @Test
@@ -60,7 +59,7 @@ class   GetCarUseCaseImplTest {
         });
 
         assertEquals("Car not found",exception.getMessage());
-        verify(carRepository).existsById(1L);
+        verify(carRepository).findById(1L);
 
     }
     @Test

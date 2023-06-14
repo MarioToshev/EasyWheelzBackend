@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CreateRoleUseCaseImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">EasyWheelz</a> &gt; <a href="index.source.html" class="el_package">com.example.easywheelz.buisness.impl.role</a> &gt; <span class="el_source">CreateRoleUseCaseImpl.java</span></div><h1>CreateRoleUseCaseImpl.java</h1><pre class="source lang-java linenums">package com.example.easywheelz.buisness.impl.role;
+
+import com.example.easywheelz.buisness.converters.RoleConverter;
+import com.example.easywheelz.buisness.interfaces.role.CreateRoleUseCase;
+import com.example.easywheelz.custom.exeptions.InvalidRoleException;
+import com.example.easywheelz.domain.role.CreateRoleRequest;
+import com.example.easywheelz.domain.role.CreateRoleResponse;
+import com.example.easywheelz.persistance.RoleRepository;
+import com.example.easywheelz.persistance.entities.RoleEntity;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
+
+@Service
+@AllArgsConstructor
+public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
+
+
+    private RoleRepository roleRepository;
+
+    private RoleConverter converter;
+
+    @Override
+    public CreateRoleResponse createRole(CreateRoleRequest request) {
+<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (request == null) {</span>
+<span class="nc" id="L25">            throw new InvalidRoleException(&quot;Failed to save role entity&quot;);</span>
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        } else if (roleRepository.existsRoleByRoleName(request.getRoleName())) {</span>
+<span class="nc" id="L27">            throw new InvalidRoleException(&quot;This role exists&quot;);</span>
+        }
+<span class="nc" id="L29">        RoleEntity roleEntity = roleRepository.save(converter.convert(request));</span>
+<span class="nc" id="L30">        return CreateRoleResponse.builder().id(</span>
+<span class="nc" id="L31">                roleEntity.getId()</span>
+<span class="nc" id="L32">        ).build();</span>
+    }
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
