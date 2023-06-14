@@ -13,11 +13,11 @@ public class DeleteReservationUseCaseImpl implements DeleteReservationUseCase {
 
     @Override
     public void deleteReservation(long resId) {
-<span class="nc bnc" id="L16" title="All 2 branches missed.">        if (reservationRepository.existsById(resId)) {</span>
-<span class="nc" id="L17">            reservationRepository.deleteById(resId);</span>
+<span class="fc bfc" id="L16" title="All 2 branches covered.">        if (reservationRepository.existsById(resId)) {</span>
+<span class="fc" id="L17">            reservationRepository.deleteById(resId);</span>
         } else {
-<span class="nc" id="L19">            throw new InvalidReservationExeption(&quot;Reservation not found&quot;);</span>
+<span class="fc" id="L19">            throw new InvalidReservationExeption(&quot;Reservation not found&quot;);</span>
         }
-<span class="nc" id="L21">    }</span>
+<span class="fc" id="L21">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

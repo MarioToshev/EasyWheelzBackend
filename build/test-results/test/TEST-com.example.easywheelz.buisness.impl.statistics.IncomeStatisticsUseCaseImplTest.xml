@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.statistics.IncomeStatisticsUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-14T12:49:40" hostname="DESKTOP-41OPBTP" time="0.002">
+<testsuite name="com.example.easywheelz.buisness.impl.statistics.IncomeStatisticsUseCaseImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.001">
   <properties/>
-  <testcase name="testFilteringNoCars()" classname="com.example.easywheelz.buisness.impl.statistics.IncomeStatisticsUseCaseImplTest" time="0.002"/>
+  <testcase name="testFilteringNoCars()" classname="com.example.easywheelz.buisness.impl.statistics.IncomeStatisticsUseCaseImplTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

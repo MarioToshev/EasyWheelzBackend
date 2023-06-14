@@ -14,13 +14,13 @@ public class DeleteCarUseCaseImpl implements DeleteCarUseCase {
     @Override
     public void deleteCar(long carId) {
 
-<span class="nc bnc" id="L17" title="All 2 branches missed.">        if (carRepository.existsById(carId)) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">        if (carRepository.existsById(carId)) {</span>
 
-<span class="nc" id="L19">            carRepository.deleteById(carId);</span>
+<span class="fc" id="L19">            carRepository.deleteById(carId);</span>
 
         } else {
-<span class="nc" id="L22">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
+<span class="fc" id="L22">            throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
         }
-<span class="nc" id="L24">    }</span>
+<span class="fc" id="L24">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

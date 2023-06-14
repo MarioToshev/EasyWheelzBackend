@@ -9,17 +9,17 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 @Configuration
-<span class="nc" id="L12">public class WebSecurityConfig {</span>
+<span class="fc" id="L12">public class WebSecurityConfig {</span>
 
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-<span class="nc" id="L17">        httpSecurity</span>
-<span class="nc" id="L18">                .csrf().disable()</span>
-<span class="nc" id="L19">                .formLogin().disable()</span>
-<span class="nc" id="L20">                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);</span>
+<span class="fc" id="L17">        httpSecurity</span>
+<span class="fc" id="L18">                .csrf().disable()</span>
+<span class="fc" id="L19">                .formLogin().disable()</span>
+<span class="fc" id="L20">                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);</span>
 
-<span class="nc" id="L22">        return httpSecurity.build();</span>
+<span class="fc" id="L22">        return httpSecurity.build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

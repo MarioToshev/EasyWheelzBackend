@@ -21,15 +21,15 @@ public class CreateRoleUseCaseImpl implements CreateRoleUseCase {
 
     @Override
     public CreateRoleResponse createRole(CreateRoleRequest request) {
-<span class="nc bnc" id="L24" title="All 2 branches missed.">        if (request == null) {</span>
-<span class="nc" id="L25">            throw new InvalidRoleException(&quot;Failed to save role entity&quot;);</span>
-<span class="nc bnc" id="L26" title="All 2 branches missed.">        } else if (roleRepository.existsRoleByRoleName(request.getRoleName())) {</span>
-<span class="nc" id="L27">            throw new InvalidRoleException(&quot;This role exists&quot;);</span>
+<span class="fc bfc" id="L24" title="All 2 branches covered.">        if (request == null) {</span>
+<span class="fc" id="L25">            throw new InvalidRoleException(&quot;Failed to save role entity&quot;);</span>
+<span class="fc bfc" id="L26" title="All 2 branches covered.">        } else if (roleRepository.existsRoleByRoleName(request.getRoleName())) {</span>
+<span class="fc" id="L27">            throw new InvalidRoleException(&quot;This role exists&quot;);</span>
         }
-<span class="nc" id="L29">        RoleEntity roleEntity = roleRepository.save(converter.convert(request));</span>
-<span class="nc" id="L30">        return CreateRoleResponse.builder().id(</span>
-<span class="nc" id="L31">                roleEntity.getId()</span>
-<span class="nc" id="L32">        ).build();</span>
+<span class="fc" id="L29">        RoleEntity roleEntity = roleRepository.save(converter.convert(request));</span>
+<span class="fc" id="L30">        return CreateRoleResponse.builder().id(</span>
+<span class="fc" id="L31">                roleEntity.getId()</span>
+<span class="fc" id="L32">        ).build();</span>
     }
 
 

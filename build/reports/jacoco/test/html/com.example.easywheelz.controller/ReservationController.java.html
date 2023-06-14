@@ -31,15 +31,15 @@ public class ReservationController {
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateReservationResponse&gt; createReservation(@RequestBody CreateReservationRequest request) {
-<span class="nc" id="L34">        CreateReservationResponse response = createReservation.createReservation(request);</span>
-<span class="nc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L34">        CreateReservationResponse response = createReservation.createReservation(request);</span>
+<span class="fc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
 
     @GetMapping(&quot;&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;Reservation&gt;&gt; getAllReservations() {
-<span class="nc" id="L42">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
+<span class="fc" id="L42">        return ResponseEntity.ok(getReservation.getAllReservations());</span>
     }
 
     @GetMapping(&quot;/history/{userId}&quot;)
@@ -56,19 +56,19 @@ public class ReservationController {
 
     @GetMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Reservation&gt; getReservation(@PathVariable long resId) {
-<span class="nc" id="L59">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
+<span class="fc" id="L59">        return ResponseEntity.ok(getReservation.getReservation(resId));</span>
     }
 
     @PutMapping(&quot;&quot;)
     public ResponseEntity&lt;Void&gt; updateReservation(@RequestBody UpdateReservationRequest request) {
-<span class="nc" id="L64">        updateReservation.updateReservation(request);</span>
-<span class="nc" id="L65">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L64">        updateReservation.updateReservation(request);</span>
+<span class="fc" id="L65">        return ResponseEntity.noContent().build();</span>
     }
 
     @DeleteMapping(&quot;/{resId}&quot;)
     public ResponseEntity&lt;Void&gt; deleteReservation(@PathVariable long resId) {
-<span class="nc" id="L70">        deleteReservation.deleteReservation(resId);</span>
-<span class="nc" id="L71">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L70">        deleteReservation.deleteReservation(resId);</span>
+<span class="fc" id="L71">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

@@ -31,43 +31,43 @@ public class UserController {
 
     @PostMapping(&quot;&quot;)
     public ResponseEntity&lt;CreateUserResponse&gt; createUser(@RequestBody CreateUserRequest request) {
-<span class="nc" id="L34">        CreateUserResponse response = createUserUseCase.createUser(request);</span>
-<span class="nc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
+<span class="fc" id="L34">        CreateUserResponse response = createUserUseCase.createUser(request);</span>
+<span class="fc" id="L35">        return ResponseEntity.status(HttpStatus.CREATED).body(response);</span>
     }
 
     @GetMapping(&quot;&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;List&lt;User&gt;&gt; getAllUsers() {
-<span class="nc" id="L42">        return ResponseEntity.ok(getUsersUseCase.getAllUsers());</span>
+<span class="fc" id="L42">        return ResponseEntity.ok(getUsersUseCase.getAllUsers());</span>
     }
 
     @GetMapping(&quot;/{userId}&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;, &quot;ROLE_CUSTOMER&quot;})
     public ResponseEntity&lt;User&gt; getUser(@PathVariable long userId) {
-<span class="nc bnc" id="L49" title="All 2 branches missed.">        if (!requestAccessToken.hasRole(&quot;ROLE_ADMIN&quot;)) {</span>
-<span class="nc bnc" id="L50" title="All 2 branches missed.">            if (requestAccessToken.getUserId() != userId) {</span>
-<span class="nc" id="L51">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (!requestAccessToken.hasRole(&quot;ROLE_ADMIN&quot;)) {</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">            if (requestAccessToken.getUserId() != userId) {</span>
+<span class="fc" id="L51">                return ResponseEntity.status(HttpStatus.FORBIDDEN).body(null);</span>
             }
 
         }
-<span class="nc" id="L55">        return ResponseEntity.ok(getUsersUseCase.getUser(userId));</span>
+<span class="fc" id="L55">        return ResponseEntity.ok(getUsersUseCase.getUser(userId));</span>
     }
 
     @PutMapping(&quot;&quot;)
 
     public ResponseEntity&lt;Void&gt; updateUser(@RequestBody UpdateUserRequest request) {
-<span class="nc" id="L61">        updateUserUseCase.updateUser(request);</span>
-<span class="nc" id="L62">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L61">        updateUserUseCase.updateUser(request);</span>
+<span class="fc" id="L62">        return ResponseEntity.noContent().build();</span>
     }
 
     @DeleteMapping(&quot;/{userId}&quot;)
     @IsAuthenticated
     @RolesAllowed({&quot;ROLE_ADMIN&quot;})
     public ResponseEntity&lt;Void&gt; deleteUser(@PathVariable long userId) {
-<span class="nc" id="L69">        deleteUserUseCase.deleteUser(userId);</span>
-<span class="nc" id="L70">        return ResponseEntity.noContent().build();</span>
+<span class="fc" id="L69">        deleteUserUseCase.deleteUser(userId);</span>
+<span class="fc" id="L70">        return ResponseEntity.noContent().build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

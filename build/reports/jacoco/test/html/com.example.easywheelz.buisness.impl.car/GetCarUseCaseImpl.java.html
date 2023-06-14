@@ -22,15 +22,15 @@ public class GetCarUseCaseImpl implements GetCarUseCase {
     @Override
     public Car getCar(long id) {
 <span class="fc" id="L24">        Optional&lt;CarEntity&gt; car = carRepository.findById(id);</span>
-<span class="pc bpc" id="L25" title="1 of 2 branches missed.">        if (car.isPresent()) {</span>
-<span class="nc" id="L26">            return carConverter.convert(car.get());</span>
+<span class="fc bfc" id="L25" title="All 2 branches covered.">        if (car.isPresent()) {</span>
+<span class="fc" id="L26">            return carConverter.convert(car.get());</span>
         }
 <span class="fc" id="L28">        throw new InvalidCarCredentials(&quot;Car not found&quot;);</span>
     }
 
     @Override
     public List&lt;Car&gt; getAllCars() {
-<span class="nc" id="L33">        return carRepository.findAll().stream().map(carConverter::convert).toList();</span>
+<span class="fc" id="L33">        return carRepository.findAll().stream().map(carConverter::convert).toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

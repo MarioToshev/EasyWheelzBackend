@@ -26,29 +26,29 @@ public class CreateUserUseCaseImpl implements CreateUserUseCase {
     @Override
     public CreateUserResponse createUser(CreateUserRequest request) {
 
-<span class="nc bnc" id="L29" title="All 2 branches missed.">        if (userRepository.existsByEmail(request.getEmail())) {</span>
-<span class="nc" id="L30">            throw new IncorrectUserCredentialsError(&quot;This email is already in use.&quot;);</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">        if (userRepository.existsByEmail(request.getEmail())) {</span>
+<span class="fc" id="L30">            throw new IncorrectUserCredentialsError(&quot;This email is already in use.&quot;);</span>
         }
-<span class="nc bnc" id="L32" title="All 2 branches missed.">        if (userRepository.existsByPhone(request.getPhone())) {</span>
-<span class="nc" id="L33">            throw new IncorrectUserCredentialsError(&quot;This phone number is already in use.&quot;);</span>
+<span class="fc bfc" id="L32" title="All 2 branches covered.">        if (userRepository.existsByPhone(request.getPhone())) {</span>
+<span class="fc" id="L33">            throw new IncorrectUserCredentialsError(&quot;This phone number is already in use.&quot;);</span>
         }
-<span class="nc bnc" id="L35" title="All 2 branches missed.">        if (PasswordValidator.isValid(request.getPassword())) {</span>
+<span class="pc bpc" id="L35" title="1 of 2 branches missed.">        if (PasswordValidator.isValid(request.getPassword())) {</span>
 <span class="nc" id="L36">            throw new IncorrectUserCredentialsError(&quot;Password must contain at least  8 characters and a 1 special symbol&quot;);</span>
         }
-<span class="nc" id="L38">        RoleEntity role = roleRepository.findByRoleName(&quot;Customer&quot;);</span>
-<span class="nc bnc" id="L39" title="All 2 branches missed.">        if (role == null) {</span>
+<span class="fc" id="L38">        RoleEntity role = roleRepository.findByRoleName(&quot;Customer&quot;);</span>
+<span class="pc bpc" id="L39" title="1 of 2 branches missed.">        if (role == null) {</span>
 <span class="nc" id="L40">            throw new IncorrectUserCredentialsError(&quot;There was an error creating ur account&quot;);</span>
         }
 
-<span class="nc" id="L43">        request.setRole(roleConverter.convert(role));</span>
+<span class="fc" id="L43">        request.setRole(roleConverter.convert(role));</span>
 
-<span class="nc" id="L45">        String encodedPassword = passwordEncoder.encode(request.getPassword());</span>
-<span class="nc" id="L46">        request.setPassword(encodedPassword);</span>
+<span class="fc" id="L45">        String encodedPassword = passwordEncoder.encode(request.getPassword());</span>
+<span class="fc" id="L46">        request.setPassword(encodedPassword);</span>
 
 
-<span class="nc" id="L49">        return CreateUserResponse.builder().id(</span>
-<span class="nc" id="L50">                userRepository.save(userConverter.convert(request)).getId()</span>
-<span class="nc" id="L51">        ).build();</span>
+<span class="fc" id="L49">        return CreateUserResponse.builder().id(</span>
+<span class="fc" id="L50">                userRepository.save(userConverter.convert(request)).getId()</span>
+<span class="fc" id="L51">        ).build();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

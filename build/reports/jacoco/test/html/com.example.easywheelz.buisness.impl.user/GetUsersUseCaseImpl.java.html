@@ -21,14 +21,14 @@ public class GetUsersUseCaseImpl implements GetUsersUseCase {
 
     @Override
     public User getUser(long id) {
-<span class="nc" id="L24">        Optional&lt;UserEntity&gt; userEntity = userRepository.findById(id);</span>
-<span class="nc" id="L25">        return userEntity.map(converter::convert).orElse(null);</span>
+<span class="fc" id="L24">        Optional&lt;UserEntity&gt; userEntity = userRepository.findById(id);</span>
+<span class="fc" id="L25">        return userEntity.map(converter::convert).orElse(null);</span>
     }
 
     @Override
     public List&lt;User&gt; getAllUsers() {
-<span class="nc" id="L30">        return userRepository.findAllByDisabledIs(false).stream().map(converter::convert)</span>
-<span class="nc" id="L31">                .toList();</span>
+<span class="fc" id="L30">        return userRepository.findAllByDisabledIs(false).stream().map(converter::convert)</span>
+<span class="fc" id="L31">                .toList();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

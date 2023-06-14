@@ -23,17 +23,17 @@ public class UpdateUserUseCaseImpl implements UpdateUserUseCase {
     @Override
     public void updateUser(UpdateUserRequest request) {
 
-<span class="nc" id="L26">        RoleEntity role = roleRepository.findByRoleName(request.getRole());</span>
-<span class="nc" id="L27">        UserEntity userFomBase = userRepository.findByEmail(request.getEmail());</span>
-<span class="nc bnc" id="L28" title="All 2 branches missed.">        if (role == null) {</span>
-<span class="nc" id="L29">            throw new IncorrectUserCredentialsError(&quot;Role doesn't exist&quot;);</span>
+<span class="fc" id="L26">        RoleEntity role = roleRepository.findByRoleName(request.getRole());</span>
+<span class="fc" id="L27">        UserEntity userFomBase = userRepository.findByEmail(request.getEmail());</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">        if (role == null) {</span>
+<span class="fc" id="L29">            throw new IncorrectUserCredentialsError(&quot;Role doesn't exist&quot;);</span>
         }
-<span class="nc" id="L31">        UserEntity userToUpdate = converter.convert(request);</span>
-<span class="nc" id="L32">        userToUpdate.setId(userFomBase.getId());</span>
-<span class="nc" id="L33">        userToUpdate.setRole(role);</span>
-<span class="nc" id="L34">        userToUpdate.setPassword(userFomBase.getPassword());</span>
-<span class="nc" id="L35">        userToUpdate.setDisabled(userFomBase.getDisabled());</span>
-<span class="nc" id="L36">        userRepository.save(userToUpdate);</span>
-<span class="nc" id="L37">    }</span>
+<span class="fc" id="L31">        UserEntity userToUpdate = converter.convert(request);</span>
+<span class="fc" id="L32">        userToUpdate.setId(userFomBase.getId());</span>
+<span class="fc" id="L33">        userToUpdate.setRole(role);</span>
+<span class="fc" id="L34">        userToUpdate.setPassword(userFomBase.getPassword());</span>
+<span class="fc" id="L35">        userToUpdate.setDisabled(userFomBase.getDisabled());</span>
+<span class="fc" id="L36">        userRepository.save(userToUpdate);</span>
+<span class="fc" id="L37">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

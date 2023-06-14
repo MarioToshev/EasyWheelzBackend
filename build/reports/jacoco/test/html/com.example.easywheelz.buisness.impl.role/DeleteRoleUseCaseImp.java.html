@@ -17,11 +17,11 @@ public class DeleteRoleUseCaseImp implements DeleteRoleUseCase {
 
     @Override
     public void deleteRole(long id) {
-<span class="nc bnc" id="L20" title="All 2 branches missed.">        if (!roleRepository.existsById(id)) {</span>
-<span class="nc" id="L21">            throw new InvalidRoleException(&quot;Role not found&quot;);</span>
+<span class="fc bfc" id="L20" title="All 2 branches covered.">        if (!roleRepository.existsById(id)) {</span>
+<span class="fc" id="L21">            throw new InvalidRoleException(&quot;Role not found&quot;);</span>
         } else {
-<span class="nc" id="L23">            roleRepository.deleteById(id);</span>
+<span class="fc" id="L23">            roleRepository.deleteById(id);</span>
         }
-<span class="nc" id="L25">    }</span>
+<span class="fc" id="L25">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>

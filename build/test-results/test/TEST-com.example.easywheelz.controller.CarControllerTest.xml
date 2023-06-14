@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.controller.CarControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-06-14T12:49:40" hostname="DESKTOP-41OPBTP" time="0.038">
+<testsuite name="com.example.easywheelz.controller.CarControllerTest" tests="11" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.031">
   <properties/>
-  <testcase name="UploadPhoto()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.016"/>
+  <testcase name="UploadPhoto()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.001"/>
   <testcase name="createCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
-  <testcase name="GetAllCarsTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
-  <testcase name="GetCarTestNotExistingCar()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.001"/>
-  <testcase name="createCarTestWrongData()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.004"/>
-  <testcase name="updateCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.003"/>
-  <testcase name="GetCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
+  <testcase name="GetAllCarsTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.003"/>
+  <testcase name="GetCarTestNotExistingCar()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
+  <testcase name="createCarTestWrongData()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.005"/>
+  <testcase name="updateCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.004"/>
+  <testcase name="GetCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.001"/>
   <testcase name="deleteCarTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.001"/>
-  <testcase name="updateCarWrongCredentialsTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
+  <testcase name="updateCarWrongCredentialsTest()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.005"/>
   <testcase name="GetAllCarsTestEmpty()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
-  <testcase name="deleteCarTestNotExisting()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.002"/>
+  <testcase name="deleteCarTestNotExisting()" classname="com.example.easywheelz.controller.CarControllerTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
