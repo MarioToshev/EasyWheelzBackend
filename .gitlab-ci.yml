@@ -15,6 +15,9 @@ stages:
     - build 
     - sonar
     - test 
+    - dockersize
+    - deploy
+
 
 
 build: 
