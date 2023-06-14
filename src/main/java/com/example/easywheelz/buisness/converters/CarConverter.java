@@ -11,6 +11,10 @@ import org.springframework.stereotype.Service;
 @Service
 @AllArgsConstructor
 public class CarConverter {
+
+
+
+    
     public CarEntity convert(@NotNull CreateCarRequest request) {
         return CarEntity.builder()
                 .model(request.getModel())
