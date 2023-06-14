@@ -18,8 +18,6 @@ stages:
     - dockersize
     - deploy
 
-
-
 build: 
     stage: build 
     script: 
@@ -45,7 +43,7 @@ sonarqube-check:
 test: 
   stage: test 
   script: 
-    - .\gradlew test
+    - .gradlew test
 
 
 dockersize:
