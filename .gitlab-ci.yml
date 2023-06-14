@@ -43,7 +43,7 @@ sonarqube-check:
 test: 
   stage: test 
   script: 
-    - .gradlew test
+    - gradle test
 
 
 dockersize:
