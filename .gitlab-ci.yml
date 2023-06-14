@@ -52,7 +52,8 @@ dockersize:
     - gradle clean assemble
     - docker build -t $DOCKER_IMAGE
   only:
-    - main
+    - master
+
 
 deploy:
   stage: deploy
@@ -62,7 +63,7 @@ deploy:
     - docker rm easy_wheelz_backend
     - docker run -d -p 8080:8080 --net=backend --env spring_profiles_active=staging --name=easy_wheelz_backend easy_wheelz_backend
   only:
-    - main
+    - master
 
 
 
