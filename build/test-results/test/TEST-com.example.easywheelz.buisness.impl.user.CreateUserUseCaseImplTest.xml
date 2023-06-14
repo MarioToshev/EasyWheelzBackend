@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-13T11:49:07" hostname="DESKTOP-41OPBTP" time="0.083">
+  <properties/>
+  <testcase name="testCreateUserWithExistingEmail()" classname="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" time="0.07"/>
+  <testcase name="testCreateUserWithExistingPhoneNumber()" classname="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" time="0.004"/>
+  <testcase name="testCreateUser()" classname="com.example.easywheelz.buisness.impl.user.CreateUserUseCaseImplTest" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

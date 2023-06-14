@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.impl.user.LogInUseCaseImplTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-06-13T11:49:07" hostname="DESKTOP-41OPBTP" time="0.019">
+  <properties/>
+  <testcase name="loginTest()" classname="com.example.easywheelz.buisness.impl.user.LogInUseCaseImplTest" time="0.013"/>
+  <testcase name="loginTestIncorrectPassword()" classname="com.example.easywheelz.buisness.impl.user.LogInUseCaseImplTest" time="0.002"/>
+  <testcase name="loginTestIncorrectEmail()" classname="com.example.easywheelz.buisness.impl.user.LogInUseCaseImplTest" time="0.001"/>
+  <testcase name="loginTestDisabled()" classname="com.example.easywheelz.buisness.impl.user.LogInUseCaseImplTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

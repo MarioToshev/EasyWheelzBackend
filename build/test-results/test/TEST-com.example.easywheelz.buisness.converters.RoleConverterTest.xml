@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.buisness.converters.RoleConverterTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2023-06-13T11:49:06" hostname="DESKTOP-41OPBTP" time="0.014">
+  <properties/>
+  <testcase name="convertCreateRoleRequestToRoleEntity()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.004"/>
+  <testcase name="convertRoleToRoleEntity()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.003"/>
+  <testcase name="convertRoleEntityToRoleWrong()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.001"/>
+  <testcase name="convertCreateRoleRequestToRoleEntityError()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.001"/>
+  <testcase name="convertRoleToRoleEntityWrong()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.001"/>
+  <testcase name="convertRoleEntityToRole()" classname="com.example.easywheelz.buisness.converters.RoleConverterTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

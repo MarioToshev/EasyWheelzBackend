@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.easywheelz.persistance.FileRepositoryImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-13T11:49:07" hostname="DESKTOP-41OPBTP" time="0.011">
+  <properties/>
+  <testcase name="uploadPicture()" classname="com.example.easywheelz.persistance.FileRepositoryImplTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
