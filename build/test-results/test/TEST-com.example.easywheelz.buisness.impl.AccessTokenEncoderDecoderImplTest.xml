@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.AccessTokenEncoderDecoderImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.094">
+<testsuite name="com.example.easywheelz.buisness.impl.AccessTokenEncoderDecoderImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:58:07" hostname="DESKTOP-41OPBTP" time="0.099">
   <properties/>
-  <testcase name="testDecode()" classname="com.example.easywheelz.buisness.impl.AccessTokenEncoderDecoderImplTest" time="0.086"/>
+  <testcase name="testDecode()" classname="com.example.easywheelz.buisness.impl.AccessTokenEncoderDecoderImplTest" time="0.091"/>
   <testcase name="testEncode()" classname="com.example.easywheelz.buisness.impl.AccessTokenEncoderDecoderImplTest" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

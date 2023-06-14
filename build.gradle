@@ -16,7 +16,9 @@ sonar {
     property "sonar.projectKey", "EasyWheelz"
     property "sonar.projectName", "EasyWheelz"
       property "sonar.coverage.exclusions", "**/configuration/**"
-    property "sonar.qualitygate.wait", true 
+    property "sonar.qualitygate.wait", true
+      property "sonar.login", "admin"
+      property "sonar.password", "root"
   }
 }
 configurations {

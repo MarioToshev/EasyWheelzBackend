@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.005">
+<testsuite name="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:58:08" hostname="DESKTOP-41OPBTP" time="0.004">
   <properties/>
-  <testcase name="UpdateUserTestUnexistingRole()" classname="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" time="0.003"/>
+  <testcase name="UpdateUserTestUnexistingRole()" classname="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" time="0.002"/>
   <testcase name="UpdateUserTest()" classname="com.example.easywheelz.buisness.impl.user.UpdateUserUseCaseImplTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.007">
+<testsuite name="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:58:07" hostname="DESKTOP-41OPBTP" time="0.008">
   <properties/>
-  <testcase name="testGetAllCarsNoCars()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.001"/>
-  <testcase name="testGetUser()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.003"/>
-  <testcase name="testGetNonExistingCar()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.002"/>
+  <testcase name="testGetAllCarsNoCars()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.002"/>
+  <testcase name="testGetUser()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.004"/>
+  <testcase name="testGetNonExistingCar()" classname="com.example.easywheelz.buisness.impl.car.GetCarUseCaseImplTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

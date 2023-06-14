@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.easywheelz.buisness.converters.CarConverterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:41:01" hostname="DESKTOP-41OPBTP" time="0.043">
+<testsuite name="com.example.easywheelz.buisness.converters.CarConverterTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-06-14T13:58:07" hostname="DESKTOP-41OPBTP" time="0.043">
   <properties/>
-  <testcase name="convertUpdateCarRequestToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.031"/>
+  <testcase name="convertUpdateCarRequestToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.03"/>
   <testcase name="convertCarEntityToCar()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
-  <testcase name="convertCarToCarEntityWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.002"/>
+  <testcase name="convertCarToCarEntityWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.003"/>
   <testcase name="convertCreateCarRequestToCarEntityWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
-  <testcase name="convertCreateCarRequestToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.0"/>
-  <testcase name="convertCarToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
-  <testcase name="convertCarEntityToCarWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.002"/>
+  <testcase name="convertCreateCarRequestToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
+  <testcase name="convertCarToCarEntity()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.0"/>
+  <testcase name="convertCarEntityToCarWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
   <testcase name="convertUpdateCarRequestToCarEntityWrong()" classname="com.example.easywheelz.buisness.converters.CarConverterTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
