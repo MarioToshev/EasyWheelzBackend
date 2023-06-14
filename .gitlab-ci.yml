@@ -9,6 +9,7 @@ image: gradle:alpine
 variables:
     EXCLUDE: node_modules/**, reports/**
     GIT_DEPTH: 0
+    DOCKER_IMAGE: easy_wheelz_backend
     
 stages: 
     - build 
@@ -42,6 +43,25 @@ test:
   stage: test 
   script: 
     - .\gradlew test
+
+
+dockersize:
+  stage: dockersize
+  script:
+    - gradle clean assemble
+    - docker build -t $DOCKER_IMAGE
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  script:
+    - docker start easywheelz_db
+    - docker stop easy_wheelz_backend
+    - docker rm easy_wheelz_backend
+    - docker run -d -p 8080:8080 --net=backend --env spring_profiles_active=staging --name=easy_wheelz_backend easy_wheelz_backend
+  only:
+    - main
 
 
 
